@@ -92,3 +92,14 @@ Display made of six eight-segment EL display units
     * and they have individual outputs to load and ground
   - need to cut HV to tabs and connect them to the display common signals
     * and short all load outputs to HV_GND
+
+* Links
+  - https://www.nixology.uk/el-displays/
+  - http://www.155la3.ru/electroluminescent.htm?fbclid=IwAR3kzInl6R3qaqCM56aDhy-eqRuBEZQ2xA1R94jkRoaB9Y2xDsH_GoB88GI
+  - https://www.youtube.com/watch?v=p6mNbgtnFK8
+  - http://lampes-et-tubes.info/cd/cd143.php?l=e
+  - http://www.nedopc.org/forum/viewtopic.php?f=65&t=11093
+
+
+
+  
