@@ -11,7 +11,7 @@ Display made of six eight-segment EL display units
   - ~200V @ 400Hz
   - not squarewave -- filter or triangle wave for constant dv/dt
   - less bright at 50Hz, but last longer
-  - need current limiting resistor if power source has low internal resistaqnce
+  - need current limiting resistor if power source has low internal resistance
     * e.g., 330K ohm @ 220V @ 50Hz
   - 500 Hrs lifespan
   - sine/square voltage up to 250V and 400Hz-5KHz
@@ -55,6 +55,8 @@ Display made of six eight-segment EL display units
   - frequency: 800-3500Hz (2000Hz typ)
 
 ------------------------------------------------
+* Use SparkFun EL boards for proof of concept testing
+  - can't multiplex the displays
 
 * EL Sequencer v23
   - https://www.sparkfun.com/products/12781
@@ -100,6 +102,12 @@ Display made of six eight-segment EL display units
   - http://lampes-et-tubes.info/cd/cd143.php?l=e
   - http://www.nedopc.org/forum/viewtopic.php?f=65&t=11093
 
+=======================================================================================
+* SmartSocket for Alien Font displays
+  - use same protocol on daisy-chained 9600 baud RS232 (3v3?)
+    * http://tayloredge.com/reference/Circuits/1386SmartSocket/SmartSockets.pdf
+  - build single-sided PCB that fits on back of display units
+    * drive each segment individually
+    * use common HV PSU
+    * use circuits from SparkFun boards as they have been tested and shown to work
 
-
-  
