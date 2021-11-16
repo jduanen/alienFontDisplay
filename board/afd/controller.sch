@@ -1,0 +1,124 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 4 4
+Title "Smartsocket for Alien Font Display"
+Date "2021-11-15"
+Rev "0.0.0"
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 "http://git@github.com:jduanen/alienFontDisplay.git"
+$EndDescr
+$Comp
+L jdn_symbols:PIC18F16Q40-E_SO U9
+U 1 1 61AD2FB6
+P 5050 4450
+F 0 "U9" H 5825 6115 50  0000 C CNN
+F 1 "PIC18F16Q40-E_SO" H 5825 6024 50  0000 C CNN
+F 2 "" H 5050 4450 50  0001 C CNN
+F 3 "" H 5050 4450 50  0001 C CNN
+	1    5050 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0110
+U 1 1 61AD3D63
+P 6900 3050
+F 0 "#PWR0110" H 6900 2800 50  0001 C CNN
+F 1 "GND" H 6905 2877 50  0000 C CNN
+F 2 "" H 6900 3050 50  0001 C CNN
+F 3 "" H 6900 3050 50  0001 C CNN
+	1    6900 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR0111
+U 1 1 61AD4614
+P 4950 2700
+F 0 "#PWR0111" H 4950 2550 50  0001 C CNN
+F 1 "+3V3" H 4965 2873 50  0000 C CNN
+F 2 "" H 4950 2700 50  0001 C CNN
+F 3 "" H 4950 2700 50  0001 C CNN
+	1    4950 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 3050 4950 3050
+Wire Wire Line
+	4950 3050 4950 2700
+$Comp
+L Connector:Conn_01x06_Male J1
+U 1 1 61AD5E21
+P 2350 3600
+F 0 "J1" H 2350 3050 50  0000 C CNN
+F 1 "Conn_01x06_Male" H 2350 3150 50  0000 C CNN
+F 2 "" H 2350 3600 50  0001 C CNN
+F 3 "~" H 2350 3600 50  0001 C CNN
+	1    2350 3600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 3050 6900 3050
+$Comp
+L power:GND #PWR0112
+U 1 1 61ADE485
+P 3650 3900
+F 0 "#PWR0112" H 3650 3650 50  0001 C CNN
+F 1 "GND" H 3655 3727 50  0000 C CNN
+F 2 "" H 3650 3900 50  0001 C CNN
+F 3 "" H 3650 3900 50  0001 C CNN
+	1    3650 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2550 3900 3650 3900
+$Comp
+L power:+3V3 #PWR0113
+U 1 1 61ADEC2F
+P 3650 3800
+F 0 "#PWR0113" H 3650 3650 50  0001 C CNN
+F 1 "+3V3" H 3665 3973 50  0000 C CNN
+F 2 "" H 3650 3800 50  0001 C CNN
+F 3 "" H 3650 3800 50  0001 C CNN
+	1    3650 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2550 3800 3650 3800
+$Comp
+L power:GND1 #PWR?
+U 1 1 61AF2B33
+P 3650 3200
+AR Path="/61AF2B33" Ref="#PWR?"  Part="1" 
+AR Path="/61A24FF0/61AF2B33" Ref="#PWR?"  Part="1" 
+AR Path="/61A60284/61AF2B33" Ref="#PWR0114"  Part="1" 
+F 0 "#PWR0114" H 3650 2950 50  0001 C CNN
+F 1 "GND1" H 3655 3027 50  0000 C CNN
+F 2 "" H 3650 3200 50  0001 C CNN
+F 3 "" H 3650 3200 50  0001 C CNN
+	1    3650 3200
+	1    0    0    -1  
+$EndComp
+Text GLabel 3550 3500 2    50   Input ~ 0
+HV
+Wire Wire Line
+	2550 3500 3550 3500
+Text GLabel 2750 3600 2    50   Input ~ 0
+Tx
+Text GLabel 3000 3700 2    50   Input ~ 0
+Rx
+Wire Wire Line
+	3000 3700 2550 3700
+Wire Wire Line
+	2750 3600 2550 3600
+Wire Wire Line
+	2550 3400 3300 3400
+Wire Wire Line
+	3300 3400 3300 3200
+Wire Wire Line
+	3650 3200 3300 3200
+$EndSCHEMATC
