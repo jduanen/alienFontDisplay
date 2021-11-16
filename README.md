@@ -110,4 +110,35 @@ Display made of six eight-segment EL display units
     * drive each segment individually
     * use common HV PSU
     * use circuits from SparkFun boards as they have been tested and shown to work
-
+  - need to select a PIC to use as the on-board controller
+    * PIC18F16Q41: same as PIC18F16Q40 but has an opAmp
+    * PIC18F16Q40:
+      - 14pin device has six GPIOs on PortA and another six on PortC
+      - has 1/2 UARTs
+      - 64KB program FLASH, 4KB SRAM, 512B EEPROM
+      - 18x GPIO, 2/3x 8b timers, 17x channels of 12b ADC, 2x 8b DACs, 4x DMA
+      - 32b CRC with scanner, vectored interrupts, temperature indicator, NCO, PWM/CCP
+      - C compiler
+        * CCS: http://www.ccsinfo.com -- $200-$500
+        * Hi-Tech: http://www.htsoft.com -- bought by Microchip
+        * Microchip: http://www.microchip.com -- free student mode
+        * MPLAB C18: microchip
+        * MikroC: free student version with limits
+        * https://www.microchip.com/en-us/development-tool/C18
+      - $1.5 at Mouser (in stock)
+        * https://www.microchip.com/en-us/development-tool/C18
+  - parts (per board)
+    * SMD resistors (1608 or 2012)
+      - 8x 390 ohm
+      - 16x 330 ohm
+    * SMD optoisolator (?)
+      - 8x MOC3063S
+    * SMD Triac (SOT-223)
+      - 8x Z0103MN 
+    * microcontroller
+      - 1x PIC18F16Q40
+    * connectors
+      - 2x ?pin .025" pins, .1" spacing
+  - display unit dimensions, pin and threaded spacer locations
+    * <think about doing a Fusion360 model>
+    * ????
