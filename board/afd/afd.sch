@@ -51,14 +51,14 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 61B2777C
-P 3900 2450
+P 3900 2600
 AR Path="/61A60284/61B2777C" Ref="#PWR?"  Part="1" 
 AR Path="/61B2777C" Ref="#PWR05"  Part="1" 
-F 0 "#PWR05" H 3900 2200 50  0001 C CNN
-F 1 "GND" H 3905 2277 50  0000 C CNN
-F 2 "" H 3900 2450 50  0001 C CNN
-F 3 "" H 3900 2450 50  0001 C CNN
-	1    3900 2450
+F 0 "#PWR05" H 3900 2350 50  0001 C CNN
+F 1 "GND" H 3905 2427 50  0000 C CNN
+F 2 "" H 3900 2600 50  0001 C CNN
+F 3 "" H 3900 2600 50  0001 C CNN
+	1    3900 2600
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -283,22 +283,17 @@ U 61C69D2C
 F0 "3v3Regulator" 50
 F1 "3v3Regulator.sch" 50
 $EndSheet
-Wire Wire Line
-	3350 2450 3550 2450
 $Comp
 L Device:C C2
 U 1 1 61C8D806
-P 3550 1950
-F 0 "C2" H 3665 1996 50  0000 L CNN
-F 1 "0.1 uF 20V ceramic" H 3665 1905 50  0000 L CNN
-F 2 "" H 3588 1800 50  0001 C CNN
-F 3 "~" H 3550 1950 50  0001 C CNN
-	1    3550 1950
+P 3900 1950
+F 0 "C2" H 3650 1950 50  0000 L CNN
+F 1 "0.1 uF 20V ceramic" H 3100 1850 50  0000 L CNN
+F 2 "" H 3938 1800 50  0001 C CNN
+F 3 "~" H 3900 1950 50  0001 C CNN
+	1    3900 1950
 	1    0    0    -1  
 $EndComp
-Connection ~ 3550 2450
-Wire Wire Line
-	3550 2450 3900 2450
 Wire Wire Line
 	1950 1650 1950 1800
 Connection ~ 1950 1800
@@ -362,7 +357,7 @@ Wire Wire Line
 Wire Wire Line
 	2100 2450 1950 2450
 Wire Wire Line
-	1950 1800 3550 1800
+	1950 1800 3900 1800
 Wire Wire Line
 	3350 2750 3650 2750
 Wire Wire Line
@@ -389,8 +384,6 @@ Wire Wire Line
 	5050 3300 4650 3300
 Wire Wire Line
 	4750 3500 5050 3500
-Wire Wire Line
-	3550 2100 3550 2450
 Wire Wire Line
 	1950 1800 1950 2450
 Wire Wire Line
@@ -542,4 +535,11 @@ Wire Wire Line
 	4300 6800 5350 6800
 Text Label 4300 3500 2    50   ~ 0
 TX1
+Wire Wire Line
+	3350 2450 3900 2450
+Wire Wire Line
+	3900 2100 3900 2450
+Connection ~ 3900 2450
+Wire Wire Line
+	3900 2450 3900 2600
 $EndSCHEMATC
