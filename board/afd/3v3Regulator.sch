@@ -1,0 +1,153 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L jdn_symbols:LM3671MF-3.3_NOPB U10
+U 1 1 61C6BE90
+P 5400 3750
+F 0 "U10" H 5750 4415 50  0000 C CNN
+F 1 "LM3671MF-3.3_NOPB" H 5750 4324 50  0000 C CNN
+F 2 "" H 5750 4450 50  0001 C CNN
+F 3 "" H 5750 4450 50  0001 C CNN
+	1    5400 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R27
+U 1 1 61C6C334
+P 5800 4150
+F 0 "R27" H 5868 4196 50  0000 L CNN
+F 1 "R_US" H 5868 4105 50  0000 L CNN
+F 2 "" V 5840 4140 50  0001 C CNN
+F 3 "~" H 5800 4150 50  0001 C CNN
+	1    5800 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:INDUCTOR L1
+U 1 1 61C6D0EF
+P 6550 3400
+F 0 "L1" H 6550 3615 50  0000 C CNN
+F 1 "2.2 uH" H 6550 3524 50  0000 C CNN
+F 2 "" H 6550 3400 50  0001 C CNN
+F 3 "~" H 6550 3400 50  0001 C CNN
+	1    6550 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C4
+U 1 1 61C6D8AF
+P 7050 3550
+F 0 "C4" H 7165 3596 50  0000 L CNN
+F 1 "10 uF" H 7165 3505 50  0000 L CNN
+F 2 "" H 7088 3400 50  0001 C CNN
+F 3 "~" H 7050 3550 50  0001 C CNN
+	1    7050 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C3
+U 1 1 61C6E24C
+P 4800 3500
+F 0 "C3" H 4915 3546 50  0000 L CNN
+F 1 "4.7 uF" H 4915 3455 50  0000 L CNN
+F 2 "" H 4838 3350 50  0001 C CNN
+F 3 "~" H 4800 3500 50  0001 C CNN
+	1    4800 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 3400 6300 3400
+Wire Wire Line
+	6800 3400 7050 3400
+Wire Wire Line
+	7050 3700 7050 3900
+Wire Wire Line
+	4800 3350 5450 3350
+Wire Wire Line
+	5450 3500 5250 3500
+Wire Wire Line
+	5250 3500 5250 3750
+Wire Wire Line
+	5250 3750 5050 3750
+Wire Wire Line
+	4800 3650 4800 3750
+$Comp
+L power:+5V #PWR?
+U 1 1 61C7AF2E
+P 4800 2800
+AR Path="/61C7AF2E" Ref="#PWR?"  Part="1" 
+AR Path="/61C69D2C/61C7AF2E" Ref="#PWR018"  Part="1" 
+F 0 "#PWR018" H 4800 2650 50  0001 C CNN
+F 1 "+5V" H 4815 2973 50  0000 C CNN
+F 2 "" H 4800 2800 50  0001 C CNN
+F 3 "" H 4800 2800 50  0001 C CNN
+	1    4800 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 2800 4800 3350
+Connection ~ 4800 3350
+$Comp
+L power:GND #PWR?
+U 1 1 61C7CDB5
+P 5050 3900
+AR Path="/61A60284/61C7CDB5" Ref="#PWR?"  Part="1" 
+AR Path="/61C7CDB5" Ref="#PWR?"  Part="1" 
+AR Path="/61C69D2C/61C7CDB5" Ref="#PWR019"  Part="1" 
+F 0 "#PWR019" H 5050 3650 50  0001 C CNN
+F 1 "GND" H 5055 3727 50  0000 C CNN
+F 2 "" H 5050 3900 50  0001 C CNN
+F 3 "" H 5050 3900 50  0001 C CNN
+	1    5050 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 3900 5050 3750
+Connection ~ 5050 3750
+Wire Wire Line
+	5050 3750 4800 3750
+$Comp
+L power:GND #PWR?
+U 1 1 61C7E413
+P 7050 3900
+AR Path="/61A60284/61C7E413" Ref="#PWR?"  Part="1" 
+AR Path="/61C7E413" Ref="#PWR?"  Part="1" 
+AR Path="/61C69D2C/61C7E413" Ref="#PWR021"  Part="1" 
+F 0 "#PWR021" H 7050 3650 50  0001 C CNN
+F 1 "GND" H 7055 3727 50  0000 C CNN
+F 2 "" H 7050 3900 50  0001 C CNN
+F 3 "" H 7050 3900 50  0001 C CNN
+	1    7050 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 61C881E2
+P 7050 2800
+AR Path="/61A60284/61C881E2" Ref="#PWR?"  Part="1" 
+AR Path="/61C881E2" Ref="#PWR?"  Part="1" 
+AR Path="/61C69D2C/61C881E2" Ref="#PWR020"  Part="1" 
+F 0 "#PWR020" H 7050 2650 50  0001 C CNN
+F 1 "+3V3" H 7065 2973 50  0000 C CNN
+F 2 "" H 7050 2800 50  0001 C CNN
+F 3 "" H 7050 2800 50  0001 C CNN
+	1    7050 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7050 2800 7050 3400
+Connection ~ 7050 3400
+$EndSCHEMATC
