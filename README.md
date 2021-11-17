@@ -126,7 +126,23 @@ Display made of six eight-segment EL display units
         * MikroC: free student version with limits
         * https://www.microchip.com/en-us/development-tool/C18
       - $1.5 at Mouser (in stock)
-        * https://www.microchip.com/en-us/development-tool/C18
+        * PIC18F16Q40-E/SO
+        * https://www.mouser.com/ProductDetail/Microchip/PIC18F16Q40-E-SO?qs=sGAEpiMZZMv0NwlthflBi%252BydFA3s6SRqoyEH6IOSDHM%3D
+      - example: https://github.com/microchip-pic-avr-examples/pic18f16q40-quadrature-decoder
+        * RA2: UART Tx programmer?
+        * RB7: UART Tx
+        * RB5: UART Rx
+        * RB4, RB6, RA4, RA5, RC0-RC7: GPIO
+      - PPS re-mappable input signals can be moved from default locations to other ports
+        * UART outputs: DTR1, RTS1, TX1, DTR2, RTS2, TX2, DTR3, RTS3, TX3
+        * UART inputs: RX1, CTS1, RX2, CTS2, RX3, CTS3 
+      - pin allocation table (default)
+        * RB5: RX1
+        * RB7: CTS1
+        * RC1: RX2
+        * RC2: CTS2
+        * RC3: RX3
+        * RC5: CTS3
   - parts (per board)
     * SMD resistors (1608 or 2012)
       - 8x 390 ohm
