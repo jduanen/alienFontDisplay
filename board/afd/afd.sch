@@ -278,7 +278,7 @@ Connection ~ 4750 6900
 Wire Wire Line
 	4750 6900 5350 6900
 $Sheet
-S 7000 5150 1050 900 
+S 6500 4900 1050 900 
 U 61C69D2C
 F0 "3v3Regulator" 50
 F1 "3v3Regulator.sch" 50
