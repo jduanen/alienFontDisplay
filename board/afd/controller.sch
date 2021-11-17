@@ -121,4 +121,26 @@ Wire Wire Line
 	3300 3400 3300 3200
 Wire Wire Line
 	3650 3200 3300 3200
+Text GLabel 4450 5300 0    50   Input ~ 0
+SEGMENT_D
+Text GLabel 4450 5650 0    50   Input ~ 0
+SEGMENT_F
+Text GLabel 4500 6100 0    50   Input ~ 0
+SEGMENT_H
+Text GLabel 4350 4550 0    50   Input ~ 0
+SEGMENT_A
+Text GLabel 4500 4850 0    50   Input ~ 0
+SEGMENT_B
+Text GLabel 4450 5150 0    50   Input ~ 0
+SEGMENT_C
+Text GLabel 4150 5900 2    50   Input ~ 0
+SEGMENT_G
+Text GLabel 3950 5450 2    50   Input ~ 0
+SEGMENT_E
+Text GLabel 4450 6350 0    50   Input ~ 0
+SEGMENT_I
+Text GLabel 7400 4200 2    50   Input ~ 0
+Tx
+Text GLabel 7450 4450 2    50   Input ~ 0
+Rx
 $EndSCHEMATC
