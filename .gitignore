@@ -32,3 +32,4 @@
 *.app
 *.sch-bak
 fp-info-cache
+*.kicad_pcb-bak
