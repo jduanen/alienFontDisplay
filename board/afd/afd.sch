@@ -128,7 +128,7 @@ F 3 "" H 9700 4750 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 Text GLabel 4750 6250 1    50   Output ~ 0
-HV
+HV_AC
 Wire Wire Line
 	3900 6900 4750 6900
 Text Label 5550 6900 0    50   ~ 0
@@ -140,7 +140,7 @@ Tx
 Text Label 3700 6600 2    50   ~ 0
 HV_GND
 Text Label 3700 6700 2    50   ~ 0
-HV
+HV_AC
 Text Label 3700 7000 2    50   ~ 0
 +5V
 Text Label 3700 7100 2    50   ~ 0
@@ -280,9 +280,9 @@ Wire Wire Line
 Wire Wire Line
 	1700 2900 2150 2900
 Wire Wire Line
-	1100 2900 950  2900
+	1100 2900 750  2900
 Wire Wire Line
-	950  4950 1800 4950
+	750  4950 1800 4950
 Wire Wire Line
 	4750 4350 1900 4350
 Wire Wire Line
@@ -364,7 +364,7 @@ Wire Wire Line
 Text Label 5550 6800 0    50   ~ 0
 Tx
 Text Label 5550 6700 0    50   ~ 0
-HV
+HV_AC
 Text Label 5550 6600 0    50   ~ 0
 HV_GND
 Text Label 5550 7000 0    50   ~ 0
@@ -565,7 +565,7 @@ Wire Wire Line
 Wire Wire Line
 	3750 2600 3750 5500
 Wire Wire Line
-	950  2900 950  4950
+	750  2900 750  4950
 Wire Wire Line
 	7300 3150 7300 3450
 Wire Wire Line
