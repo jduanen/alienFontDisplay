@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name EL)(type KiCad)(uri /home/jdn/Code/alienFontDisplay/board/libraries)(options "")(descr ""))
+)
