@@ -3,10 +3,10 @@ Display made of six eight-segment EL display units
 
 ## TBD
 
-![EL Display Pinout](https://github.com/jduanen/alienFontDisplay/tree/main/images/pinout.jpg)
+![EL Display Pinout](pinout.jpg)
 
 
-![Alien Font](https://github.com/jduanen/alienFontDisplay/tree/main/images/alienFont.png)
+![Alien Font](alienFont.png)
 
 
 * Blue, Alien Font, Russian/Soviet Electroluminescent Display
