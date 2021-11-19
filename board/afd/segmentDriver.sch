@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 10
+Sheet 3 9
 Title "Smartsocket for Alien Font Display"
 Date "2021-11-15"
 Rev "0.0.0"
@@ -165,16 +165,16 @@ L power:GND1 #PWR?
 U 1 1 61975A57
 P 4750 4250
 AR Path="/61975A57" Ref="#PWR?"  Part="1" 
-AR Path="/61A24FF0/61975A57" Ref="#PWR014"  Part="1" 
+AR Path="/61A24FF0/61975A57" Ref="#PWR05"  Part="1" 
 AR Path="/61A60284/61975A57" Ref="#PWR?"  Part="1" 
-AR Path="/61F6EF90/61975A57" Ref="#PWR015"  Part="1" 
-AR Path="/61FCCA00/61975A57" Ref="#PWR016"  Part="1" 
-AR Path="/61FCCA04/61975A57" Ref="#PWR017"  Part="1" 
-AR Path="/61FD10CA/61975A57" Ref="#PWR018"  Part="1" 
-AR Path="/61FD10CE/61975A57" Ref="#PWR019"  Part="1" 
-AR Path="/61FD5722/61975A57" Ref="#PWR020"  Part="1" 
-AR Path="/61FD5726/61975A57" Ref="#PWR021"  Part="1" 
-F 0 "#PWR021" H 4750 4000 50  0001 C CNN
+AR Path="/61F6EF90/61975A57" Ref="#PWR06"  Part="1" 
+AR Path="/61FCCA00/61975A57" Ref="#PWR07"  Part="1" 
+AR Path="/61FCCA04/61975A57" Ref="#PWR08"  Part="1" 
+AR Path="/61FD10CA/61975A57" Ref="#PWR09"  Part="1" 
+AR Path="/61FD10CE/61975A57" Ref="#PWR010"  Part="1" 
+AR Path="/61FD5722/61975A57" Ref="#PWR011"  Part="1" 
+AR Path="/61FD5726/61975A57" Ref="#PWR012"  Part="1" 
+F 0 "#PWR012" H 4750 4000 50  0001 C CNN
 F 1 "GND1" H 4755 4077 50  0000 C CNN
 F 2 "" H 4750 4250 50  0001 C CNN
 F 3 "" H 4750 4250 50  0001 C CNN
