@@ -210,16 +210,10 @@ Wire Wire Line
 	1800 3200 2300 3200
 Wire Wire Line
 	3550 3050 4050 3050
-Text Label 1650 5450 2    50   ~ 0
+Text Label 2050 5250 2    50   ~ 0
 Vss
-Text Label 1650 5350 2    50   ~ 0
-Vdd
-Text Label 1650 5250 2    50   ~ 0
-\MCLR_Vpp
 Text Label 2250 5150 2    50   ~ 0
-ISPDAT
-Wire Wire Line
-	2350 5250 1850 5250
+ICSPDAT
 $Comp
 L Connector:Conn_01x05_Male J1
 U 1 1 61CBB6A4
@@ -245,8 +239,6 @@ Text Label 4050 3650 2    50   ~ 0
 RX1
 Wire Wire Line
 	5800 6800 6150 6800
-Text Label 4050 3500 2    50   ~ 0
-TX1
 Wire Wire Line
 	3550 2450 4300 2450
 $Comp
@@ -464,7 +456,7 @@ Text Label 5200 6250 2    50   ~ 0
 Text Label 750  7400 0    50   ~ 0
 GND
 Wire Wire Line
-	1850 5350 2650 5350
+	1850 5350 2500 5350
 Wire Wire Line
 	4300 2150 4300 2450
 Wire Wire Line
@@ -473,12 +465,10 @@ Connection ~ 3150 6900
 Wire Wire Line
 	3150 7350 3150 7500
 Wire Wire Line
-	1850 5450 2300 5450
-Wire Wire Line
 	750  6250 750  6650
 Connection ~ 750  6650
 Wire Wire Line
-	2650 4850 2650 5350
+	2500 4850 2500 5350
 Wire Wire Line
 	4300 2450 4300 2600
 Connection ~ 4300 2450
@@ -525,7 +515,7 @@ L Connector:Conn_01x05_Male J4
 U 1 1 6199C660
 P 4400 5250
 F 0 "J4" H 4400 4750 50  0000 C CNN
-F 1 "ICSP Connector" H 4400 4850 50  0000 C CNN
+F 1 "GPIO Connector" H 4400 4850 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 4400 5250 50  0001 C CNN
 F 3 "~" H 4400 5250 50  0001 C CNN
 	1    4400 5250
@@ -651,24 +641,20 @@ Wire Wire Line
 Connection ~ 3150 6250
 Text Label 5200 7300 2    50   ~ 0
 GND
-Text Label 2150 5450 0    50   ~ 0
-GND
 $Comp
 L power:GND #PWR?
 U 1 1 6223D229
-P 2300 5550
+P 2650 5700
 AR Path="/61A60284/6223D229" Ref="#PWR?"  Part="1" 
 AR Path="/6223D229" Ref="#PWR07"  Part="1" 
 AR Path="/61C69D2C/6223D229" Ref="#PWR?"  Part="1" 
-F 0 "#PWR07" H 2300 5300 50  0001 C CNN
-F 1 "GND" H 2305 5377 50  0000 C CNN
-F 2 "" H 2300 5550 50  0001 C CNN
-F 3 "" H 2300 5550 50  0001 C CNN
-	1    2300 5550
+F 0 "#PWR07" H 2650 5450 50  0001 C CNN
+F 1 "GND" H 2655 5527 50  0000 C CNN
+F 2 "" H 2650 5700 50  0001 C CNN
+F 3 "" H 2650 5700 50  0001 C CNN
+	1    2650 5700
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2300 5450 2300 5550
 Text Label 3150 7400 0    50   ~ 0
 GND
 $Comp
@@ -702,12 +688,12 @@ $EndComp
 $Comp
 L power:+3V3 #PWR05
 U 1 1 62272E72
-P 2650 4850
-F 0 "#PWR05" H 2650 4700 50  0001 C CNN
-F 1 "+3V3" H 2665 5023 50  0000 C CNN
-F 2 "" H 2650 4850 50  0001 C CNN
-F 3 "" H 2650 4850 50  0001 C CNN
-	1    2650 4850
+P 2500 4850
+F 0 "#PWR05" H 2500 4700 50  0001 C CNN
+F 1 "+3V3" H 2515 5023 50  0000 C CNN
+F 2 "" H 2500 4850 50  0001 C CNN
+F 3 "" H 2500 4850 50  0001 C CNN
+	1    2500 4850
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -771,26 +757,16 @@ Wire Wire Line
 	3550 3500 4050 3500
 Wire Wire Line
 	3550 3650 4050 3650
-Text Label 5500 6800 2    50   ~ 0
-RX
-Text Label 5800 6800 0    50   ~ 0
-Tx
 Wire Wire Line
 	3550 2600 4050 2600
 Wire Wire Line
 	3550 2750 4050 2750
 Text Label 2250 5050 2    50   ~ 0
-ICSPDAT
+ICSPCLK
 Wire Wire Line
 	1850 5050 2250 5050
 Wire Wire Line
 	1850 5150 2250 5150
-Text Label 1650 5050 2    50   ~ 0
-ICSPDAT
-Text Label 1650 5150 2    50   ~ 0
-ISPDAT
-Wire Wire Line
-	2350 5250 2350 4350
 Text Label 1800 2900 0    50   ~ 0
 MCLR
 Wire Wire Line
@@ -836,7 +812,7 @@ Wire Wire Line
 Wire Wire Line
 	600  2900 900  2900
 Wire Wire Line
-	600  4350 2350 4350
+	600  4350 2800 4350
 Text Label 7750 1800 2    50   ~ 0
 SegB
 Text Label 7750 1250 2    50   ~ 0
@@ -869,4 +845,24 @@ Text Label 7850 5150 2    50   ~ 0
 SegH
 Text Label 10400 1950 2    50   ~ 0
 SegH
+Text Label 900  2900 2    50   ~ 0
+Vpp
+Text Label 2050 5450 2    50   ~ 0
+Vpp
+Text Label 2050 5350 2    50   ~ 0
+Vdd
+Wire Wire Line
+	2650 5250 2650 5700
+Wire Wire Line
+	1850 5250 2650 5250
+Wire Wire Line
+	2800 4350 2800 5450
+Wire Wire Line
+	1850 5450 2800 5450
+Text Label 4050 3500 2    50   ~ 0
+TX1
+Text Label 5800 6800 0    50   ~ 0
+TX1
+Text Label 5500 6800 2    50   ~ 0
+RX1
 $EndSCHEMATC
