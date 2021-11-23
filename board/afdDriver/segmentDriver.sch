@@ -26,7 +26,7 @@ AR Path="/61FD5726/61A5AA61" Ref="D8"  Part="1"
 AR Path="/61F6EF90/61A5AA61" Ref="D2"  Part="1" 
 AR Path="/61FCCA04/61A5AA61" Ref="D4"  Part="1" 
 AR Path="/61FD10CE/61A5AA61" Ref="D6"  Part="1" 
-F 0 "D8" H 6478 3596 50  0000 L CNN
+F 0 "D1" H 6478 3596 50  0000 L CNN
 F 1 "Z0103MN" H 6478 3505 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-223" H 7100 3400 50  0001 C CNN
 F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 6500 3850 50  0001 C CNN
@@ -46,7 +46,7 @@ AR Path="/61FD5726/61A5AA67" Ref="R23"  Part="1"
 AR Path="/61F6EF90/61A5AA67" Ref="R5"  Part="1" 
 AR Path="/61FCCA04/61A5AA67" Ref="R11"  Part="1" 
 AR Path="/61FD10CE/61A5AA67" Ref="R17"  Part="1" 
-F 0 "R23" V 5695 3300 50  0000 C CNN
+F 0 "R2" V 5695 3300 50  0000 C CNN
 F 1 "390" V 5786 3300 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5940 3290 50  0001 C CNN
 F 3 "~" H 5900 3300 50  0001 C CNN
@@ -66,7 +66,7 @@ AR Path="/61FD5726/61A5AA6D" Ref="R24"  Part="1"
 AR Path="/61F6EF90/61A5AA6D" Ref="R6"  Part="1" 
 AR Path="/61FCCA04/61A5AA6D" Ref="R12"  Part="1" 
 AR Path="/61FD10CE/61A5AA6D" Ref="R18"  Part="1" 
-F 0 "R24" V 5695 4000 50  0000 C CNN
+F 0 "R3" V 5695 4000 50  0000 C CNN
 F 1 "390" V 5786 4000 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5940 3990 50  0001 C CNN
 F 3 "~" H 5900 4000 50  0001 C CNN
@@ -90,7 +90,7 @@ AR Path="/61FD5726/61A5AA83" Ref="R22"  Part="1"
 AR Path="/61F6EF90/61A5AA83" Ref="R4"  Part="1" 
 AR Path="/61FCCA04/61A5AA83" Ref="R10"  Part="1" 
 AR Path="/61FD10CE/61A5AA83" Ref="R16"  Part="1" 
-F 0 "R22" H 4818 3946 50  0000 L CNN
+F 0 "R1" H 4818 3946 50  0000 L CNN
 F 1 "390" H 4818 3855 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 4790 3890 50  0001 C CNN
 F 3 "~" H 4750 3900 50  0001 C CNN
@@ -122,36 +122,6 @@ Wire Wire Line
 	6350 3700 6350 4000
 Wire Wire Line
 	5500 3650 5500 4000
-$Comp
-L dk_Optoisolators-Triac-SCR-Output:MOC3063 U?
-U 1 1 61A7316C
-P 5200 3550
-AR Path="/61A60284/61A7316C" Ref="U?"  Part="1" 
-AR Path="/61A24FF0/61A7316C" Ref="U1"  Part="1" 
-AR Path="/61FCCA00/61A7316C" Ref="U3"  Part="1" 
-AR Path="/61FD10CA/61A7316C" Ref="U5"  Part="1" 
-AR Path="/61FD5722/61A7316C" Ref="U7"  Part="1" 
-AR Path="/61FD5726/61A7316C" Ref="U8"  Part="1" 
-AR Path="/61F6EF90/61A7316C" Ref="U2"  Part="1" 
-AR Path="/61FCCA04/61A7316C" Ref="U4"  Part="1" 
-AR Path="/61FD10CE/61A7316C" Ref="U6"  Part="1" 
-F 0 "U8" H 5200 3912 60  0000 C CNN
-F 1 "MOC3063" H 5200 3806 60  0000 C CNN
-F 2 "digikey-footprints:SMD-4_5x4.4mm_P4mm" H 5400 3750 60  0001 L CNN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2001-026/MOC306X%20series%20201606.pdf" V 5400 3850 60  0001 L CNN
-F 4 "160-1722-5-ND" H 5400 3950 60  0001 L CNN "Digi-Key_PN"
-F 5 "MOC3063" H 5400 4050 60  0001 L CNN "MPN"
-F 6 "Isolators" H 5400 4150 60  0001 L CNN "Category"
-F 7 "Optoisolators - Triac, SCR Output" H 5400 4250 60  0001 L CNN "Family"
-F 8 "http://optoelectronics.liteon.com/upload/download/DS70-2001-026/MOC306X%20series%20201606.pdf" H 5400 4350 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/MOC3063/160-1722-5-ND/670014" H 5400 4450 60  0001 L CNN "DK_Detail_Page"
-F 10 "OPTOISOLATOR 5KV TRIAC 6DIP" H 5400 4550 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 5400 4650 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 5400 4750 60  0001 L CNN "Status"
-	1    5200 3550
-	1    0    0    -1  
-$EndComp
-Connection ~ 5500 3650
 Connection ~ 6350 4000
 Wire Wire Line
 	6350 4000 6700 4000
@@ -159,7 +129,6 @@ Text HLabel 4250 3450 0    50   Input ~ 0
 SegmentEnable
 Text HLabel 6700 4000 2    50   Output ~ 0
 SegmentOut
-NoConn ~ 5500 3550
 Wire Wire Line
 	4750 4050 4750 4250
 $Comp
@@ -182,4 +151,33 @@ F 3 "" H 4750 4250 50  0001 C CNN
 	1    4750 4250
 	1    0    0    -1  
 $EndComp
+$Comp
+L jdn_symbols:QTM3063T1 U1
+U 1 1 626DC068
+P 5200 3550
+AR Path="/61A24FF0/626DC068" Ref="U1"  Part="1" 
+AR Path="/61F6EF90/626DC068" Ref="U2"  Part="1" 
+AR Path="/61FCCA00/626DC068" Ref="U3"  Part="1" 
+AR Path="/61FCCA04/626DC068" Ref="U4"  Part="1" 
+AR Path="/61FD10CA/626DC068" Ref="U5"  Part="1" 
+AR Path="/61FD10CE/626DC068" Ref="U6"  Part="1" 
+AR Path="/61FD5722/626DC068" Ref="U7"  Part="1" 
+AR Path="/61FD5726/626DC068" Ref="U8"  Part="1" 
+F 0 "U1" H 5200 3912 60  0000 C CNN
+F 1 "QTM3063T1" H 5200 3806 60  0000 C CNN
+F 2 "jdn_library:4-SMD_3.8x4.6mm" H 5400 3750 60  0001 L CNN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2001-026/MOC306X%20series%20201606.pdf" V 5400 3850 60  0001 L CNN
+F 4 "1516-1306-1-ND" H 5400 3950 60  0001 L CNN "Digi-Key_PN"
+F 5 "QTM3063T1" H 5400 4050 60  0001 L CNN "MPN"
+F 6 "Isolators" H 5400 4150 60  0001 L CNN "Category"
+F 7 "Optoisolators - Triac, SCR Output" H 5400 4250 60  0001 L CNN "Family"
+F 8 "https://www.qt-brightek.com/datasheet/QTM303X_304X_306X_308X_Zero-Crossing_triac_series.pdf" H 5400 4350 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "https://www.digikey.com/en/products/detail/qt-brightek-qtb/QTM3063T1/8445549" H 5400 4450 60  0001 L CNN "DK_Detail_Page"
+F 10 "OPTOISOLATOR 5KV TRIAC 4pin mini-flat" H 5400 4550 60  0001 L CNN "Description"
+F 11 "QT Brightek" H 5400 4650 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 5400 4750 60  0001 L CNN "Status"
+	1    5200 3550
+	1    0    0    -1  
+$EndComp
+Connection ~ 5500 3650
 $EndSCHEMATC
