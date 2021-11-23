@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/jdn/Code/alienFontDisplay/board/afd/afd.sch)
-    (date "Mon 22 Nov 2021 10:00:44 PM PST")
+    (date "Mon 22 Nov 2021 10:03:14 PM PST")
     (tool "Eeschema 5.1.10-88a1d61d58~90~ubuntu20.04.1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
