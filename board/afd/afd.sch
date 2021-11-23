@@ -18,8 +18,8 @@ L Connector:Conn_01x06_Male J?
 U 1 1 61B2778A
 P 4900 6800
 AR Path="/61A60284/61B2778A" Ref="J?"  Part="1" 
-AR Path="/61B2778A" Ref="J2"  Part="1" 
-F 0 "J2" H 4750 7250 50  0000 C CNN
+AR Path="/61B2778A" Ref="J3"  Part="1" 
+F 0 "J3" H 4750 7250 50  0000 C CNN
 F 1 "Input Connector" H 4750 7150 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 4900 6800 50  0001 C CNN
 F 3 "~" H 4900 6800 50  0001 C CNN
@@ -50,7 +50,7 @@ AR Path="/61A6019D/61B283DA" Ref="DS?"  Part="1"
 AR Path="/61B283DA" Ref="DS1"  Part="1" 
 F 0 "DS1" H 9400 4900 50  0000 C CNN
 F 1 "IEL-O-VI_C63.396.208-02" H 9400 4800 50  0000 C CNN
-F 2 "" H 10050 4300 50  0001 C CNN
+F 2 "jdn_library:C63.396.208-02" H 10050 4300 50  0001 C CNN
 F 3 "" H 10050 4300 50  0001 C CNN
 	1    9900 3500
 	1    0    0    -1  
@@ -62,8 +62,8 @@ L Connector:Conn_01x06_Male J?
 U 1 1 61B33FFE
 P 6350 6800
 AR Path="/61A60284/61B33FFE" Ref="J?"  Part="1" 
-AR Path="/61B33FFE" Ref="J3"  Part="1" 
-F 0 "J3" H 6150 7250 50  0000 C CNN
+AR Path="/61B33FFE" Ref="J4"  Part="1" 
+F 0 "J4" H 6150 7250 50  0000 C CNN
 F 1 "Output Connector" H 6150 7150 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 6350 6800 50  0001 C CNN
 F 3 "~" H 6350 6800 50  0001 C CNN
@@ -511,10 +511,10 @@ F 3 "~" H 900 2300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Conn_01x05_Male J4
+L Connector:Conn_01x05_Male J2
 U 1 1 6199C660
 P 4400 5250
-F 0 "J4" H 4400 4750 50  0000 C CNN
+F 0 "J2" H 4400 4750 50  0000 C CNN
 F 1 "GPIO Connector" H 4400 4850 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 4400 5250 50  0001 C CNN
 F 3 "~" H 4400 5250 50  0001 C CNN
@@ -686,10 +686,10 @@ F 3 "" H 3150 7500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3V3 #PWR05
+L power:+3V3 #PWR06
 U 1 1 62272E72
 P 2500 4850
-F 0 "#PWR05" H 2500 4700 50  0001 C CNN
+F 0 "#PWR06" H 2500 4700 50  0001 C CNN
 F 1 "+3V3" H 2515 5023 50  0000 C CNN
 F 2 "" H 2500 4850 50  0001 C CNN
 F 3 "" H 2500 4850 50  0001 C CNN
@@ -708,10 +708,10 @@ F 3 "" H 4300 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3V3 #PWR06
+L power:+3V3 #PWR05
 U 1 1 622DA276
 P 1950 1800
-F 0 "#PWR06" H 1950 1650 50  0001 C CNN
+F 0 "#PWR05" H 1950 1650 50  0001 C CNN
 F 1 "+3V3" H 1965 1973 50  0000 C CNN
 F 2 "" H 1950 1800 50  0001 C CNN
 F 3 "" H 1950 1800 50  0001 C CNN
