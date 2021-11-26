@@ -8,6 +8,10 @@ Display made of six eight-segment EL display units
 
 ![Alien Font](alienFont.png)
 
+![Driver Board view #1](afdDriver1.png)
+
+![Driver Board view #2](afdDriver2.png)
+
 
 * Blue, Alien Font, Russian/Soviet Electroluminescent Display
 
