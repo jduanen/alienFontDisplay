@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>/home/jdn/Code/alienFontDisplay/board/afdDriver/afdDriver.sch</source>
-    <date>Wed 24 Nov 2021 04:04:06 PM PST</date>
+    <date>Wed 24 Nov 2021 09:11:18 PM PST</date>
     <tool>Eeschema 5.1.10-88a1d61d58~90~ubuntu20.04.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -124,7 +124,7 @@
   </design>
   <components>
     <comp ref="DS1">
-      <value>IEL-O-VI_C63.396.208-02</value>
+      <value>IEL-O-VI_C63.396.208-02_SMD</value>
       <footprint>jdn_library:C63.396.208-02_SMD</footprint>
       <libsource lib="jdn_symbols" part="IEL-O-VI_C63.396.208-02" description=""/>
       <sheetpath names="/" tstamps="/"/>
@@ -148,7 +148,7 @@
     </comp>
     <comp ref="J3">
       <value>GND Pin #1</value>
-      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical</footprint>
+      <footprint>Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical</footprint>
       <datasheet>~</datasheet>
       <libsource lib="Connector" part="Conn_01x01_Male" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <sheetpath names="/" tstamps="/"/>
@@ -156,7 +156,7 @@
     </comp>
     <comp ref="J4">
       <value>GND Pin #2</value>
-      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical</footprint>
+      <footprint>Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical</footprint>
       <datasheet>~</datasheet>
       <libsource lib="Connector" part="Conn_01x01_Male" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <sheetpath names="/" tstamps="/"/>
