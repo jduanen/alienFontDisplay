@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name sparkfun-components)(type KiCad)(uri /home/jdn/Code2/sparkfun-components)(options "")(descr "")(disabled))
+)
