@@ -1,0 +1,100 @@
+
+(rules PCB afdDriver
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 3018)
+    (layer_rule Front
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.8)
+      (against_preferred_direction_trace_costs 3.2)
+    )
+    (layer_rule In1.Cu
+      (active off)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.7)
+    )
+    (layer_rule In2.Cu
+      (active off)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.4)
+    )
+    (layer_rule Back
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.8)
+      (against_preferred_direction_trace_costs 2.5)
+    )
+  )
+  (rule
+    (width 127.0)
+    (clear 127.2)
+    (clear 63.5 (type smd_to_turn_gap))
+    (clear 31.8 (type smd_smd))
+  )
+  (padstack "Via[0-3]_600:300_um"
+    (shape
+      (circle Front 600.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 600.0 0.0 0.0)
+    )
+    (shape
+      (circle In2.Cu 600.0 0.0 0.0)
+    )
+    (shape
+      (circle Back 600.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-3]_600:300_um" "Via[0-3]_600:300_um" default
+  )
+  (via 
+    "Via[0-3]_600:300_um-kicad_default" "Via[0-3]_600:300_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-3]_600:300_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-3]_600:300_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 127.0)
+    )
+    (circuit 
+      (use_layer Front In1.Cu In2.Cu Back)
+    )
+  )
+  (class "kicad_default"
+    GND GND1 /SegA "Net-(D1-Pad3)" "HV_AC" /SegB "Net-(D2-Pad3)" /SegC
+    "Net-(D3-Pad3)" /SegD "Net-(D4-Pad3)" /SegE "Net-(D5-Pad3)" /SegF "Net-(D6-Pad3)" /SegG
+    "Net-(D7-Pad3)" /SegH "Net-(D8-Pad3)" /EnbSegH /EnbSegG /EnbSegF /EnbSegE /EnbSegD
+    /EnbSegC /EnbSegB /EnbSegA "Net-(R4-Pad1)" "Net-(R5-Pad2)" "Net-(R7-Pad1)" "Net-(R8-Pad2)" "Net-(R10-Pad1)"
+    "Net-(R11-Pad2)" "Net-(R13-Pad1)" "Net-(R14-Pad2)" "Net-(R16-Pad1)" "Net-(R17-Pad2)" "Net-(R19-Pad1)" "Net-(R20-Pad2)" "Net-(R22-Pad1)"
+    "Net-(R23-Pad2)" /A0 /A1 /A2 +3V3 "Net-(R25-Pad1)" "Net-(R26-Pad2)" /SDA
+    /SCL
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 127.0)
+    )
+    (circuit 
+      (use_layer Front In1.Cu In2.Cu Back)
+    )
+  )
+)
