@@ -299,7 +299,7 @@ $EndComp
 $Comp
 L power:GND1 #PWR011
 U 1 1 626C64DA
-P 6100 7300
+P 6100 7350
 AR Path="/626C64DA" Ref="#PWR011"  Part="1" 
 AR Path="/61A24FF0/626C64DA" Ref="#PWR?"  Part="1" 
 AR Path="/61A60284/626C64DA" Ref="#PWR?"  Part="1" 
@@ -310,23 +310,23 @@ AR Path="/61FD10CA/626C64DA" Ref="#PWR?"  Part="1"
 AR Path="/61FD10CE/626C64DA" Ref="#PWR?"  Part="1" 
 AR Path="/61FD5722/626C64DA" Ref="#PWR?"  Part="1" 
 AR Path="/61FD5726/626C64DA" Ref="#PWR?"  Part="1" 
-F 0 "#PWR011" H 6100 7050 50  0001 C CNN
-F 1 "GND1" H 6105 7127 50  0000 C CNN
-F 2 "" H 6100 7300 50  0001 C CNN
-F 3 "" H 6100 7300 50  0001 C CNN
-	1    6100 7300
+F 0 "#PWR011" H 6100 7100 50  0001 C CNN
+F 1 "GND1" H 6105 7177 50  0000 C CNN
+F 2 "" H 6100 7350 50  0001 C CNN
+F 3 "" H 6100 7350 50  0001 C CNN
+	1    6100 7350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	6100 6950 5900 6950
 Wire Wire Line
-	6100 6950 6100 7300
-Text GLabel 6100 6500 1    50   Input ~ 0
+	6100 6950 6100 7250
+Text GLabel 6100 6350 1    50   Input ~ 0
 HV_AC
 Wire Wire Line
 	5900 6850 6100 6850
 Wire Wire Line
-	6100 6500 6100 6850
+	6100 6350 6100 6500
 $Comp
 L power:GND #PWR03
 U 1 1 626CA4FB
@@ -357,18 +357,14 @@ Wire Wire Line
 $Comp
 L Connector:Conn_01x02_Male J4
 U 1 1 62733E20
-P 6500 6950
-F 0 "J4" H 6500 6600 50  0000 C CNN
-F 1 "HighVoltageAC" H 6500 6700 50  0000 C CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 6500 6950 50  0001 C CNN
-F 3 "~" H 6500 6950 50  0001 C CNN
-	1    6500 6950
-	-1   0    0    1   
+P 6500 6850
+F 0 "J4" H 6500 7100 50  0000 C CNN
+F 1 "HighVoltageAC" H 6500 7000 50  0000 C CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 6500 6850 50  0001 C CNN
+F 3 "~" H 6500 6850 50  0001 C CNN
+	1    6500 6850
+	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6100 6850 6300 6850
-Wire Wire Line
-	6300 6950 6100 6950
 $Comp
 L SparkFun_SchematicComponents:Qwiic_Connector J1
 U 1 1 6277399D
@@ -470,8 +466,6 @@ Text Label 1750 6800 2    50   ~ 0
 SCL
 Text Label 1750 6900 2    50   ~ 0
 SDA
-Connection ~ 6100 6850
-Connection ~ 6100 6950
 $Comp
 L power:GND #PWR01
 U 1 1 627EF0A0
@@ -629,7 +623,7 @@ U 1 1 628D13AD
 P 2800 5200
 F 0 "C1" H 2915 5246 50  0000 L CNN
 F 1 "0.1 uFd" H 2915 5155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2838 5050 50  0001 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 2838 5050 50  0000 C CNN
 F 3 "~" H 2800 5200 50  0001 C CNN
 	1    2800 5200
 	1    0    0    -1  
@@ -660,4 +654,22 @@ Wire Wire Line
 	2800 4850 2800 5050
 Wire Wire Line
 	2800 5350 2800 5500
+Wire Wire Line
+	6700 6850 6850 6850
+Wire Wire Line
+	6850 6850 6850 6500
+Wire Wire Line
+	6850 6500 6100 6500
+Connection ~ 6100 6500
+Wire Wire Line
+	6100 6500 6100 6850
+Wire Wire Line
+	6700 6950 6850 6950
+Wire Wire Line
+	6850 6950 6850 7250
+Wire Wire Line
+	6850 7250 6100 7250
+Connection ~ 6100 7250
+Wire Wire Line
+	6100 7250 6100 7350
 $EndSCHEMATC

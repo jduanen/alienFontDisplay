@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 9
+Sheet 5 9
 Title "Smartsocket for Alien Font Display"
 Date "2021-11-15"
 Rev "0.0.0"
@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 "http://git@github.com:jduanen/alienFontDisplay.git"
 $EndDescr
 $Comp
-L Triac_Thyristor:Z0103MN D?
+L jdn_symbols:Z0103MN D?
 U 1 1 61A5AA61
 P 6350 3550
 AR Path="/61A5AA61" Ref="D?"  Part="1" 
@@ -28,7 +28,7 @@ AR Path="/61FCCA04/61A5AA61" Ref="D4"  Part="1"
 AR Path="/61FD10CE/61A5AA61" Ref="D6"  Part="1" 
 F 0 "D8" H 6478 3596 50  0000 L CNN
 F 1 "Z0103MN" H 6478 3505 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 7100 3400 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 7100 3400 50  0000 C CNN
 F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 6500 3850 50  0001 C CNN
 	1    6350 3550
 	1    0    0    -1  
@@ -180,4 +180,7 @@ F 12 "Active" H 5400 4750 60  0001 L CNN "Status"
 	1    0    0    -1  
 $EndComp
 Connection ~ 5500 3650
+Wire Wire Line
+	6250 3400 6350 3400
+Connection ~ 6350 3400
 $EndSCHEMATC
