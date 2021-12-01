@@ -30,6 +30,13 @@ F 0 "D8" H 6478 3596 50  0000 L CNN
 F 1 "Z0103MN" H 6478 3505 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-223" H 7100 3400 50  0000 C CNN
 F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 6500 3850 50  0001 C CNN
+F 4 "https://www.st.com/content/ccc/resource/technical/document/datasheet/af/ee/c1/7b/df/8a/46/d7/CD00002268.pdf/files/CD00002268.pdf/jcr:content/translations/en.CD00002268.pdf" H 6350 3550 50  0001 C CNN "DK_Datasheet_Link"
+F 5 "https://www.digikey.com/en/products/detail/stmicroelectronics/Z0103NN5AA4/2827071" H 6350 3550 50  0001 C CNN "DK_Detail_Page"
+F 6 "Triac" H 6350 3550 50  0001 C CNN "Description"
+F 7 "497-12382-1-ND" H 6350 3550 50  0001 C CNN "Digi-Key_PN"
+F 8 "10" H 6350 3550 50  0001 C CNN "Multiplier"
+F 9 "$0.6" H 6350 3550 50  0001 C CNN "Price"
+F 10 "80" H 6350 3550 50  0001 C CNN "Total"
 	1    6350 3550
 	1    0    0    -1  
 $EndComp
@@ -50,6 +57,8 @@ F 0 "R26" V 5695 3300 50  0000 C CNN
 F 1 "390" V 5786 3300 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5940 3290 50  0001 C CNN
 F 3 "~" H 5900 3300 50  0001 C CNN
+F 4 "10" H 5900 3300 50  0001 C CNN "Multiplier"
+F 5 "240" H 5900 3300 50  0001 C CNN "Total"
 	1    5900 3300
 	0    1    1    0   
 $EndComp
@@ -70,6 +79,8 @@ F 0 "R27" V 5695 4000 50  0000 C CNN
 F 1 "390" V 5786 4000 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5940 3990 50  0001 C CNN
 F 3 "~" H 5900 4000 50  0001 C CNN
+F 4 "10" H 5900 4000 50  0001 C CNN "Multiplier"
+F 5 "240" H 5900 4000 50  0001 C CNN "Total"
 	1    5900 4000
 	0    1    1    0   
 $EndComp
@@ -94,6 +105,8 @@ F 0 "R25" H 4818 3946 50  0000 L CNN
 F 1 "390" H 4818 3855 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 4790 3890 50  0001 C CNN
 F 3 "~" H 4750 3900 50  0001 C CNN
+F 4 "10" H 4750 3900 50  0001 C CNN "Multiplier"
+F 5 "240" H 4750 3900 50  0001 C CNN "Total"
 	1    4750 3900
 	1    0    0    -1  
 $EndComp
@@ -176,6 +189,9 @@ F 9 "https://www.digikey.com/en/products/detail/qt-brightek-qtb/QTM3063T1/844554
 F 10 "OPTOISOLATOR 5KV TRIAC 4pin mini-flat" H 5400 4550 60  0001 L CNN "Description"
 F 11 "QT Brightek" H 5400 4650 60  0001 L CNN "Manufacturer"
 F 12 "Active" H 5400 4750 60  0001 L CNN "Status"
+F 13 "10" H 5200 3550 50  0001 C CNN "Multiplier"
+F 14 "$.706" H 5200 3550 50  0001 C CNN "Price"
+F 15 "80" H 5200 3550 50  0001 C CNN "Total"
 	1    5200 3550
 	1    0    0    -1  
 $EndComp

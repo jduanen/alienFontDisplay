@@ -23,6 +23,8 @@ F 0 "DS1" H 8900 4950 50  0000 C CNN
 F 1 "IEL-O-VI_C63.396.208-02_SMD" H 8900 4850 50  0000 C CNN
 F 2 "jdn_library:C63.396.208-02_SMD" V 9900 3200 50  0000 C CNN
 F 3 "" H 9600 4300 50  0001 C CNN
+F 4 "0" H 9450 3500 50  0001 C CNN "Multiplier"
+F 5 "0" H 9450 3500 50  0001 C CNN "Total"
 	1    9450 3500
 	1    0    0    -1  
 $EndComp
@@ -282,6 +284,13 @@ F 0 "U1" H 3000 4050 50  0000 C CNN
 F 1 "PCF8574TS" H 3000 3950 50  0000 C CNN
 F 2 "Package_SO:SSOP-20_4.4x6.5mm_P0.65mm" H 3300 3250 50  0001 C CNN
 F 3 "http://www.nxp.com/documents/data_sheet/PCF8574_PCF8574A.pdf" H 3300 3250 50  0001 C CNN
+F 4 "https://www.nxp.com/docs/en/data-sheet/PCF8574_PCF8574A.pdf" H 3300 3250 50  0001 C CNN "DK_Datasheet_Link"
+F 5 "https://www.digikey.com/en/products/detail/nxp-usa-inc/PCF8574TS-3-118/735692" H 3300 3250 50  0001 C CNN "DK_Detail_Page"
+F 6 "I2C I/O Expander" H 3300 3250 50  0001 C CNN "Description"
+F 7 "568-1078-1-ND" H 3300 3250 50  0001 C CNN "Digi-Key_PN"
+F 8 "10" H 3300 3250 50  0001 C CNN "Multiplier"
+F 9 "$1.86" H 3300 3250 50  0001 C CNN "Price"
+F 10 "10" H 3300 3250 50  0001 C CNN "Total"
 	1    3300 3250
 	1    0    0    -1  
 $EndComp
@@ -293,6 +302,8 @@ F 0 "J3" H 5700 7100 50  0000 C CNN
 F 1 "HighVoltageAC" H 5700 7000 50  0000 C CNN
 F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 5700 6850 50  0001 C CNN
 F 3 "~" H 5700 6850 50  0001 C CNN
+F 4 "0" H 5700 6850 50  0001 C CNN "Multiplier"
+F 5 "0" H 5700 6850 50  0001 C CNN "Total"
 	1    5700 6850
 	1    0    0    -1  
 $EndComp
@@ -362,6 +373,8 @@ F 0 "J4" H 6500 7100 50  0000 C CNN
 F 1 "HighVoltageAC" H 6500 7000 50  0000 C CNN
 F 2 "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" H 6500 6850 50  0001 C CNN
 F 3 "~" H 6500 6850 50  0001 C CNN
+F 4 "0" H 6500 6850 50  0001 C CNN "Multiplier"
+F 5 "0" H 6500 6850 50  0001 C CNN "Total"
 	1    6500 6850
 	1    0    0    -1  
 $EndComp
@@ -373,6 +386,8 @@ F 0 "J1" H 1007 7359 50  0000 C CNN
 F 1 "Qwiic_Connector" H 1007 7268 50  0000 C CNN
 F 2 "Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical" H 1007 7201 20  0000 C CNN
 F 3 "" H 900 6900 60  0001 C CNN
+F 4 "10" H 950 6950 50  0001 C CNN "Multiplier"
+F 5 "20" H 950 6950 50  0001 C CNN "Total"
 	1    950  6950
 	1    0    0    -1  
 $EndComp
@@ -384,6 +399,8 @@ F 0 "J2" H 4550 6550 50  0000 R CNN
 F 1 "Qwiic_Connector" H 4800 6650 50  0000 R CNN
 F 2 "Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical" H 4400 6700 20  0000 C CNN
 F 3 "" H 4450 6900 60  0001 C CNN
+F 4 "10" H 4500 6950 50  0001 C CNN "Multiplier"
+F 5 "20" H 4500 6950 50  0001 C CNN "Total"
 	1    4500 6950
 	-1   0    0    1   
 $EndComp
@@ -508,6 +525,8 @@ F 0 "JP1" H 950 3735 50  0000 C CNN
 F 1 "ADDR0" H 950 3644 50  0000 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm" H 950 3500 50  0001 C CNN
 F 3 "~" H 950 3500 50  0001 C CNN
+F 4 "0" H 950 3500 50  0001 C CNN "Multiplier"
+F 5 "0" H 950 3500 50  0001 C CNN "Total"
 	1    950  3500
 	1    0    0    -1  
 $EndComp
@@ -519,6 +538,8 @@ F 0 "JP2" H 950 4085 50  0000 C CNN
 F 1 "ADDR1" H 950 3994 50  0000 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm" H 950 3850 50  0001 C CNN
 F 3 "~" H 950 3850 50  0001 C CNN
+F 4 "0" H 950 3850 50  0001 C CNN "Multiplier"
+F 5 "0" H 950 3850 50  0001 C CNN "Total"
 	1    950  3850
 	1    0    0    -1  
 $EndComp
@@ -533,6 +554,8 @@ F 0 "JP3" H 950 4485 50  0000 C CNN
 F 1 "ADDR2" H 950 4394 50  0000 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm" H 950 4250 50  0001 C CNN
 F 3 "~" H 950 4250 50  0001 C CNN
+F 4 "0" H 950 4250 50  0001 C CNN "Multiplier"
+F 5 "0" H 950 4250 50  0001 C CNN "Total"
 	1    950  4250
 	1    0    0    -1  
 $EndComp
@@ -550,6 +573,8 @@ F 0 "R2" H 1650 3150 50  0000 L CNN
 F 1 "10K Ohm" H 1650 3050 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1580 2900 50  0001 C CNN
 F 3 "~" H 1650 2900 50  0001 C CNN
+F 4 "10" H 1650 2900 50  0001 C CNN "Multiplier"
+F 5 "30" H 1650 2900 50  0001 C CNN "Total"
 	1    1650 2900
 	1    0    0    -1  
 $EndComp
@@ -567,6 +592,8 @@ F 0 "R3" H 1920 3046 50  0000 L CNN
 F 1 "10K Ohm" H 1920 2955 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1780 3000 50  0001 C CNN
 F 3 "~" H 1850 3000 50  0001 C CNN
+F 4 "10" H 1850 3000 50  0001 C CNN "Multiplier"
+F 5 "30" H 1850 3000 50  0001 C CNN "Total"
 	1    1850 3000
 	1    0    0    -1  
 $EndComp
@@ -578,6 +605,8 @@ F 0 "R1" H 1300 2850 50  0000 L CNN
 F 1 "10K Ohm" H 1050 2750 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1380 2800 50  0001 C CNN
 F 3 "~" H 1450 2800 50  0001 C CNN
+F 4 "10" H 1450 2800 50  0001 C CNN "Multiplier"
+F 5 "30" H 1450 2800 50  0001 C CNN "Total"
 	1    1450 2800
 	1    0    0    -1  
 $EndComp
@@ -625,6 +654,8 @@ F 0 "C1" H 2915 5246 50  0000 L CNN
 F 1 "0.1 uFd" H 2915 5155 50  0000 L CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 2838 5050 50  0000 C CNN
 F 3 "~" H 2800 5200 50  0001 C CNN
+F 4 "10" H 2800 5200 50  0001 C CNN "Multiplier"
+F 5 "10" H 2800 5200 50  0001 C CNN "Total"
 	1    2800 5200
 	1    0    0    -1  
 $EndComp
