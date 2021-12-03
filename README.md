@@ -3,19 +3,21 @@ Display made of six eight-segment EL display units
 
 ## TBD
 
+### Display Pinout
 ![EL Display Pinout](pinout.jpg)
 
-
+### Alphanumeric Font
 ![Alien Font](alienFont.png)
 
+### Single Display and Driver Board
 ![Driver Board view #1](afdDriver1.png)
-
 ![Driver Board view #2](afdDriver2.png)
 
+### Driver PCB
 ![Driver Board Top](afdOP2_top.png)
-
 ![Driver Board Bottom](afdOP2_bottom.png)
 
+=========================
 
 * Blue, Alien Font, Russian/Soviet Electroluminescent Display
 
