@@ -2,6 +2,12 @@
 Display made of six eight-segment EL display units
 
 ## TBD
+* BOM
+* WiFi interface board
+* Firmware
+* Tests
+* Example code
+* Documentation
 
 ### Display Pinout
 ![EL Display Pinout](pinout.jpg)
