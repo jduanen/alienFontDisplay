@@ -12,6 +12,10 @@ Display made of six eight-segment EL display units
 
 ![Driver Board view #2](afdDriver2.png)
 
+![Driver Board Top](afdOP2_top.png)
+
+![Driver Board Bottom](afdOP2_bottom.png)
+
 
 * Blue, Alien Font, Russian/Soviet Electroluminescent Display
 
@@ -168,3 +172,12 @@ Display made of six eight-segment EL display units
   - display unit dimensions, pin and threaded spacer locations
     * <think about doing a Fusion360 model>
     * ????
+
+* part cost estimates (Digikey)
+  - optoisolators: 100x @ $0.706 = $70.60
+  - io expanders: 10x @ $1.71    = $17.10
+  - triacs: 100x @ $0.405        = $40.50
+  - capacitors: 10x @ $?         = $?
+  - resistors: 30x + 240x @ $?   = $?
+  - connectors: 20x @ $?         = $? (optional)
+                                   ~$130
