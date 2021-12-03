@@ -23,6 +23,9 @@ Display made of six eight-segment EL display units
 ![Driver Board Top](afdOP2_top.png)
 ![Driver Board Bottom](afdOP2_bottom.png)
 
+### Schematic
+![Driver Board Schematic](afdDriver.pdf)
+
 =========================
 
 * Blue, Alien Font, Russian/Soviet Electroluminescent Display
