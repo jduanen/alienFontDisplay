@@ -4,15 +4,22 @@
  
 ****************************************************************************/
 
-#define NUM_CHARS 6
-#define FONT_SIZE 36
-#define VERBOSE   0
+#include "Arduino.h"
+#include "PCF8574.h"
 
 
-//unsigned char chars[NUM_CHARS] = {0xFA, 0xFB, 0xFC, 0xFD, 0xFE, 0xFF};
-unsigned char chars[NUM_CHARS] = {0b11111100, 0b11111000, 0b11110000, 0b11100000, 0b11000000, 0b10000000};
+#define VERBOSE   1
+#define I2C_ADDR        0x27 /* 0x20 */
+#define READ_ADDR       0x4F
+#define WRITE_ADDR      0x4E
+#define NUM_CHARS       6
+#define CHAR_MAP_SIZE   26
+#define DIGIT_MAP_SIZE  10
 
-unsigned char charMap[FONT_SIZE] = {
+
+PCF8574 pcf8574(I2C_ADDR);
+
+unsigned char charMap[CHAR_MAP_SIZE] = {
   0b00000100 + 0b00010000 + 0b00100000 + 0b01000000 + 0b10000000, // A
   0b00000001 + 0b00000010 + 0b00001000 + 0b00010000 + 0b00100000 + 0b01000000 + 0b10000000, // B
   0b00000001 + 0b00100000 + 0b01000000, // C
@@ -41,7 +48,7 @@ unsigned char charMap[FONT_SIZE] = {
   0b00000001 + 0b00001000 + 0b00010000 + 0b01000000 // Z
 };
 
-unsigned char digitMap[FONT_SIZE] = {
+unsigned char digitMap[DIGIT_MAP_SIZE] = {
   0b00000001 + 0b00000100 + 0b00100000 + 0b01000000, // 0
   0b00100000, // 1
   0b00000001 + 0b00001000 + 0b00010000 + 0b01000000, // 2
@@ -56,34 +63,20 @@ unsigned char digitMap[FONT_SIZE] = {
 
 
 void setup() { 
-  int i;
-         
-  pinMode(2, OUTPUT);  // channel A  
-  pinMode(3, OUTPUT);  // channel B   
-  pinMode(4, OUTPUT);  // channel C
-  pinMode(5, OUTPUT);  // channel D    
-  pinMode(6, OUTPUT);  // channel E
-  pinMode(7, OUTPUT);  // channel F
-  pinMode(8, OUTPUT);  // channel G
-  pinMode(9, OUTPUT);  // channel H
+  Serial.begin(9600);
+  delay(500);
 
-  pinMode(A0, OUTPUT); // display 1
-  pinMode(A1, OUTPUT); // display 2
-  pinMode(A2, OUTPUT); // display 3
-  pinMode(A3, OUTPUT); // display 4
-  pinMode(A4, OUTPUT); // display 5
-  pinMode(A5, OUTPUT); // display 6
+  pcf8574.pinMode(P0, OUTPUT, LOW);
+  pcf8574.pinMode(P1, OUTPUT, LOW);
+  pcf8574.pinMode(P2, OUTPUT, LOW);
+  pcf8574.pinMode(P3, OUTPUT, LOW);
+  pcf8574.pinMode(P4, OUTPUT, LOW);
+  pcf8574.pinMode(P5, OUTPUT, LOW);
+  pcf8574.pinMode(P6, OUTPUT, LOW);
+  pcf8574.pinMode(P7, OUTPUT, LOW);
 
-  pinMode(13, OUTPUT); // status LED
+  pcf8574.begin();
 
-  Serial.begin(9600);  // FIXME runs at 4800 baud -- CPU clock must be slower than expected
-
-  for (i=A0; (i < (A0 + NUM_CHARS)); i++) {
-    digitalWrite(i, LOW);
-  }
-  for (i=2; (i <= 9); i++) {
-    digitalWrite(i, LOW);
-  }
   if (VERBOSE) {
     Serial.println("Start");
   }
@@ -91,39 +84,33 @@ void setup() {
 
 
 void loop() {
+  int i;
   unsigned char chr;
-  int i, seg, dispNum;
-  int status = HIGH;
+  PCF8574::DigitalInput digitalInput;
 
-  for (dispNum=0; dispNum < NUM_CHARS; dispNum++) {
-    digitalWrite(A0 + dispNum, HIGH);
-    chr = chars[dispNum];
+  /*
+  for (i = 0; i < 8; i++) {
+    chr = digitMap[i % DIGIT_MAP_SIZE];
+    pcf8574.digitalWrite(i, (chr & (1 << i)));
     if (VERBOSE) {
-      Serial.println(String(dispNum) + ": 0x" + String(chr, HEX));
+      Serial.println("Char: " + String(chr));
     }
-
-    for (seg=0; seg <= 7; seg++) {
-      digitalWrite((seg + 2), (chr & (1 << seg)));
+  }
+  */
+  for (i = 0; i < 10; i++) {
+    chr = digitMap[i % DIGIT_MAP_SIZE];
+    digitalInput.p7 = ((chr >> 7) & 0x01);
+    digitalInput.p6 = ((chr >> 6) & 0x01);
+    digitalInput.p5 = ((chr >> 5) & 0x01);
+    digitalInput.p4 = ((chr >> 4) & 0x01);
+    digitalInput.p3 = ((chr >> 3) & 0x01);
+    digitalInput.p2 = ((chr >> 2) & 0x01);
+    digitalInput.p1 = ((chr >> 1) & 0x01);
+    digitalInput.p0 = ((chr >> 0) & 0x01);
+    pcf8574.digitalWriteAll(digitalInput);
+    if (VERBOSE) {
+      Serial.println("Char: " + String(chr));
     }
     delay(1000);
-    digitalWrite(A0 + dispNum, LOW);
-
-    digitalWrite(13, status);  // blink status LEDs
-    status = !status;
-  }
-  /*
-  chr = chars[0] - 1;
-  for (i=0; i < (NUM_CHARS - 1); i++) {
-    chars[i] = chars[i + 1];
-  }
-  chars[NUM_CHARS - 1] = chr;
-  */
- 
-  if (VERBOSE) {
-    Serial.print("Chars: ");
-    for (i=0; i < (NUM_CHARS - 1); i++) {
-      Serial.print("0x" + String(chars[i], HEX) + ", ");
-    }
-    Serial.println("0x" + String(chars[NUM_CHARS - 1], HEX));
   }
 }
