@@ -3,10 +3,10 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 9
+Sheet 7 11
 Title "Smartsocket for Alien Font Display"
-Date "2021-11-15"
-Rev "0.0.0"
+Date "2021-12-06"
+Rev "1.0.0"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -26,7 +26,7 @@ AR Path="/61FD5726/61A5AA61" Ref="D8"  Part="1"
 AR Path="/61F6EF90/61A5AA61" Ref="D2"  Part="1" 
 AR Path="/61FCCA04/61A5AA61" Ref="D4"  Part="1" 
 AR Path="/61FD10CE/61A5AA61" Ref="D6"  Part="1" 
-F 0 "D8" H 6478 3596 50  0000 L CNN
+F 0 "D6" H 6478 3596 50  0000 L CNN
 F 1 "Z0103MN" H 6478 3505 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-223" H 7100 3400 50  0000 C CNN
 F 3 "http://www.st.com/resource/en/datasheet/z01.pdf" H 6500 3850 50  0001 C CNN
@@ -53,7 +53,7 @@ AR Path="/61FD5726/61A5AA67" Ref="R26"  Part="1"
 AR Path="/61F6EF90/61A5AA67" Ref="R8"  Part="1" 
 AR Path="/61FCCA04/61A5AA67" Ref="R14"  Part="1" 
 AR Path="/61FD10CE/61A5AA67" Ref="R20"  Part="1" 
-F 0 "R26" V 5695 3300 50  0000 C CNN
+F 0 "R20" V 5695 3300 50  0000 C CNN
 F 1 "390" V 5786 3300 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5940 3290 50  0001 C CNN
 F 3 "~" H 5900 3300 50  0001 C CNN
@@ -75,7 +75,7 @@ AR Path="/61FD5726/61A5AA6D" Ref="R27"  Part="1"
 AR Path="/61F6EF90/61A5AA6D" Ref="R9"  Part="1" 
 AR Path="/61FCCA04/61A5AA6D" Ref="R15"  Part="1" 
 AR Path="/61FD10CE/61A5AA6D" Ref="R21"  Part="1" 
-F 0 "R27" V 5695 4000 50  0000 C CNN
+F 0 "R21" V 5695 4000 50  0000 C CNN
 F 1 "390" V 5786 4000 50  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5940 3990 50  0001 C CNN
 F 3 "~" H 5900 4000 50  0001 C CNN
@@ -85,8 +85,8 @@ F 5 "240" H 5900 4000 50  0001 C CNN "Total"
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	4250 3450 4900 3450
-Text GLabel 6350 3050 1    50   Input ~ 0
+	4500 3450 4900 3450
+Text GLabel 6350 2900 1    50   Input ~ 0
 HV_AC
 $Comp
 L Device:R_US R?
@@ -101,7 +101,7 @@ AR Path="/61FD5726/61A5AA83" Ref="R25"  Part="1"
 AR Path="/61F6EF90/61A5AA83" Ref="R7"  Part="1" 
 AR Path="/61FCCA04/61A5AA83" Ref="R13"  Part="1" 
 AR Path="/61FD10CE/61A5AA83" Ref="R19"  Part="1" 
-F 0 "R25" H 4818 3946 50  0000 L CNN
+F 0 "R19" H 4818 3946 50  0000 L CNN
 F 1 "390" H 4818 3855 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 4790 3890 50  0001 C CNN
 F 3 "~" H 4750 3900 50  0001 C CNN
@@ -123,7 +123,7 @@ Wire Wire Line
 Wire Wire Line
 	6350 3300 6350 3400
 Wire Wire Line
-	6350 3050 6350 3300
+	6350 2900 6350 3300
 Connection ~ 6350 3300
 Wire Wire Line
 	4900 3650 4750 3650
@@ -137,33 +137,13 @@ Wire Wire Line
 	5500 3650 5500 4000
 Connection ~ 6350 4000
 Wire Wire Line
-	6350 4000 6700 4000
-Text HLabel 4250 3450 0    50   Input ~ 0
+	6350 4000 7300 4000
+Text HLabel 3850 4250 0    50   Input ~ 0
 SegmentEnable
-Text HLabel 6700 4000 2    50   Output ~ 0
+Text HLabel 7300 4000 2    50   Output ~ 0
 SegmentOut
 Wire Wire Line
 	4750 4050 4750 4250
-$Comp
-L power:GND #PWR?
-U 1 1 626CB76C
-P 4750 4250
-AR Path="/626CB76C" Ref="#PWR?"  Part="1" 
-AR Path="/61A24FF0/626CB76C" Ref="#PWR013"  Part="1" 
-AR Path="/61F6EF90/626CB76C" Ref="#PWR014"  Part="1" 
-AR Path="/61FCCA00/626CB76C" Ref="#PWR015"  Part="1" 
-AR Path="/61FCCA04/626CB76C" Ref="#PWR016"  Part="1" 
-AR Path="/61FD10CA/626CB76C" Ref="#PWR017"  Part="1" 
-AR Path="/61FD10CE/626CB76C" Ref="#PWR018"  Part="1" 
-AR Path="/61FD5722/626CB76C" Ref="#PWR019"  Part="1" 
-AR Path="/61FD5726/626CB76C" Ref="#PWR020"  Part="1" 
-F 0 "#PWR020" H 4750 4000 50  0001 C CNN
-F 1 "GND" H 4755 4077 50  0000 C CNN
-F 2 "" H 4750 4250 50  0001 C CNN
-F 3 "" H 4750 4250 50  0001 C CNN
-	1    4750 4250
-	1    0    0    -1  
-$EndComp
 $Comp
 L jdn_symbols:QTM3063T1 U2
 U 1 1 626DC068
@@ -176,7 +156,7 @@ AR Path="/61FD10CA/626DC068" Ref="U6"  Part="1"
 AR Path="/61FD10CE/626DC068" Ref="U7"  Part="1" 
 AR Path="/61FD5722/626DC068" Ref="U8"  Part="1" 
 AR Path="/61FD5726/626DC068" Ref="U9"  Part="1" 
-F 0 "U9" H 5200 3912 60  0000 C CNN
+F 0 "U7" H 5200 3912 60  0000 C CNN
 F 1 "QTM3063T1" H 5200 3806 60  0000 C CNN
 F 2 "jdn_library:4-SMD_3.8x4.6mm" H 5400 3750 60  0001 L CNN
 F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2001-026/MOC306X%20series%20201606.pdf" V 5400 3850 60  0001 L CNN
@@ -199,4 +179,28 @@ Connection ~ 5500 3650
 Wire Wire Line
 	6250 3400 6350 3400
 Connection ~ 6350 3400
+Wire Wire Line
+	4750 4250 3850 4250
+$Comp
+L power:+5V #PWR?
+U 1 1 61AED4F4
+P 4500 2900
+AR Path="/61AED4F4" Ref="#PWR?"  Part="1" 
+AR Path="/61A24FF0/61AED4F4" Ref="#PWR011"  Part="1" 
+AR Path="/61F6EF90/61AED4F4" Ref="#PWR012"  Part="1" 
+AR Path="/61FCCA00/61AED4F4" Ref="#PWR013"  Part="1" 
+AR Path="/61FCCA04/61AED4F4" Ref="#PWR014"  Part="1" 
+AR Path="/61FD10CA/61AED4F4" Ref="#PWR015"  Part="1" 
+AR Path="/61FD10CE/61AED4F4" Ref="#PWR016"  Part="1" 
+AR Path="/61FD5722/61AED4F4" Ref="#PWR017"  Part="1" 
+AR Path="/61FD5726/61AED4F4" Ref="#PWR018"  Part="1" 
+F 0 "#PWR018" H 4500 2750 50  0001 C CNN
+F 1 "+5V" H 4515 3073 50  0000 C CNN
+F 2 "" H 4500 2900 50  0001 C CNN
+F 3 "" H 4500 2900 50  0001 C CNN
+	1    4500 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 3450 4500 2900
 $EndSCHEMATC
