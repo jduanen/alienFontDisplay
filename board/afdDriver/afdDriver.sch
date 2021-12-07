@@ -676,4 +676,47 @@ U 61B04F51
 F0 "decouplingCaps" 50
 F1 "decouplingCaps.sch" 50
 $EndSheet
+$Comp
+L Connector:Conn_01x02_Male J5
+U 1 1 61B4A915
+P 2600 5450
+F 0 "J5" H 2600 5700 50  0000 C CNN
+F 1 "Power" H 2600 5600 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 2600 5450 50  0001 C CNN
+F 3 "~" H 2600 5450 50  0001 C CNN
+F 4 "0" H 2600 5450 50  0001 C CNN "Multiplier"
+F 5 "0" H 2600 5450 50  0001 C CNN "Total"
+	1    2600 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR021
+U 1 1 61B4DB16
+P 2950 5250
+F 0 "#PWR021" H 2950 5100 50  0001 C CNN
+F 1 "+5V" H 2965 5423 50  0000 C CNN
+F 2 "" H 2950 5250 50  0001 C CNN
+F 3 "" H 2950 5250 50  0001 C CNN
+	1    2950 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR022
+U 1 1 61B4DFA2
+P 2950 5750
+F 0 "#PWR022" H 2950 5500 50  0001 C CNN
+F 1 "GND" H 2955 5577 50  0000 C CNN
+F 2 "" H 2950 5750 50  0001 C CNN
+F 3 "" H 2950 5750 50  0001 C CNN
+	1    2950 5750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 5450 2950 5450
+Wire Wire Line
+	2950 5450 2950 5250
+Wire Wire Line
+	2800 5550 2950 5550
+Wire Wire Line
+	2950 5550 2950 5750
 $EndSCHEMATC

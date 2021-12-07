@@ -2,14 +2,14 @@
 <export version="D">
   <design>
     <source>/home/jdn/Code/alienFontDisplay/board/afdDriver/afdDriver.sch</source>
-    <date>Sat 27 Nov 2021 02:36:40 PM PST</date>
+    <date>Tue 07 Dec 2021 10:40:29 AM PST</date>
     <tool>Eeschema 5.1.10-88a1d61d58~90~ubuntu20.04.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>Smartsocket for Alien Font Display</title>
         <company/>
-        <rev>0.0.0</rev>
-        <date>2021-11-15</date>
+        <rev>1.0.0</rev>
+        <date>2021-12-06</date>
         <source>afdDriver.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -21,8 +21,8 @@
       <title_block>
         <title>Smartsocket for Alien Font Display</title>
         <company/>
-        <rev>0.0.0</rev>
-        <date>2021-11-15</date>
+        <rev>1.0.0</rev>
+        <date>2021-12-06</date>
         <source>segmentDriver.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -34,8 +34,8 @@
       <title_block>
         <title>Smartsocket for Alien Font Display</title>
         <company/>
-        <rev>0.0.0</rev>
-        <date>2021-11-15</date>
+        <rev>1.0.0</rev>
+        <date>2021-12-06</date>
         <source>segmentDriver.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -47,8 +47,8 @@
       <title_block>
         <title>Smartsocket for Alien Font Display</title>
         <company/>
-        <rev>0.0.0</rev>
-        <date>2021-11-15</date>
+        <rev>1.0.0</rev>
+        <date>2021-12-06</date>
         <source>segmentDriver.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -60,8 +60,8 @@
       <title_block>
         <title>Smartsocket for Alien Font Display</title>
         <company/>
-        <rev>0.0.0</rev>
-        <date>2021-11-15</date>
+        <rev>1.0.0</rev>
+        <date>2021-12-06</date>
         <source>segmentDriver.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -73,8 +73,8 @@
       <title_block>
         <title>Smartsocket for Alien Font Display</title>
         <company/>
-        <rev>0.0.0</rev>
-        <date>2021-11-15</date>
+        <rev>1.0.0</rev>
+        <date>2021-12-06</date>
         <source>segmentDriver.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -86,8 +86,8 @@
       <title_block>
         <title>Smartsocket for Alien Font Display</title>
         <company/>
-        <rev>0.0.0</rev>
-        <date>2021-11-15</date>
+        <rev>1.0.0</rev>
+        <date>2021-12-06</date>
         <source>segmentDriver.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -99,8 +99,8 @@
       <title_block>
         <title>Smartsocket for Alien Font Display</title>
         <company/>
-        <rev>0.0.0</rev>
-        <date>2021-11-15</date>
+        <rev>1.0.0</rev>
+        <date>2021-12-06</date>
         <source>segmentDriver.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -112,9 +112,35 @@
       <title_block>
         <title>Smartsocket for Alien Font Display</title>
         <company/>
-        <rev>0.0.0</rev>
-        <date>2021-11-15</date>
+        <rev>1.0.0</rev>
+        <date>2021-12-06</date>
         <source>segmentDriver.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value="http://git@github.com:jduanen/alienFontDisplay.git"/>
+      </title_block>
+    </sheet>
+    <sheet number="10" name="/mountingHoles/" tstamps="/61AF595E/">
+      <title_block>
+        <title>Smartsocket for Alien Font Display</title>
+        <company/>
+        <rev>1.0.0</rev>
+        <date>2021-12-06</date>
+        <source>mountingHoles.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value="http://git@github.com:jduanen/alienFontDisplay.git"/>
+      </title_block>
+    </sheet>
+    <sheet number="11" name="/decouplingCaps/" tstamps="/61B04F51/">
+      <title_block>
+        <title>Smartsocket for Alien Font Display</title>
+        <company/>
+        <rev>1.0.0</rev>
+        <date>2021-12-06</date>
+        <source>decouplingCaps.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
         <comment number="3" value=""/>
@@ -126,6 +152,10 @@
     <comp ref="DS1">
       <value>IEL-O-VI_C63.396.208-02_SMD</value>
       <footprint>jdn_library:C63.396.208-02_SMD</footprint>
+      <fields>
+        <field name="Multiplier">0</field>
+        <field name="Total">0</field>
+      </fields>
       <libsource lib="jdn_symbols" part="IEL-O-VI_C63.396.208-02" description=""/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>61B283DA</tstamp>
@@ -134,22 +164,39 @@
       <value>PCF8574TS</value>
       <footprint>Package_SO:SSOP-20_4.4x6.5mm_P0.65mm</footprint>
       <datasheet>http://www.nxp.com/documents/data_sheet/PCF8574_PCF8574A.pdf</datasheet>
+      <fields>
+        <field name="DK_Datasheet_Link">https://www.nxp.com/docs/en/data-sheet/PCF8574_PCF8574A.pdf</field>
+        <field name="DK_Detail_Page">https://www.digikey.com/en/products/detail/nxp-usa-inc/PCF8574TS-3-118/735692</field>
+        <field name="Description">I2C I/O Expander</field>
+        <field name="Digi-Key_PN">568-1078-1-ND</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$1.86</field>
+        <field name="Total">10</field>
+      </fields>
       <libsource lib="Interface_Expansion" part="PCF8574TS" description="8 Bit Port/Expander to I2C Bus, SSOP-20"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>627BF1EB</tstamp>
     </comp>
     <comp ref="J3">
       <value>HighVoltageAC</value>
-      <footprint>Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical</footprint>
+      <footprint>Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">0</field>
+        <field name="Total">0</field>
+      </fields>
       <libsource lib="Connector" part="Conn_01x02_Male" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>626BE561</tstamp>
     </comp>
     <comp ref="J4">
       <value>HighVoltageAC</value>
-      <footprint>Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical</footprint>
+      <footprint>Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">0</field>
+        <field name="Total">0</field>
+      </fields>
       <libsource lib="Connector" part="Conn_01x02_Male" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>62733E20</tstamp>
@@ -157,6 +204,10 @@
     <comp ref="J1">
       <value>Qwiic_Connector</value>
       <footprint>Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical</footprint>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">20</field>
+      </fields>
       <libsource lib="SparkFun_SchematicComponents" part="Qwiic_Connector" description=""/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>6277399D</tstamp>
@@ -164,6 +215,10 @@
     <comp ref="J2">
       <value>Qwiic_Connector</value>
       <footprint>Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical</footprint>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">20</field>
+      </fields>
       <libsource lib="SparkFun_SchematicComponents" part="Qwiic_Connector" description=""/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>6277479E</tstamp>
@@ -172,6 +227,10 @@
       <value>ADDR0</value>
       <footprint>Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">0</field>
+        <field name="Total">0</field>
+      </fields>
       <libsource lib="Jumper" part="Jumper_2_Open" description="Jumper, 2-pole, open"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>6283DA17</tstamp>
@@ -180,6 +239,10 @@
       <value>ADDR1</value>
       <footprint>Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">0</field>
+        <field name="Total">0</field>
+      </fields>
       <libsource lib="Jumper" part="Jumper_2_Open" description="Jumper, 2-pole, open"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>6284351D</tstamp>
@@ -188,6 +251,10 @@
       <value>ADDR2</value>
       <footprint>Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">0</field>
+        <field name="Total">0</field>
+      </fields>
       <libsource lib="Jumper" part="Jumper_2_Open" description="Jumper, 2-pole, open"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>628438C1</tstamp>
@@ -196,6 +263,10 @@
       <value>10K Ohm</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">30</field>
+      </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>628572AF</tstamp>
@@ -204,6 +275,10 @@
       <value>10K Ohm</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">30</field>
+      </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>6286320D</tstamp>
@@ -212,22 +287,39 @@
       <value>10K Ohm</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">30</field>
+      </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>62866338</tstamp>
     </comp>
-    <comp ref="C1">
-      <value>0.1 uFd</value>
-      <footprint>Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder</footprint>
+    <comp ref="J5">
+      <value>Power</value>
+      <footprint>Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical</footprint>
       <datasheet>~</datasheet>
-      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <fields>
+        <field name="Multiplier">0</field>
+        <field name="Total">0</field>
+      </fields>
+      <libsource lib="Connector" part="Conn_01x02_Male" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>628D13AD</tstamp>
+      <tstamp>61B4A915</tstamp>
     </comp>
     <comp ref="D1">
       <value>Z0103MN</value>
       <footprint>Package_TO_SOT_SMD:SOT-223</footprint>
       <datasheet>http://www.st.com/resource/en/datasheet/z01.pdf</datasheet>
+      <fields>
+        <field name="DK_Datasheet_Link">https://www.st.com/content/ccc/resource/technical/document/datasheet/af/ee/c1/7b/df/8a/46/d7/CD00002268.pdf/files/CD00002268.pdf/jcr:content/translations/en.CD00002268.pdf</field>
+        <field name="DK_Detail_Page">https://www.digikey.com/en/products/detail/stmicroelectronics/Z0103NN5AA4/2827071</field>
+        <field name="Description">Triac</field>
+        <field name="Digi-Key_PN">497-12382-1-ND</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$0.6</field>
+        <field name="Total">80</field>
+      </fields>
       <libsource lib="jdn_symbols" part="Z0103MN" description="4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"/>
       <sheetpath names="/segmentDriverA/" tstamps="/61A24FF0/"/>
       <tstamp>61A5AA61</tstamp>
@@ -236,6 +328,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverA/" tstamps="/61A24FF0/"/>
       <tstamp>61A5AA67</tstamp>
@@ -244,6 +340,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverA/" tstamps="/61A24FF0/"/>
       <tstamp>61A5AA6D</tstamp>
@@ -252,6 +352,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverA/" tstamps="/61A24FF0/"/>
       <tstamp>61A5AA83</tstamp>
@@ -269,7 +373,10 @@
         <field name="Family">Optoisolators - Triac, SCR Output</field>
         <field name="MPN">QTM3063T1</field>
         <field name="Manufacturer">QT Brightek</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$.706</field>
         <field name="Status">Active</field>
+        <field name="Total">80</field>
       </fields>
       <libsource lib="jdn_symbols" part="QTM3063T1" description="OPTOISOLATOR 5KV TRIAC 4pin mini-flat"/>
       <sheetpath names="/segmentDriverA/" tstamps="/61A24FF0/"/>
@@ -279,6 +386,15 @@
       <value>Z0103MN</value>
       <footprint>Package_TO_SOT_SMD:SOT-223</footprint>
       <datasheet>http://www.st.com/resource/en/datasheet/z01.pdf</datasheet>
+      <fields>
+        <field name="DK_Datasheet_Link">https://www.st.com/content/ccc/resource/technical/document/datasheet/af/ee/c1/7b/df/8a/46/d7/CD00002268.pdf/files/CD00002268.pdf/jcr:content/translations/en.CD00002268.pdf</field>
+        <field name="DK_Detail_Page">https://www.digikey.com/en/products/detail/stmicroelectronics/Z0103NN5AA4/2827071</field>
+        <field name="Description">Triac</field>
+        <field name="Digi-Key_PN">497-12382-1-ND</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$0.6</field>
+        <field name="Total">80</field>
+      </fields>
       <libsource lib="jdn_symbols" part="Z0103MN" description="4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"/>
       <sheetpath names="/segmentDriverB/" tstamps="/61F6EF90/"/>
       <tstamp>61A5AA61</tstamp>
@@ -287,6 +403,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverB/" tstamps="/61F6EF90/"/>
       <tstamp>61A5AA67</tstamp>
@@ -295,6 +415,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverB/" tstamps="/61F6EF90/"/>
       <tstamp>61A5AA6D</tstamp>
@@ -303,6 +427,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverB/" tstamps="/61F6EF90/"/>
       <tstamp>61A5AA83</tstamp>
@@ -320,7 +448,10 @@
         <field name="Family">Optoisolators - Triac, SCR Output</field>
         <field name="MPN">QTM3063T1</field>
         <field name="Manufacturer">QT Brightek</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$.706</field>
         <field name="Status">Active</field>
+        <field name="Total">80</field>
       </fields>
       <libsource lib="jdn_symbols" part="QTM3063T1" description="OPTOISOLATOR 5KV TRIAC 4pin mini-flat"/>
       <sheetpath names="/segmentDriverB/" tstamps="/61F6EF90/"/>
@@ -330,6 +461,15 @@
       <value>Z0103MN</value>
       <footprint>Package_TO_SOT_SMD:SOT-223</footprint>
       <datasheet>http://www.st.com/resource/en/datasheet/z01.pdf</datasheet>
+      <fields>
+        <field name="DK_Datasheet_Link">https://www.st.com/content/ccc/resource/technical/document/datasheet/af/ee/c1/7b/df/8a/46/d7/CD00002268.pdf/files/CD00002268.pdf/jcr:content/translations/en.CD00002268.pdf</field>
+        <field name="DK_Detail_Page">https://www.digikey.com/en/products/detail/stmicroelectronics/Z0103NN5AA4/2827071</field>
+        <field name="Description">Triac</field>
+        <field name="Digi-Key_PN">497-12382-1-ND</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$0.6</field>
+        <field name="Total">80</field>
+      </fields>
       <libsource lib="jdn_symbols" part="Z0103MN" description="4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"/>
       <sheetpath names="/segmentDriverC/" tstamps="/61FCCA00/"/>
       <tstamp>61A5AA61</tstamp>
@@ -338,6 +478,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverC/" tstamps="/61FCCA00/"/>
       <tstamp>61A5AA67</tstamp>
@@ -346,6 +490,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverC/" tstamps="/61FCCA00/"/>
       <tstamp>61A5AA6D</tstamp>
@@ -354,6 +502,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverC/" tstamps="/61FCCA00/"/>
       <tstamp>61A5AA83</tstamp>
@@ -371,7 +523,10 @@
         <field name="Family">Optoisolators - Triac, SCR Output</field>
         <field name="MPN">QTM3063T1</field>
         <field name="Manufacturer">QT Brightek</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$.706</field>
         <field name="Status">Active</field>
+        <field name="Total">80</field>
       </fields>
       <libsource lib="jdn_symbols" part="QTM3063T1" description="OPTOISOLATOR 5KV TRIAC 4pin mini-flat"/>
       <sheetpath names="/segmentDriverC/" tstamps="/61FCCA00/"/>
@@ -381,6 +536,15 @@
       <value>Z0103MN</value>
       <footprint>Package_TO_SOT_SMD:SOT-223</footprint>
       <datasheet>http://www.st.com/resource/en/datasheet/z01.pdf</datasheet>
+      <fields>
+        <field name="DK_Datasheet_Link">https://www.st.com/content/ccc/resource/technical/document/datasheet/af/ee/c1/7b/df/8a/46/d7/CD00002268.pdf/files/CD00002268.pdf/jcr:content/translations/en.CD00002268.pdf</field>
+        <field name="DK_Detail_Page">https://www.digikey.com/en/products/detail/stmicroelectronics/Z0103NN5AA4/2827071</field>
+        <field name="Description">Triac</field>
+        <field name="Digi-Key_PN">497-12382-1-ND</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$0.6</field>
+        <field name="Total">80</field>
+      </fields>
       <libsource lib="jdn_symbols" part="Z0103MN" description="4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"/>
       <sheetpath names="/segmentDriverD/" tstamps="/61FCCA04/"/>
       <tstamp>61A5AA61</tstamp>
@@ -389,6 +553,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverD/" tstamps="/61FCCA04/"/>
       <tstamp>61A5AA67</tstamp>
@@ -397,6 +565,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverD/" tstamps="/61FCCA04/"/>
       <tstamp>61A5AA6D</tstamp>
@@ -405,6 +577,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverD/" tstamps="/61FCCA04/"/>
       <tstamp>61A5AA83</tstamp>
@@ -422,7 +598,10 @@
         <field name="Family">Optoisolators - Triac, SCR Output</field>
         <field name="MPN">QTM3063T1</field>
         <field name="Manufacturer">QT Brightek</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$.706</field>
         <field name="Status">Active</field>
+        <field name="Total">80</field>
       </fields>
       <libsource lib="jdn_symbols" part="QTM3063T1" description="OPTOISOLATOR 5KV TRIAC 4pin mini-flat"/>
       <sheetpath names="/segmentDriverD/" tstamps="/61FCCA04/"/>
@@ -432,6 +611,15 @@
       <value>Z0103MN</value>
       <footprint>Package_TO_SOT_SMD:SOT-223</footprint>
       <datasheet>http://www.st.com/resource/en/datasheet/z01.pdf</datasheet>
+      <fields>
+        <field name="DK_Datasheet_Link">https://www.st.com/content/ccc/resource/technical/document/datasheet/af/ee/c1/7b/df/8a/46/d7/CD00002268.pdf/files/CD00002268.pdf/jcr:content/translations/en.CD00002268.pdf</field>
+        <field name="DK_Detail_Page">https://www.digikey.com/en/products/detail/stmicroelectronics/Z0103NN5AA4/2827071</field>
+        <field name="Description">Triac</field>
+        <field name="Digi-Key_PN">497-12382-1-ND</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$0.6</field>
+        <field name="Total">80</field>
+      </fields>
       <libsource lib="jdn_symbols" part="Z0103MN" description="4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"/>
       <sheetpath names="/segmentDriverE/" tstamps="/61FD10CA/"/>
       <tstamp>61A5AA61</tstamp>
@@ -440,6 +628,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverE/" tstamps="/61FD10CA/"/>
       <tstamp>61A5AA67</tstamp>
@@ -448,6 +640,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverE/" tstamps="/61FD10CA/"/>
       <tstamp>61A5AA6D</tstamp>
@@ -456,6 +652,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverE/" tstamps="/61FD10CA/"/>
       <tstamp>61A5AA83</tstamp>
@@ -473,7 +673,10 @@
         <field name="Family">Optoisolators - Triac, SCR Output</field>
         <field name="MPN">QTM3063T1</field>
         <field name="Manufacturer">QT Brightek</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$.706</field>
         <field name="Status">Active</field>
+        <field name="Total">80</field>
       </fields>
       <libsource lib="jdn_symbols" part="QTM3063T1" description="OPTOISOLATOR 5KV TRIAC 4pin mini-flat"/>
       <sheetpath names="/segmentDriverE/" tstamps="/61FD10CA/"/>
@@ -483,6 +686,15 @@
       <value>Z0103MN</value>
       <footprint>Package_TO_SOT_SMD:SOT-223</footprint>
       <datasheet>http://www.st.com/resource/en/datasheet/z01.pdf</datasheet>
+      <fields>
+        <field name="DK_Datasheet_Link">https://www.st.com/content/ccc/resource/technical/document/datasheet/af/ee/c1/7b/df/8a/46/d7/CD00002268.pdf/files/CD00002268.pdf/jcr:content/translations/en.CD00002268.pdf</field>
+        <field name="DK_Detail_Page">https://www.digikey.com/en/products/detail/stmicroelectronics/Z0103NN5AA4/2827071</field>
+        <field name="Description">Triac</field>
+        <field name="Digi-Key_PN">497-12382-1-ND</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$0.6</field>
+        <field name="Total">80</field>
+      </fields>
       <libsource lib="jdn_symbols" part="Z0103MN" description="4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"/>
       <sheetpath names="/segmentDriverF/" tstamps="/61FD10CE/"/>
       <tstamp>61A5AA61</tstamp>
@@ -491,6 +703,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverF/" tstamps="/61FD10CE/"/>
       <tstamp>61A5AA67</tstamp>
@@ -499,6 +715,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverF/" tstamps="/61FD10CE/"/>
       <tstamp>61A5AA6D</tstamp>
@@ -507,6 +727,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverF/" tstamps="/61FD10CE/"/>
       <tstamp>61A5AA83</tstamp>
@@ -524,7 +748,10 @@
         <field name="Family">Optoisolators - Triac, SCR Output</field>
         <field name="MPN">QTM3063T1</field>
         <field name="Manufacturer">QT Brightek</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$.706</field>
         <field name="Status">Active</field>
+        <field name="Total">80</field>
       </fields>
       <libsource lib="jdn_symbols" part="QTM3063T1" description="OPTOISOLATOR 5KV TRIAC 4pin mini-flat"/>
       <sheetpath names="/segmentDriverF/" tstamps="/61FD10CE/"/>
@@ -534,6 +761,15 @@
       <value>Z0103MN</value>
       <footprint>Package_TO_SOT_SMD:SOT-223</footprint>
       <datasheet>http://www.st.com/resource/en/datasheet/z01.pdf</datasheet>
+      <fields>
+        <field name="DK_Datasheet_Link">https://www.st.com/content/ccc/resource/technical/document/datasheet/af/ee/c1/7b/df/8a/46/d7/CD00002268.pdf/files/CD00002268.pdf/jcr:content/translations/en.CD00002268.pdf</field>
+        <field name="DK_Detail_Page">https://www.digikey.com/en/products/detail/stmicroelectronics/Z0103NN5AA4/2827071</field>
+        <field name="Description">Triac</field>
+        <field name="Digi-Key_PN">497-12382-1-ND</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$0.6</field>
+        <field name="Total">80</field>
+      </fields>
       <libsource lib="jdn_symbols" part="Z0103MN" description="4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"/>
       <sheetpath names="/segmentDriverG/" tstamps="/61FD5722/"/>
       <tstamp>61A5AA61</tstamp>
@@ -542,6 +778,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverG/" tstamps="/61FD5722/"/>
       <tstamp>61A5AA67</tstamp>
@@ -550,6 +790,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverG/" tstamps="/61FD5722/"/>
       <tstamp>61A5AA6D</tstamp>
@@ -558,6 +802,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverG/" tstamps="/61FD5722/"/>
       <tstamp>61A5AA83</tstamp>
@@ -575,7 +823,10 @@
         <field name="Family">Optoisolators - Triac, SCR Output</field>
         <field name="MPN">QTM3063T1</field>
         <field name="Manufacturer">QT Brightek</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$.706</field>
         <field name="Status">Active</field>
+        <field name="Total">80</field>
       </fields>
       <libsource lib="jdn_symbols" part="QTM3063T1" description="OPTOISOLATOR 5KV TRIAC 4pin mini-flat"/>
       <sheetpath names="/segmentDriverG/" tstamps="/61FD5722/"/>
@@ -585,6 +836,15 @@
       <value>Z0103MN</value>
       <footprint>Package_TO_SOT_SMD:SOT-223</footprint>
       <datasheet>http://www.st.com/resource/en/datasheet/z01.pdf</datasheet>
+      <fields>
+        <field name="DK_Datasheet_Link">https://www.st.com/content/ccc/resource/technical/document/datasheet/af/ee/c1/7b/df/8a/46/d7/CD00002268.pdf/files/CD00002268.pdf/jcr:content/translations/en.CD00002268.pdf</field>
+        <field name="DK_Detail_Page">https://www.digikey.com/en/products/detail/stmicroelectronics/Z0103NN5AA4/2827071</field>
+        <field name="Description">Triac</field>
+        <field name="Digi-Key_PN">497-12382-1-ND</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$0.6</field>
+        <field name="Total">80</field>
+      </fields>
       <libsource lib="jdn_symbols" part="Z0103MN" description="4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"/>
       <sheetpath names="/segmentDriverH/" tstamps="/61FD5726/"/>
       <tstamp>61A5AA61</tstamp>
@@ -593,6 +853,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverH/" tstamps="/61FD5726/"/>
       <tstamp>61A5AA67</tstamp>
@@ -601,6 +865,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverH/" tstamps="/61FD5726/"/>
       <tstamp>61A5AA6D</tstamp>
@@ -609,6 +877,10 @@
       <value>390</value>
       <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">240</field>
+      </fields>
       <libsource lib="Device" part="R_US" description="Resistor, US symbol"/>
       <sheetpath names="/segmentDriverH/" tstamps="/61FD5726/"/>
       <tstamp>61A5AA83</tstamp>
@@ -626,11 +898,58 @@
         <field name="Family">Optoisolators - Triac, SCR Output</field>
         <field name="MPN">QTM3063T1</field>
         <field name="Manufacturer">QT Brightek</field>
+        <field name="Multiplier">10</field>
+        <field name="Price">$.706</field>
         <field name="Status">Active</field>
+        <field name="Total">80</field>
       </fields>
       <libsource lib="jdn_symbols" part="QTM3063T1" description="OPTOISOLATOR 5KV TRIAC 4pin mini-flat"/>
       <sheetpath names="/segmentDriverH/" tstamps="/61FD5726/"/>
       <tstamp>626DC068</tstamp>
+    </comp>
+    <comp ref="H2">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_4.3mm_M4_ISO14580</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/mountingHoles/" tstamps="/61AF595E/"/>
+      <tstamp>61AF7582</tstamp>
+    </comp>
+    <comp ref="H3">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_4.3mm_M4_ISO14580</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/mountingHoles/" tstamps="/61AF595E/"/>
+      <tstamp>61AF7A24</tstamp>
+    </comp>
+    <comp ref="H1">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_4.3mm_M4_ISO14580</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/mountingHoles/" tstamps="/61AF595E/"/>
+      <tstamp>61AF7BF3</tstamp>
+    </comp>
+    <comp ref="H4">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_4.3mm_M4_ISO14580</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/mountingHoles/" tstamps="/61AF595E/"/>
+      <tstamp>61AF7ECA</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>0.1 uFd</value>
+      <footprint>Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Multiplier">10</field>
+        <field name="Total">10</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/decouplingCaps/" tstamps="/61B04F51/"/>
+      <tstamp>61B0A15A</tstamp>
     </comp>
   </components>
   <libparts>
@@ -748,6 +1067,17 @@
         <pin num="2" name="B" type="passive"/>
       </pins>
     </libpart>
+    <libpart lib="Mechanical" part="MountingHole">
+      <description>Mounting Hole without connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+      </fields>
+    </libpart>
     <libpart lib="SparkFun_SchematicComponents" part="Qwiic_Connector">
       <footprints>
         <fp>*SPARKX_1X04_1MM_RA*</fp>
@@ -849,6 +1179,9 @@
     <library logical="Jumper">
       <uri>/usr/share/kicad/library/Jumper.lib</uri>
     </library>
+    <library logical="Mechanical">
+      <uri>/usr/share/kicad/library/Mechanical.lib</uri>
+    </library>
     <library logical="SparkFun_SchematicComponents">
       <uri>/home/jdn/Code2/sparkfun-components/SparkFun_SchematicComponents.lib</uri>
     </library>
@@ -857,166 +1190,169 @@
     </library>
   </libraries>
   <nets>
-    <net code="1" name="+3V3">
-      <node ref="R3" pin="1"/>
-      <node ref="J1" pin="2"/>
-      <node ref="J2" pin="2"/>
-      <node ref="C1" pin="1"/>
-      <node ref="R2" pin="1"/>
-      <node ref="R1" pin="1"/>
-      <node ref="U1" pin="5"/>
-    </net>
-    <net code="2" name="/SCL">
-      <node ref="J2" pin="4"/>
+    <net code="1" name="/SCL">
       <node ref="J1" pin="4"/>
       <node ref="U1" pin="2"/>
+      <node ref="J2" pin="4"/>
     </net>
-    <net code="3" name="/SDA">
-      <node ref="J2" pin="3"/>
+    <net code="2" name="/SDA">
       <node ref="J1" pin="3"/>
+      <node ref="J2" pin="3"/>
       <node ref="U1" pin="4"/>
     </net>
-    <net code="4" name="Net-(U1-Pad8)">
-      <node ref="U1" pin="8"/>
+    <net code="3" name="/A1">
+      <node ref="R2" pin="2"/>
+      <node ref="U1" pin="7"/>
+      <node ref="JP2" pin="2"/>
     </net>
-    <net code="5" name="GND">
-      <node ref="JP2" pin="1"/>
+    <net code="4" name="GND">
       <node ref="JP1" pin="1"/>
-      <node ref="R4" pin="2"/>
-      <node ref="R10" pin="2"/>
-      <node ref="R19" pin="2"/>
-      <node ref="R7" pin="2"/>
-      <node ref="R13" pin="2"/>
-      <node ref="JP3" pin="1"/>
-      <node ref="R16" pin="2"/>
-      <node ref="J2" pin="1"/>
-      <node ref="J1" pin="1"/>
-      <node ref="R22" pin="2"/>
-      <node ref="U1" pin="15"/>
+      <node ref="J5" pin="2"/>
       <node ref="C1" pin="2"/>
-      <node ref="R25" pin="2"/>
+      <node ref="U1" pin="15"/>
+      <node ref="J2" pin="1"/>
+      <node ref="JP3" pin="1"/>
+      <node ref="J1" pin="1"/>
+      <node ref="JP2" pin="1"/>
+    </net>
+    <net code="5" name="GND1">
+      <node ref="J4" pin="2"/>
+      <node ref="DS1" pin="1"/>
+      <node ref="J3" pin="2"/>
     </net>
     <net code="6" name="HV_AC">
       <node ref="R11" pin="1"/>
-      <node ref="D3" pin="4"/>
       <node ref="D3" pin="2"/>
+      <node ref="D3" pin="4"/>
+      <node ref="R14" pin="1"/>
+      <node ref="D4" pin="4"/>
+      <node ref="D4" pin="2"/>
+      <node ref="J3" pin="1"/>
+      <node ref="R26" pin="1"/>
+      <node ref="D8" pin="4"/>
       <node ref="D1" pin="2"/>
       <node ref="D1" pin="4"/>
       <node ref="R5" pin="1"/>
-      <node ref="D2" pin="2"/>
-      <node ref="D2" pin="4"/>
       <node ref="R8" pin="1"/>
-      <node ref="R23" pin="1"/>
-      <node ref="D6" pin="4"/>
-      <node ref="R20" pin="1"/>
+      <node ref="D2" pin="4"/>
+      <node ref="D2" pin="2"/>
+      <node ref="J4" pin="1"/>
       <node ref="D7" pin="2"/>
       <node ref="D7" pin="4"/>
+      <node ref="R23" pin="1"/>
+      <node ref="R20" pin="1"/>
+      <node ref="D6" pin="4"/>
       <node ref="D6" pin="2"/>
-      <node ref="D8" pin="2"/>
-      <node ref="D8" pin="4"/>
-      <node ref="R26" pin="1"/>
-      <node ref="D4" pin="2"/>
-      <node ref="D4" pin="4"/>
-      <node ref="R14" pin="1"/>
-      <node ref="D5" pin="2"/>
-      <node ref="D5" pin="4"/>
       <node ref="R17" pin="1"/>
-      <node ref="J4" pin="1"/>
-      <node ref="J3" pin="1"/>
+      <node ref="D5" pin="4"/>
+      <node ref="D5" pin="2"/>
+      <node ref="D8" pin="2"/>
     </net>
-    <net code="7" name="GND1">
-      <node ref="DS1" pin="1"/>
-      <node ref="J3" pin="2"/>
-      <node ref="J4" pin="2"/>
+    <net code="7" name="+5V">
+      <node ref="U2" pin="1"/>
+      <node ref="U9" pin="1"/>
+      <node ref="U6" pin="1"/>
+      <node ref="U5" pin="1"/>
+      <node ref="U7" pin="1"/>
+      <node ref="U4" pin="1"/>
+      <node ref="U3" pin="1"/>
+      <node ref="C1" pin="1"/>
+      <node ref="U8" pin="1"/>
+      <node ref="J5" pin="1"/>
+      <node ref="R3" pin="1"/>
+      <node ref="R2" pin="1"/>
+      <node ref="J1" pin="2"/>
+      <node ref="J2" pin="2"/>
+      <node ref="U1" pin="5"/>
+      <node ref="R1" pin="1"/>
     </net>
     <net code="8" name="Net-(U1-Pad1)">
       <node ref="U1" pin="1"/>
     </net>
-    <net code="9" name="/A1">
-      <node ref="JP2" pin="2"/>
-      <node ref="R2" pin="2"/>
-      <node ref="U1" pin="7"/>
-    </net>
-    <net code="10" name="/A2">
+    <net code="9" name="/A2">
+      <node ref="U1" pin="9"/>
       <node ref="R3" pin="2"/>
       <node ref="JP3" pin="2"/>
-      <node ref="U1" pin="9"/>
     </net>
-    <net code="11" name="/A0">
+    <net code="10" name="/A0">
       <node ref="U1" pin="6"/>
-      <node ref="R1" pin="2"/>
       <node ref="JP1" pin="2"/>
+      <node ref="R1" pin="2"/>
     </net>
-    <net code="12" name="/SegE">
-      <node ref="D5" pin="1"/>
-      <node ref="DS1" pin="11"/>
-      <node ref="R18" pin="1"/>
-    </net>
-    <net code="13" name="/EnbSegF">
-      <node ref="U1" pin="17"/>
-      <node ref="U7" pin="1"/>
-    </net>
-    <net code="14" name="/SegF">
-      <node ref="R21" pin="1"/>
+    <net code="11" name="/SegF">
       <node ref="DS1" pin="14"/>
       <node ref="D6" pin="1"/>
+      <node ref="R21" pin="1"/>
     </net>
-    <net code="15" name="/SegG">
+    <net code="12" name="/EnbSegG">
+      <node ref="R22" pin="2"/>
+      <node ref="U1" pin="19"/>
+    </net>
+    <net code="13" name="/SegG">
       <node ref="DS1" pin="17"/>
       <node ref="R24" pin="1"/>
       <node ref="D7" pin="1"/>
     </net>
-    <net code="16" name="/SegH">
-      <node ref="D8" pin="1"/>
-      <node ref="R27" pin="1"/>
-      <node ref="DS1" pin="20"/>
-    </net>
-    <net code="17" name="/EnbSegB">
-      <node ref="U3" pin="1"/>
+    <net code="14" name="/EnbSegB">
+      <node ref="R7" pin="2"/>
       <node ref="U1" pin="11"/>
     </net>
-    <net code="18" name="/SegB">
-      <node ref="D2" pin="1"/>
+    <net code="15" name="/SegB">
       <node ref="DS1" pin="3"/>
+      <node ref="D2" pin="1"/>
       <node ref="R9" pin="1"/>
     </net>
-    <net code="19" name="/EnbSegC">
+    <net code="16" name="/EnbSegC">
+      <node ref="R10" pin="2"/>
       <node ref="U1" pin="12"/>
-      <node ref="U4" pin="1"/>
     </net>
-    <net code="20" name="/EnbSegD">
-      <node ref="U5" pin="1"/>
+    <net code="17" name="/EnbSegD">
+      <node ref="R13" pin="2"/>
       <node ref="U1" pin="14"/>
     </net>
-    <net code="21" name="/SegC">
+    <net code="18" name="/EnbSegF">
+      <node ref="R19" pin="2"/>
+      <node ref="U1" pin="17"/>
+    </net>
+    <net code="19" name="/SegC">
       <node ref="DS1" pin="7"/>
       <node ref="R12" pin="1"/>
       <node ref="D3" pin="1"/>
     </net>
-    <net code="22" name="/SegD">
+    <net code="20" name="/SegD">
       <node ref="DS1" pin="8"/>
       <node ref="R15" pin="1"/>
       <node ref="D4" pin="1"/>
     </net>
-    <net code="23" name="/SegA">
-      <node ref="R6" pin="1"/>
-      <node ref="D1" pin="1"/>
+    <net code="21" name="/SegE">
+      <node ref="D5" pin="1"/>
+      <node ref="DS1" pin="11"/>
+      <node ref="R18" pin="1"/>
+    </net>
+    <net code="22" name="/SegA">
       <node ref="DS1" pin="2"/>
+      <node ref="D1" pin="1"/>
+      <node ref="R6" pin="1"/>
     </net>
-    <net code="24" name="/EnbSegE">
+    <net code="23" name="/EnbSegE">
+      <node ref="R16" pin="2"/>
       <node ref="U1" pin="16"/>
-      <node ref="U6" pin="1"/>
     </net>
-    <net code="25" name="/EnbSegA">
+    <net code="24" name="/EnbSegA">
       <node ref="U1" pin="10"/>
-      <node ref="U2" pin="1"/>
+      <node ref="R4" pin="2"/>
+    </net>
+    <net code="25" name="/SegH">
+      <node ref="R27" pin="1"/>
+      <node ref="D8" pin="1"/>
+      <node ref="DS1" pin="20"/>
     </net>
     <net code="26" name="Net-(DS1-Pad5)">
       <node ref="DS1" pin="5"/>
     </net>
     <net code="27" name="/EnbSegH">
       <node ref="U1" pin="20"/>
-      <node ref="U9" pin="1"/>
+      <node ref="R25" pin="2"/>
     </net>
     <net code="28" name="Net-(U1-Pad13)">
       <node ref="U1" pin="13"/>
@@ -1024,116 +1360,115 @@
     <net code="29" name="Net-(U1-Pad18)">
       <node ref="U1" pin="18"/>
     </net>
-    <net code="30" name="/EnbSegG">
-      <node ref="U8" pin="1"/>
-      <node ref="U1" pin="19"/>
-    </net>
-    <net code="31" name="Net-(U1-Pad3)">
+    <net code="30" name="Net-(U1-Pad3)">
       <node ref="U1" pin="3"/>
     </net>
+    <net code="31" name="Net-(U1-Pad8)">
+      <node ref="U1" pin="8"/>
+    </net>
     <net code="32" name="Net-(R4-Pad1)">
-      <node ref="R4" pin="1"/>
       <node ref="U2" pin="2"/>
+      <node ref="R4" pin="1"/>
     </net>
     <net code="33" name="Net-(R5-Pad2)">
       <node ref="R5" pin="2"/>
       <node ref="U2" pin="4"/>
     </net>
     <net code="34" name="Net-(D1-Pad3)">
-      <node ref="U2" pin="3"/>
       <node ref="D1" pin="3"/>
+      <node ref="U2" pin="3"/>
       <node ref="R6" pin="2"/>
     </net>
-    <net code="35" name="Net-(R7-Pad1)">
-      <node ref="R7" pin="1"/>
-      <node ref="U3" pin="2"/>
+    <net code="35" name="Net-(D2-Pad3)">
+      <node ref="D2" pin="3"/>
+      <node ref="R9" pin="2"/>
+      <node ref="U3" pin="3"/>
     </net>
     <net code="36" name="Net-(R8-Pad2)">
       <node ref="R8" pin="2"/>
       <node ref="U3" pin="4"/>
     </net>
-    <net code="37" name="Net-(D2-Pad3)">
-      <node ref="R9" pin="2"/>
-      <node ref="D2" pin="3"/>
-      <node ref="U3" pin="3"/>
+    <net code="37" name="Net-(R7-Pad1)">
+      <node ref="R7" pin="1"/>
+      <node ref="U3" pin="2"/>
     </net>
-    <net code="38" name="Net-(R10-Pad1)">
-      <node ref="R10" pin="1"/>
-      <node ref="U4" pin="2"/>
-    </net>
-    <net code="39" name="Net-(R11-Pad2)">
-      <node ref="U4" pin="4"/>
+    <net code="38" name="Net-(R11-Pad2)">
       <node ref="R11" pin="2"/>
+      <node ref="U4" pin="4"/>
     </net>
-    <net code="40" name="Net-(D3-Pad3)">
-      <node ref="U4" pin="3"/>
-      <node ref="D3" pin="3"/>
+    <net code="39" name="Net-(D3-Pad3)">
       <node ref="R12" pin="2"/>
+      <node ref="D3" pin="3"/>
+      <node ref="U4" pin="3"/>
     </net>
-    <net code="41" name="Net-(R13-Pad1)">
-      <node ref="R13" pin="1"/>
-      <node ref="U5" pin="2"/>
+    <net code="40" name="Net-(R10-Pad1)">
+      <node ref="U4" pin="2"/>
+      <node ref="R10" pin="1"/>
     </net>
-    <net code="42" name="Net-(R14-Pad2)">
+    <net code="41" name="Net-(R14-Pad2)">
       <node ref="U5" pin="4"/>
       <node ref="R14" pin="2"/>
     </net>
-    <net code="43" name="Net-(D4-Pad3)">
-      <node ref="D4" pin="3"/>
-      <node ref="R15" pin="2"/>
+    <net code="42" name="Net-(D4-Pad3)">
       <node ref="U5" pin="3"/>
+      <node ref="R15" pin="2"/>
+      <node ref="D4" pin="3"/>
     </net>
-    <net code="44" name="Net-(R16-Pad1)">
-      <node ref="U6" pin="2"/>
-      <node ref="R16" pin="1"/>
+    <net code="43" name="Net-(R13-Pad1)">
+      <node ref="R13" pin="1"/>
+      <node ref="U5" pin="2"/>
     </net>
-    <net code="45" name="Net-(R17-Pad2)">
+    <net code="44" name="Net-(R17-Pad2)">
       <node ref="R17" pin="2"/>
       <node ref="U6" pin="4"/>
     </net>
-    <net code="46" name="Net-(D5-Pad3)">
+    <net code="45" name="Net-(D5-Pad3)">
+      <node ref="D5" pin="3"/>
       <node ref="R18" pin="2"/>
       <node ref="U6" pin="3"/>
-      <node ref="D5" pin="3"/>
     </net>
-    <net code="47" name="Net-(R19-Pad1)">
-      <node ref="U7" pin="2"/>
-      <node ref="R19" pin="1"/>
+    <net code="46" name="Net-(R16-Pad1)">
+      <node ref="U6" pin="2"/>
+      <node ref="R16" pin="1"/>
     </net>
-    <net code="48" name="Net-(R20-Pad2)">
+    <net code="47" name="Net-(R20-Pad2)">
       <node ref="R20" pin="2"/>
       <node ref="U7" pin="4"/>
     </net>
-    <net code="49" name="Net-(D6-Pad3)">
+    <net code="48" name="Net-(D6-Pad3)">
+      <node ref="R21" pin="2"/>
       <node ref="U7" pin="3"/>
       <node ref="D6" pin="3"/>
-      <node ref="R21" pin="2"/>
     </net>
-    <net code="50" name="Net-(R22-Pad1)">
-      <node ref="U8" pin="2"/>
-      <node ref="R22" pin="1"/>
+    <net code="49" name="Net-(R19-Pad1)">
+      <node ref="U7" pin="2"/>
+      <node ref="R19" pin="1"/>
     </net>
-    <net code="51" name="Net-(R23-Pad2)">
+    <net code="50" name="Net-(R23-Pad2)">
       <node ref="U8" pin="4"/>
       <node ref="R23" pin="2"/>
     </net>
-    <net code="52" name="Net-(D7-Pad3)">
+    <net code="51" name="Net-(D7-Pad3)">
       <node ref="R24" pin="2"/>
       <node ref="U8" pin="3"/>
       <node ref="D7" pin="3"/>
     </net>
-    <net code="53" name="Net-(R25-Pad1)">
+    <net code="52" name="Net-(R22-Pad1)">
+      <node ref="R22" pin="1"/>
+      <node ref="U8" pin="2"/>
+    </net>
+    <net code="53" name="Net-(D8-Pad3)">
+      <node ref="D8" pin="3"/>
+      <node ref="R27" pin="2"/>
+      <node ref="U9" pin="3"/>
+    </net>
+    <net code="54" name="Net-(R25-Pad1)">
       <node ref="R25" pin="1"/>
       <node ref="U9" pin="2"/>
     </net>
-    <net code="54" name="Net-(R26-Pad2)">
-      <node ref="R26" pin="2"/>
+    <net code="55" name="Net-(R26-Pad2)">
       <node ref="U9" pin="4"/>
-    </net>
-    <net code="55" name="Net-(D8-Pad3)">
-      <node ref="R27" pin="2"/>
-      <node ref="D8" pin="3"/>
-      <node ref="U9" pin="3"/>
+      <node ref="R26" pin="2"/>
     </net>
   </nets>
 </export>
