@@ -192,12 +192,12 @@ Display made of six eight-segment EL display units
   - resistors: 30x + 240x @ $?   = $?
   - connectors: 20x @ $?         = $? (optional)
                                    ~$130
+
+
 =======================================================================================
 * PCB Fixes
-  - Add mounting holes -- remeasure the locations, make it over-sized
-  - Make J3 and J4 larger -- 0.025" posts on .1" spacing
-  - Enlarge size of pads for U2-U9
-  - Equal spacing of JP1-JP3
-  - Proper sized Qwiic connectors -- if they fit?
-  - Fix optoisolator driver circuits -- port expander outputs need to sink (not source)
-
+  - prototype fixes to make sure they work before making new PCBs
+  - embiggen power traces on PCB layout
+  - make BOM and add it to repo
+  - look over everything before going to OSH Park/Stencil with v1.0.0 design
+  - add text with version number to silk screen -- put stuff on the back?
