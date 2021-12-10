@@ -22,6 +22,8 @@ Display made of six eight-segment EL display units
 ### Driver PCB
 ![Driver Board Top](afdOP2_top.png)
 ![Driver Board Bottom](afdOP2_bottom.png)
+![Assembling Board](reflow.jpg)
+![Assembled Board](stencil.jpg)
 
 ### Schematic
 ![Driver Board Schematic](afdDriver.pdf)
@@ -197,7 +199,5 @@ Display made of six eight-segment EL display units
 =======================================================================================
 * PCB Fixes
   - prototype fixes to make sure they work before making new PCBs
-  - embiggen power traces on PCB layout
   - make BOM and add it to repo
   - look over everything before going to OSH Park/Stencil with v1.0.0 design
-  - add text with version number to silk screen -- put stuff on the back?
