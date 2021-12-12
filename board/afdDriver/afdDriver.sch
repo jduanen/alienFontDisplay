@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 11
 Title "Smartsocket for Alien Font Display"
-Date "2021-12-06"
-Rev "1.0.0"
+Date "2021-12-12"
+Rev "1.0.1"
 Comp ""
 Comment1 ""
 Comment2 ""
