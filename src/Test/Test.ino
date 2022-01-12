@@ -8,16 +8,29 @@
 #include "PCF8574.h"
 
 
-#define VERBOSE   1
-#define I2C_ADDR        0x27 /* 0x20 */
+
+#define TEST            'B'
+#define VERBOSE         1
+
+#define I2C_BASE_ADDR   0x20
 #define READ_ADDR       0x4F
 #define WRITE_ADDR      0x4E
-#define NUM_CHARS       6
+#define NUM_UNITS       6
+#define NUM_SEGMENTS    8
 #define CHAR_MAP_SIZE   26
 #define DIGIT_MAP_SIZE  10
 
 
-PCF8574 pcf8574(I2C_ADDR);
+unsigned char c = 0;
+
+PCF8574 afd[NUM_UNITS] = {
+  PCF8574(I2C_BASE_ADDR),
+  PCF8574(I2C_BASE_ADDR + 1),
+  PCF8574(I2C_BASE_ADDR + 2),
+  PCF8574(I2C_BASE_ADDR + 3),
+  PCF8574(I2C_BASE_ADDR + 4),
+  PCF8574(I2C_BASE_ADDR + 5)
+};
 
 unsigned char charMap[CHAR_MAP_SIZE] = {
   0b00000100 + 0b00010000 + 0b00100000 + 0b01000000 + 0b10000000, // A
@@ -62,20 +75,40 @@ unsigned char digitMap[DIGIT_MAP_SIZE] = {
 };
 
 
+void clearUnit(unsigned char unit) {
+  unsigned char seg;
+  for (seg = 0; seg < NUM_SEGMENTS; seg++) {
+    afd[unit].digitalWrite(seg, HIGH);
+  }
+}
+
+
+void clearAllUnits() {
+  unsigned char unit;
+  for (unit = 0; unit < NUM_UNITS; unit++) {
+    clearUnit(unit);
+  }
+}
+
+
 void setup() { 
+  unsigned char unit;
+
   Serial.begin(9600);
   delay(500);
 
-  pcf8574.pinMode(P0, OUTPUT, LOW);
-  pcf8574.pinMode(P1, OUTPUT, LOW);
-  pcf8574.pinMode(P2, OUTPUT, LOW);
-  pcf8574.pinMode(P3, OUTPUT, LOW);
-  pcf8574.pinMode(P4, OUTPUT, LOW);
-  pcf8574.pinMode(P5, OUTPUT, LOW);
-  pcf8574.pinMode(P6, OUTPUT, LOW);
-  pcf8574.pinMode(P7, OUTPUT, LOW);
-
-  pcf8574.begin();
+  for (unit = 0; unit < NUM_UNITS; unit++) {
+    afd[unit].pinMode(P0, OUTPUT, HIGH);
+    afd[unit].pinMode(P1, OUTPUT, HIGH);
+    afd[unit].pinMode(P2, OUTPUT, HIGH);
+    afd[unit].pinMode(P3, OUTPUT, HIGH);
+    afd[unit].pinMode(P4, OUTPUT, HIGH);
+    afd[unit].pinMode(P5, OUTPUT, HIGH);
+    afd[unit].pinMode(P6, OUTPUT, HIGH);
+    afd[unit].pinMode(P7, OUTPUT, HIGH);
+    afd[unit].begin();
+  }
+  clearAllUnits();
 
   if (VERBOSE) {
     Serial.println("Start");
@@ -83,34 +116,146 @@ void setup() {
 }
 
 
-void loop() {
-  int i;
+void writeDigit(unsigned char unit, unsigned char digit) { 
   unsigned char chr;
   PCF8574::DigitalInput digitalInput;
 
-  /*
-  for (i = 0; i < 8; i++) {
-    chr = digitMap[i % DIGIT_MAP_SIZE];
-    pcf8574.digitalWrite(i, (chr & (1 << i)));
-    if (VERBOSE) {
-      Serial.println("Char: " + String(chr));
-    }
-  }
-  */
-  for (i = 0; i < 10; i++) {
-    chr = digitMap[i % DIGIT_MAP_SIZE];
-    digitalInput.p7 = ((chr >> 7) & 0x01);
-    digitalInput.p6 = ((chr >> 6) & 0x01);
-    digitalInput.p5 = ((chr >> 5) & 0x01);
-    digitalInput.p4 = ((chr >> 4) & 0x01);
-    digitalInput.p3 = ((chr >> 3) & 0x01);
-    digitalInput.p2 = ((chr >> 2) & 0x01);
-    digitalInput.p1 = ((chr >> 1) & 0x01);
-    digitalInput.p0 = ((chr >> 0) & 0x01);
-    pcf8574.digitalWriteAll(digitalInput);
-    if (VERBOSE) {
-      Serial.println("Char: " + String(chr));
-    }
-    delay(1000);
+  chr = digitMap[digit % DIGIT_MAP_SIZE];
+  digitalInput.p7 = !((chr >> 7) & 0x01);
+  digitalInput.p6 = !((chr >> 6) & 0x01);
+  digitalInput.p5 = !((chr >> 5) & 0x01);
+  digitalInput.p4 = !((chr >> 4) & 0x01);
+  digitalInput.p3 = !((chr >> 3) & 0x01);
+  digitalInput.p2 = !((chr >> 2) & 0x01);
+  digitalInput.p1 = !((chr >> 1) & 0x01);
+  digitalInput.p0 = !((chr >> 0) & 0x01);
+
+  afd[unit % NUM_UNITS].digitalWriteAll(digitalInput);
+  if (VERBOSE) {
+    Serial.print("writeDigit: 0x" +  String(chr, HEX) + "; ");
   }
 }
+
+
+void writeChar(unsigned char unit, unsigned char character) { 
+  unsigned char chr;
+  PCF8574::DigitalInput digitalInput;
+
+  chr = charMap[character % CHAR_MAP_SIZE];
+  digitalInput.p7 = !((chr >> 7) & 0x01);
+  digitalInput.p6 = !((chr >> 6) & 0x01);
+  digitalInput.p5 = !((chr >> 5) & 0x01);
+  digitalInput.p4 = !((chr >> 4) & 0x01);
+  digitalInput.p3 = !((chr >> 3) & 0x01);
+  digitalInput.p2 = !((chr >> 2) & 0x01);
+  digitalInput.p1 = !((chr >> 1) & 0x01);
+  digitalInput.p0 = !((chr >> 0) & 0x01);
+
+  afd[unit % NUM_UNITS].digitalWriteAll(digitalInput);
+  if (VERBOSE) {
+    Serial.print("writeChar: 0x" +  String(chr, HEX) + "; ");
+  }
+}
+
+
+void loop() {
+  unsigned char unit;
+  unsigned char seg;
+
+  switch (TEST) {
+    case 'A':
+      // cycle through digits and characters
+      for (unit = 0; unit < NUM_UNITS; unit++) {
+        if (VERBOSE) {
+          Serial.print("Unit: " + String(unit) + "; ");
+        }
+        if (c < DIGIT_MAP_SIZE) {
+          writeDigit(unit, ((c + unit) % DIGIT_MAP_SIZE));
+          if (VERBOSE) {
+            Serial.println("Digit: " + String((c + unit) % DIGIT_MAP_SIZE));
+          }
+        } else {
+          writeChar(unit, ((c - DIGIT_MAP_SIZE + unit) % CHAR_MAP_SIZE));
+          if (VERBOSE) {
+            Serial.println("Char: " + String((c - DIGIT_MAP_SIZE + unit) % CHAR_MAP_SIZE));
+          }
+        }
+        c++;
+        if (c >= (DIGIT_MAP_SIZE + CHAR_MAP_SIZE)) {
+          c = 0;
+          if (VERBOSE) {
+            Serial.println("Reset");
+          }
+        }
+      }
+      if (VERBOSE) {
+        Serial.println("C: " + String(c));
+        Serial.println("-------------");
+      }
+      break;
+    case 'B':
+      // cycle through all segments on all units
+      for (seg = 0; seg < NUM_SEGMENTS; seg++) {
+        if (VERBOSE) {
+          Serial.print("Segment: " + String(seg) + "; Unit Low: ");
+        }
+        for (unit = 0; unit < NUM_UNITS; unit++) {
+          afd[unit].digitalWrite(seg, LOW);
+          if (VERBOSE) {
+            Serial.print(String(unit) + ", ");
+          }
+        }
+        delay(1000);
+        if (VERBOSE) {
+          Serial.print("; Unit High: ");
+        }
+        for (unit = 0; unit < NUM_UNITS; unit++) {
+          afd[unit].digitalWrite(seg, HIGH);
+          if (VERBOSE) {
+            Serial.print(String(unit) + ", ");
+          }
+        }
+        if (VERBOSE) {
+          Serial.println(".");
+        }
+      }
+      break;
+    case 'C':
+      // enable a single segment on each unit
+      unsigned char s;
+      for (seg = 0; seg < NUM_SEGMENTS; seg++) {
+        for (unit = 0; unit < NUM_UNITS; unit++) {
+          s = (seg + unit) % NUM_SEGMENTS;
+          afd[unit].digitalWrite(s, LOW);
+          if (VERBOSE) {
+            Serial.println("Unit: " + String(unit) + ", Segment: " + String(s));
+          }
+        }
+        delay(1000);
+        clearAllUnits();
+        if (VERBOSE) {
+          Serial.println("Clear all");
+        }
+      }
+      break;
+    case 'D':
+      // enable all segments, then disable all segments, on unit #0
+      for (seg = 0; seg < NUM_SEGMENTS; seg++) {
+        afd[0].digitalWrite(seg, LOW);
+        delay(1000);
+        afd[0].digitalWrite(seg, HIGH);
+        delay(1000);
+        if (VERBOSE) {
+          Serial.println("Segment: " + String(seg));
+        }
+      }
+      break;
+    default:
+      if (VERBOSE) {
+        Serial.println("Invalid Test");
+      }
+      break;
+  }
+
+  delay(1000);
+};
