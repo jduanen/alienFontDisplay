@@ -34,6 +34,18 @@ Display made of six eight-segment EL display units
 
 * IEL-O-VI C63.396.208-02
 
+* pinout
+  - 1: common
+  - 2: bottom horizontal
+  - 3: bottom right angled
+  - 5: n/c?
+  - 7: left vertical
+  - 8: bottom left angled
+  - 11: top right angled
+  - 14: left vertical
+  - 17: top horizontal
+  - 20: top left angled
+
 * notes
   - ~200V @ 400Hz
   - not squarewave -- filter or triangle wave for constant dv/dt
@@ -48,7 +60,7 @@ Display made of six eight-segment EL display units
   - most of drop in brightness occurs in first 200 hours of operation
     * relatively flat after that
   - for best lifetime, maintain constant frequency and reduce voltage
-  - use current limiting resistor for supplys with internal resistance less than 1Kohm
+  - use current limiting resistor for supplies with internal resistance less than 1Kohm
   - add 0.03-0.05ufd caps in parallel with electrodes to improve reliability
   - nomenclature
     * I: indicator
@@ -62,65 +74,7 @@ Display made of six eight-segment EL display units
     * 175-250V @ 1200Hz
   - 0.5-3 mA current
   - DC will destroy the display
-
-* pinout
-  - 1: common
-  - 2: bottom horizontal
-  - 3: bottom right angled
-  - 5: n/c?
-  - 7: left vertical
-  - 8: bottom left angled
-  - 11: top right angled
-  - 14: left vertical
-  - 17: top horizontal
-  - 20: top left angled
-
------------------------------------------------
-* Sparkfun EL Inverter (COM-10469 retired)
-  - input: 12VDC
-  - output: 70-110V (90V typ)
-  - frequency: 800-3500Hz (2000Hz typ)
-
-------------------------------------------------
-* Use SparkFun EL boards for proof of concept testing
-  - can't multiplex the displays
-
-* EL Sequencer v23
-  - https://www.sparkfun.com/products/12781
-  - http://cdn.sparkfun.com/datasheets/Components/EL/SparkFun_EL_Sequencer_v23.pdf
-  - ATMega328P processor on-board
-    * use "Arduino Duemilanove or Diecimila" board with FTDI USB dongle
-  - Gets HV from Sparkfun EL Inverter
-    * not ideal -- need higher voltage and better frequency
-  - Drives HV to all segments of all displays
-    * EL Escudo Dos pulls display commons to HV_GND
-  - D2-D9 used to drive EL_A-EL_H
-    * EL_A: pin 2
-    * EL_B: pin 3
-    * EL_C: pin 7
-    * EL_D: pin 8
-    * EL_E: pin 11
-    * EL_F: pin 14
-    * EL_G: pin 17
-    * EL_H: pin 20
-  - Sends six (active high) TTL signals to EL Escudo Dos to enable each display
-    * ADC_0 (JP4:2): display #1
-    * ADC_1 (JP4:7): display #2
-    * ADC_2 (JP2:8): display #3
-    * ADC_3 (JP2:7): display #4
-    * ADC_4 (JP2:6): display #5
-    * ADC_5 (JP2:5): display #6
-
-* EL Escudo Dos
-  - https://www.sparkfun.com/products/10878
-  - https://cdn.sparkfun.com/datasheets/Components/EL/EL_Escudo_Dos/EL%20Escudo%20Dos%20v21.pdf
-  - Pulls display common lines (pin 1) down to HV_GND
-  - EL_H: display #1 ... EL_C: display #6
-  - gets HV_GND and TTL display unit selector signals from EL Sequencer
-  - all SCRs have common HV connected to their tabs
-    * and they have individual outputs to load and ground
-  - need to cut HV to tabs and connect them to the display common signals
-    * and short all load outputs to HV_GND
+  - can't multiplex displays -- need driver for each segment
 
 * Links
   - https://www.nixology.uk/el-displays/
@@ -128,6 +82,16 @@ Display made of six eight-segment EL display units
   - https://www.youtube.com/watch?v=p6mNbgtnFK8
   - http://lampes-et-tubes.info/cd/cd143.php?l=e
   - http://www.nedopc.org/forum/viewtopic.php?f=65&t=11093
+
+* Sparkfun EL Inverter (COM-10469 retired)
+  - input: 12VDC
+  - output: 70-110V (90V typ)
+  - frequency: 800-3500Hz (2000Hz typ)
+
+* Sparkfun EL Inverter (sourced from Amazon)
+  - input: 5VDC
+  - output: 225VAC (in afd circuit)
+  - frequency: 5-7KHz (in afd circuit)
 
 =======================================================================================
 * SmartSocket for Alien Font displays
@@ -170,34 +134,46 @@ Display made of six eight-segment EL display units
         * RC2: CTS2
         * RC3: RX3
         * RC5: CTS3
-  - parts (per board)
-    * SMD resistors (1608 or 2012)
-      - 8x 390 ohm
-      - 16x 330 ohm
-    * SMD optoisolator (?)
-      - 8x MOC3063S
-    * SMD Triac (SOT-223)
-      - 8x Z0103MN 
-    * microcontroller
-      - 1x PIC18F16Q40
-    * connectors
-      - 2x ?pin .025" pins, .1" spacing
-  - display unit dimensions, pin and threaded spacer locations
-    * <think about doing a Fusion360 model>
-    * ????
+  - use shift registers?
+  - use I2C port expander?
 
-* part cost estimates (Digikey)
-  - optoisolators: 100x @ $0.706 = $70.60
-  - io expanders: 10x @ $1.71    = $17.10
-  - triacs: 100x @ $0.405        = $40.50
-  - capacitors: 10x @ $?         = $?
-  - resistors: 30x + 240x @ $?   = $?
-  - connectors: 20x @ $?         = $? (optional)
-                                   ~$130
+* display unit dimensions, pin and threaded spacer locations are not consistent across instances
 
+* Use SparkFun EL boards for proof of concept testing
 
-=======================================================================================
-* PCB Fixes
-  - prototype fixes to make sure they work before making new PCBs
-  - make BOM and add it to repo
-  - look over everything before going to OSH Park/Stencil with v1.0.0 design
+* EL Sequencer v23
+  - https://www.sparkfun.com/products/12781
+  - http://cdn.sparkfun.com/datasheets/Components/EL/SparkFun_EL_Sequencer_v23.pdf
+  - ATMega328P processor on-board
+    * use "Arduino Duemilanove or Diecimila" board with FTDI USB dongle
+  - Gets HV from Sparkfun EL Inverter
+    * not ideal -- need higher voltage and better frequency
+  - Drives HV to all segments of all displays
+    * EL Escudo Dos pulls display commons to HV_GND
+  - D2-D9 used to drive EL_A-EL_H
+    * EL_A: pin 2
+    * EL_B: pin 3
+    * EL_C: pin 7
+    * EL_D: pin 8
+    * EL_E: pin 11
+    * EL_F: pin 14
+    * EL_G: pin 17
+    * EL_H: pin 20
+  - Sends six (active high) TTL signals to EL Escudo Dos to enable each display
+    * ADC_0 (JP4:2): display #1
+    * ADC_1 (JP4:7): display #2
+    * ADC_2 (JP2:8): display #3
+    * ADC_3 (JP2:7): display #4
+    * ADC_4 (JP2:6): display #5
+    * ADC_5 (JP2:5): display #6
+
+* EL Escudo Dos
+  - https://www.sparkfun.com/products/10878
+  - https://cdn.sparkfun.com/datasheets/Components/EL/EL_Escudo_Dos/EL%20Escudo%20Dos%20v21.pdf
+  - Pulls display common lines (pin 1) down to HV_GND
+  - EL_H: display #1 ... EL_C: display #6
+  - gets HV_GND and TTL display unit selector signals from EL Sequencer
+  - all SCRs have common HV connected to their tabs
+    * and they have individual outputs to load and ground
+  - need to cut HV to tabs and connect them to the display common signals
+    * and short all load outputs to HV_GND
