@@ -36,15 +36,20 @@ Display made of six eight-segment EL display units
 
 * pinout
   - 1: common
-  - 2: bottom horizontal
-  - 3: bottom right angled
+  - 2: bottom horizontal (S)
+  - 3: bottom right angled (M)
   - 5: n/c?
-  - 7: left vertical
-  - 8: bottom left angled
-  - 11: top right angled
-  - 14: left vertical
-  - 17: top horizontal
-  - 20: top left angled
+  - 7: left vertical (L)
+  - 8: bottom left angled (M)
+  - 11: top right angled (M)
+  - 14: left vertical (L)
+  - 17: top horizontal (S)
+  - 20: top left angled (M)
+
+* capacitance (estimates)
+  - S: 55 pFd
+  - M: 90 pFd
+  - L: 170 pFd
 
 * notes
   - ~200V @ 400Hz
