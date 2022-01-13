@@ -9,7 +9,7 @@
 
 
 
-#define TEST            'B'
+#define TEST            0
 #define VERBOSE         1
 
 #define I2C_BASE_ADDR   0x20
@@ -163,7 +163,23 @@ void loop() {
   unsigned char seg;
 
   switch (TEST) {
-    case 'A':
+    case 0:
+      // cycle through digits
+      for (unit = 0; unit < NUM_UNITS; unit++) {
+        if (VERBOSE) {
+          Serial.print("Unit: " + String(unit) + "; ");
+        }
+        writeDigit(unit, ((c + unit) % DIGIT_MAP_SIZE));
+        if (VERBOSE) {
+          Serial.println("Digit: " + String((c + unit) % DIGIT_MAP_SIZE));
+        }
+      }
+      c++;
+      if (VERBOSE) {
+        Serial.println("-------------");
+      }
+      break;
+    case 1:
       // cycle through digits and characters
       for (unit = 0; unit < NUM_UNITS; unit++) {
         if (VERBOSE) {
@@ -193,7 +209,7 @@ void loop() {
         Serial.println("-------------");
       }
       break;
-    case 'B':
+    case 2:
       // cycle through all segments on all units
       for (seg = 0; seg < NUM_SEGMENTS; seg++) {
         if (VERBOSE) {
@@ -220,7 +236,7 @@ void loop() {
         }
       }
       break;
-    case 'C':
+    case 3:
       // enable a single segment on each unit
       unsigned char s;
       for (seg = 0; seg < NUM_SEGMENTS; seg++) {
@@ -238,7 +254,7 @@ void loop() {
         }
       }
       break;
-    case 'D':
+    case 4:
       // enable all segments, then disable all segments, on unit #0
       for (seg = 0; seg < NUM_SEGMENTS; seg++) {
         afd[0].digitalWrite(seg, LOW);
