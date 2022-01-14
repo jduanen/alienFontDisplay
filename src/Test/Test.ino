@@ -7,9 +7,9 @@
 #include "Arduino.h"
 #include "PCF8574.h"
 
+// TODO invert binary values in tables and remove negation in code
 
-
-#define TEST            0
+#define TEST            1
 #define VERBOSE         1
 
 #define I2C_BASE_ADDR   0x20
@@ -185,27 +185,13 @@ void loop() {
         if (VERBOSE) {
           Serial.print("Unit: " + String(unit) + "; ");
         }
-        if (c < DIGIT_MAP_SIZE) {
-          writeDigit(unit, ((c + unit) % DIGIT_MAP_SIZE));
-          if (VERBOSE) {
-            Serial.println("Digit: " + String((c + unit) % DIGIT_MAP_SIZE));
-          }
-        } else {
-          writeChar(unit, ((c - DIGIT_MAP_SIZE + unit) % CHAR_MAP_SIZE));
-          if (VERBOSE) {
-            Serial.println("Char: " + String((c - DIGIT_MAP_SIZE + unit) % CHAR_MAP_SIZE));
-          }
-        }
-        c++;
-        if (c >= (DIGIT_MAP_SIZE + CHAR_MAP_SIZE)) {
-          c = 0;
-          if (VERBOSE) {
-            Serial.println("Reset");
-          }
+        writeChar(unit, ((c + unit) % CHAR_MAP_SIZE));
+        if (VERBOSE) {
+          Serial.println("Char: " + String((c + unit) % CHAR_MAP_SIZE));
         }
       }
+      c++;
       if (VERBOSE) {
-        Serial.println("C: " + String(c));
         Serial.println("-------------");
       }
       break;
