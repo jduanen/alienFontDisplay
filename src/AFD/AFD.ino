@@ -8,7 +8,6 @@
 #include "PCF8574.h"
 
 
-#define TEST            1
 #define VERBOSE         1
 #define STARTUP_STRING  "HELLO WORLD"
 
@@ -20,6 +19,8 @@
 #define CHAR_MAP_SIZE   26
 #define DIGIT_MAP_SIZE  10
 #define MAX_STRING_LEN  32
+
+#define REVERSE_UNITS(u) ((NUM_UNITS - 1) - u)
 
 
 int indx = 0;
@@ -36,45 +37,45 @@ PCF8574 afd[NUM_UNITS] = {
 };
 
 byte charMap[CHAR_MAP_SIZE] = {
-  0b11111011 + 0b11101111 + 0b11011111 + 0b10111111 + 0b01111111, // A
-  0b11111110 + 0b11111101 + 0b11110111 + 0b11101111 + 0b11011111 + 0b10111111 + 0b01111111, // B
-  0b11111110 + 0b11011111 + 0b10111111, // C
-  0b11111110 + 0b11111101 + 0b11111011 + 0b11110111, // d
-  0b11111110 + 0b11110111 + 0b11011111 + 0b10111111 + 0b01111111, // E
-  0b11110111 + 0b11011111 + 0b10111111 + 0b01111111, // F
-  0b11111110 + 0b11111101 + 0b11011111 + 0b10111111, // G
-  0b11111101 + 0b11111011 + 0b11110111 + 0b11101111 + 0b11011111 + 0b01111111, // H
+  0b11111011 & 0b11101111 & 0b11011111 & 0b10111111 & 0b01111111, // A
+  0b11111110 & 0b11111101 & 0b11110111 & 0b11101111 & 0b11011111 & 0b10111111 & 0b01111111, // B
+  0b11111110 & 0b11011111 & 0b10111111, // C
+  0b11111110 & 0b11111101 & 0b11111011 & 0b11110111, // d
+  0b11111110 & 0b11110111 & 0b11011111 & 0b10111111 & 0b01111111, // E
+  0b11110111 & 0b11011111 & 0b10111111 & 0b01111111, // F
+  0b11111110 & 0b11111101 & 0b11011111 & 0b10111111, // G
+  0b11111101 & 0b11111011 & 0b11110111 & 0b11101111 & 0b11011111 & 0b01111111, // H
   0b11111011, // I
-  0b11111110 + 0b11111011, // J
-  0b11111101 + 0b11101111 + 0b11011111, // K
-  0b11111110 + 0b11011111, // L
-  0b11111011 + 0b11101111 + 0b11011111 + 0b01111111, // M
-  0b11111101 + 0b11111011 + 0b11011111 + 0b01111111, // N
-  0b11111110 + 0b11111011 + 0b11011111 + 0b10111111, // O
-  0b11101111 + 0b11011111 + 0b10111111 + 0b01111111, // P
-  0b11111101 + 0b11101111 + 0b10111111 + 0b01111111, // q
-  0b11111101 + 0b11101111 + 0b11011111 + 0b10111111, // R
-  0b11111110 + 0b11111101 + 0b10111111 + 0b01111111, // S
-  0b11111110 + 0b10111111, // T
-  0b11111110 + 0b11111011 + 0b11011111, // U
-  0b11101111 + 0b01111111, // v
-  0b11111101 + 0b11111011 + 0b11110111 + 0b11011111, // W
-  0b11111101 + 0b11110111 + 0b11101111 + 0b01111111, // 0
-  0b11111110 + 0b11101111 + 0b01111111, // Y
-  0b11111110 + 0b11110111 + 0b11101111 + 0b10111111 // Z
+  0b11111110 & 0b11111011, // J
+  0b11111101 & 0b11101111 & 0b11011111, // K
+  0b11111110 & 0b11011111, // L
+  0b11111011 & 0b11101111 & 0b11011111 & 0b01111111, // M
+  0b11111101 & 0b11111011 & 0b11011111 & 0b01111111, // N
+  0b11111110 & 0b11111011 & 0b11011111 & 0b10111111, // O
+  0b11101111 & 0b11011111 & 0b10111111 & 0b01111111, // P
+  0b11111101 & 0b11101111 & 0b10111111 & 0b01111111, // q
+  0b11111101 & 0b11101111 & 0b11011111 & 0b10111111, // R
+  0b11111110 & 0b11111101 & 0b10111111 & 0b01111111, // S
+  0b11111110 & 0b10111111, // T
+  0b11111110 & 0b11111011 & 0b11011111, // U
+  0b11101111 & 0b01111111, // v
+  0b11111101 & 0b11111011 & 0b11110111 & 0b11011111, // W
+  0b11111101 & 0b11110111 & 0b11101111 & 0b01111111, // 0
+  0b11111110 & 0b11101111 & 0b01111111, // Y
+  0b11111110 & 0b11110111 & 0b11101111 & 0b10111111 // Z
 };
 
 byte digitMap[DIGIT_MAP_SIZE] = {
-  0b11111110 + 0b11111011 + 0b11011111 + 0b10111111, // 1
+  0b11111110 & 0b11111011 & 0b11011111 & 0b10111111, // 1
   0b11011111, // 0
-  0b11111110 + 0b11110111 + 0b11101111 + 0b10111111, // 2
-  0b11111110 + 0b11111101 + 0b11101111 + 0b10111111, // 3
-  0b11111011 + 0b11101111 + 0b01111111, // 4
-  0b11111110 + 0b11111101 + 0b10111111 + 0b01111111, // 5
-  0b11111110 + 0b11111101 + 0b11110111 + 0b10111111 + 0b01111111, // 6
-  0b11111011 + 0b10111111, // 7
-  0b11111110 + 0b11111101 + 0b11110111 + 0b11101111 + 0b10111111 + 0b01111111, // 8
-  0b11111011 + 0b11101111 + 0b10111111 + 0b01111111 // 9
+  0b11111110 & 0b11110111 & 0b11101111 & 0b10111111, // 2
+  0b11111110 & 0b11111101 & 0b11101111 & 0b10111111, // 3
+  0b11111011 & 0b11101111 & 0b01111111, // 4
+  0b11111110 & 0b11111101 & 0b10111111 & 0b01111111, // 5
+  0b11111110 & 0b11111101 & 0b11110111 & 0b10111111 & 0b01111111, // 6
+  0b11111011 & 0b10111111, // 7
+  0b11111110 & 0b11111101 & 0b11110111 & 0b11101111 & 0b10111111 & 0b01111111, // 8
+  0b11111011 & 0b11101111 & 0b10111111 & 0b01111111 // 9
 };
 
 
@@ -123,19 +124,25 @@ void writeDigit(byte unit, byte digit) {
   byte chr;
   PCF8574::DigitalInput digitalInput;
 
-  chr = digitMap[digit % DIGIT_MAP_SIZE];
-  digitalInput.p7 = ((chr >> 7) & 0x01);
-  digitalInput.p6 = ((chr >> 6) & 0x01);
-  digitalInput.p5 = ((chr >> 5) & 0x01);
-  digitalInput.p4 = ((chr >> 4) & 0x01);
-  digitalInput.p3 = ((chr >> 3) & 0x01);
-  digitalInput.p2 = ((chr >> 2) & 0x01);
-  digitalInput.p1 = ((chr >> 1) & 0x01);
-  digitalInput.p0 = ((chr >> 0) & 0x01);
+  if (!isDigit(digit)) {
+    if (VERBOSE) {
+      Serial.println("Invalid Digit: " + String(digit));
+    }
+  } else {
+    chr = digitMap[(digit - '0') % DIGIT_MAP_SIZE];
+    digitalInput.p7 = bitRead(chr, 7);
+    digitalInput.p6 = bitRead(chr, 6);
+    digitalInput.p5 = bitRead(chr, 5);
+    digitalInput.p4 = bitRead(chr, 4);
+    digitalInput.p3 = bitRead(chr, 3);
+    digitalInput.p2 = bitRead(chr, 2);
+    digitalInput.p1 = bitRead(chr, 1);
+    digitalInput.p0 = bitRead(chr, 0);
 
-  afd[unit % NUM_UNITS].digitalWriteAll(digitalInput);
-  if (VERBOSE) {
-    Serial.print("writeDigit: 0x" +  String(chr, HEX) + "; ");
+    afd[unit % NUM_UNITS].digitalWriteAll(digitalInput);
+    if (VERBOSE) {
+      Serial.print("writeDigit: 0x" +  String(chr, HEX) + "; ");
+    }
   }
 }
 
@@ -144,60 +151,69 @@ void writeChar(byte unit, byte character) {
   byte chr;
   PCF8574::DigitalInput digitalInput;
 
-  chr = charMap[character % CHAR_MAP_SIZE];
-  digitalInput.p7 = ((chr >> 7) & 0x01);
-  digitalInput.p6 = ((chr >> 6) & 0x01);
-  digitalInput.p5 = ((chr >> 5) & 0x01);
-  digitalInput.p4 = ((chr >> 4) & 0x01);
-  digitalInput.p3 = ((chr >> 3) & 0x01);
-  digitalInput.p2 = ((chr >> 2) & 0x01);
-  digitalInput.p1 = ((chr >> 1) & 0x01);
-  digitalInput.p0 = ((chr >> 0) & 0x01);
+  if (!isUpperCase(character)) {
+    if (VERBOSE) {
+      Serial.println("Invalid Character: " + String(character));
+    }
+  } else {
+    chr = charMap[(character - 'A') % CHAR_MAP_SIZE];
+    digitalInput.p7 = bitRead(chr, 7);
+    digitalInput.p6 = bitRead(chr, 6);
+    digitalInput.p5 = bitRead(chr, 5);
+    digitalInput.p4 = bitRead(chr, 4);
+    digitalInput.p3 = bitRead(chr, 3);
+    digitalInput.p2 = bitRead(chr, 2);
+    digitalInput.p1 = bitRead(chr, 1);
+    digitalInput.p0 = bitRead(chr, 0);
 
-  afd[unit % NUM_UNITS].digitalWriteAll(digitalInput);
-  if (VERBOSE) {
-    Serial.print("writeChar: 0x" +  String(chr, HEX) + "; ");
+    afd[unit % NUM_UNITS].digitalWriteAll(digitalInput);
+    if (VERBOSE) {
+      Serial.print("writeChar: 0x" +  String(chr, HEX) + "; ");
+    }
   }
 }
 
-void writeUnits(byte str[]) {
+void writeUnits(const char *str) {
   int unit;
-  byte c;
+  byte chr;
 
   for (unit = 0; (unit < NUM_UNITS); unit++) {
     if (unit >= strlen(str)) {
-      clearUnit(unit);
+      clearUnit(REVERSE_UNITS(unit));
     } else {
-      c = str[unit];
-      if (c == ' ') {
-        clearUnit(unit);
-      } else if (isAlpha(c)) {
-        if (!isUpperCase(c)) {
-          c += 0x20;
+      chr = str[unit];
+      if (chr == ' ') {
+        clearUnit(REVERSE_UNITS(unit));
+      } else if (isAlpha(chr)) {
+        if (!isUpperCase(chr)) {
+          chr -= 0x20;
         }
-        writeChar(c, unit);
-      } else if (isDigit(c)) {
-        writeDigit(c, unit);
+        writeChar(REVERSE_UNITS(unit), chr);
+      } else if (isDigit(chr)) {
+        writeDigit(REVERSE_UNITS(unit), chr);
       } else {
-        clearUnit(unit);
+        clearUnit(REVERSE_UNITS(unit));
         if (VERBOSE) {
-          Serial.println("Invalid character: " + c);
+          Serial.print("Invalid character: " + String(chr) + "; ");
         }
       }
     }
+  }
+  if (VERBOSE) {
+    Serial.println("Wrote: " + String(str));
   }
 }
 
 void loop() {
 //  afdPrint(displayStr);
-  writeUnits("TEST");
+  writeUnits("ABCD");
   delay(1000);
-  writeUnits("TEST12");
+  writeUnits("ABCD12");
   delay(1000);
-  writeUnits("TESTING");
+  writeUnits("ABCDEFG");
   delay(1000);
-  writeUnits("TeSt 1");
+  writeUnits("aBcD 1");
   delay(1000);
-  writeUnits(" A B C");
+  writeUnits(" A b C");
   delay(1000);
 };
