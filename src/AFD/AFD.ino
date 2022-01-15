@@ -18,14 +18,14 @@
 #define NUM_SEGMENTS    8
 #define CHAR_MAP_SIZE   26
 #define DIGIT_MAP_SIZE  10
-#define MAX_STRING_LEN  32
+#define MAX_STR_LEN     32
 
 #define REVERSE_UNITS(u) ((NUM_UNITS - 1) - u)
 
 
 int indx = 0;
-byte stringBuffer[2][MAX_STRING_LEN] = {};
-byte displayStr[MAX_STRING_LEN] = STARTUP_STRING;
+String stringBuffer[2];
+String displayStr = String(STARTUP_STRING);
 
 PCF8574 afd[NUM_UNITS] = {
   PCF8574(I2C_BASE_ADDR),
@@ -173,7 +173,8 @@ void writeChar(byte unit, byte character) {
   }
 }
 
-void writeUnits(const char *str) {
+
+void writeUnits(char *str) {
   int unit;
   byte chr;
 
@@ -204,16 +205,37 @@ void writeUnits(const char *str) {
   }
 }
 
+
+void afdPrint(String str) {
+  char s[NUM_UNITS];
+  int indx;
+  if (str.length() <= NUM_UNITS) {
+    str.toCharArray(s, NUM_UNITS);
+    writeUnits(s);
+  } else {
+    for (indx = 0; (indx < (str.length() - NUM_UNITS)); indx++) {
+      str.substring(indx, (indx + NUM_UNITS + 1)).toCharArray(s, NUM_UNITS);
+      writeUnits(s);
+      delay(500);
+    }
+  }
+}
+
+
 void loop() {
-//  afdPrint(displayStr);
-  writeUnits("ABCD");
+  afdPrint(displayStr);
+  displayStr = String("ABCDEF");
   delay(1000);
-  writeUnits("ABCD12");
+  displayStr = String("HELLO WORLD AGAIN");
+  afdPrint(displayStr);
   delay(1000);
-  writeUnits("ABCDEFG");
+  displayStr = String("1 2 3");
+  afdPrint(displayStr);
   delay(1000);
-  writeUnits("aBcD 1");
+  displayStr = String("MONICA");
+  afdPrint(displayStr);
   delay(1000);
-  writeUnits(" A b C");
+  displayStr = String("BYE");
+  afdPrint(displayStr);
   delay(1000);
 };
