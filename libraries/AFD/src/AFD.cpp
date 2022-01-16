@@ -5,48 +5,56 @@
 ****************************************************************************/
 
 #include "Arduino.h"
-#include "PCF8574.h"
+#include <PCF8574.h>
 #include "AFD.h"
 
 
 AFD::AFD() {
     _scrollDelay = DEF_SCROLL_DELAY;
-    _numUnits = DEF_NUM_UNITS;
     _maxStrLen = DEF_MAX_STR_LEN;
+    _numUnits = DEF_NUM_UNITS;
     init();
 };
 
-
 AFD::AFD(int scrollDelay) {
     _scrollDelay = scrollDelay;
-    _numUnits = DEF_NUM_UNITS;
     _maxStrLen = DEF_MAX_STR_LEN;
+    _numUnits = DEF_NUM_UNITS;
     init();
 }
 
-
-AFD::AFD(int scrollDelay, int numUnits, int maxStrLen) {
+AFD::AFD(int scrollDelay, int maxStrLen) {
     _scrollDelay = scrollDelay;
-    _numUnits = numUnits;
     _maxStrLen = maxStrLen;
+    _numUnits = DEF_NUM_UNITS;
     init();
 }
 
+AFD::AFD(int scrollDelay, int maxStrLen, int numUnits) {
+    _scrollDelay = scrollDelay;
+    _maxStrLen = maxStrLen;
+    _numUnits = numUnits;
+    init();
+}
 
-void init() {
+void AFD::init() {
     byte unit;
+
+    for (unit = 0; (unit < _numUnits); unit++) {
+        _afd[unit] = new PCF8574(I2C_BASE_ADDR + unit);
+    };
 
     _indx = 0;
     for (unit = 0; unit < _numUnits; unit++) {
-        afd[unit].pinMode(P0, OUTPUT, HIGH);
-        afd[unit].pinMode(P1, OUTPUT, HIGH);
-        afd[unit].pinMode(P2, OUTPUT, HIGH);
-        afd[unit].pinMode(P3, OUTPUT, HIGH);
-        afd[unit].pinMode(P4, OUTPUT, HIGH);
-        afd[unit].pinMode(P5, OUTPUT, HIGH);
-        afd[unit].pinMode(P6, OUTPUT, HIGH);
-        afd[unit].pinMode(P7, OUTPUT, HIGH);
-        afd[unit].begin();
+        _afd[unit]->pinMode(P0, OUTPUT, HIGH);
+        _afd[unit]->pinMode(P1, OUTPUT, HIGH);
+        _afd[unit]->pinMode(P2, OUTPUT, HIGH);
+        _afd[unit]->pinMode(P3, OUTPUT, HIGH);
+        _afd[unit]->pinMode(P4, OUTPUT, HIGH);
+        _afd[unit]->pinMode(P5, OUTPUT, HIGH);
+        _afd[unit]->pinMode(P6, OUTPUT, HIGH);
+        _afd[unit]->pinMode(P7, OUTPUT, HIGH);
+        _afd[unit]->begin();
     }
     clearAll();
     if (VERBOSE) {
@@ -54,34 +62,37 @@ void init() {
     }
 }
 
-
 void AFD::setAllSegments(byte unit, uint8_t val) {
     byte seg;
 
     for (seg = 0; seg < NUM_SEGMENTS; seg++) {
-        afd[unit].digitalWrite(seg, val);
+        _afd[unit]->digitalWrite(seg, val);
     }
 }
 
+void AFD::clearUnit(byte unit) {
+    byte seg;
+    for (seg = 0; seg < NUM_SEGMENTS; seg++) {
+        _afd[unit]->digitalWrite(seg, HIGH);
+    }
+}
 
 void AFD::clearAll() {
     byte unit;
 
-    for (unit = 0; unit < NUM_UNITS; unit++) {
+    for (unit = 0; unit < _numUnits; unit++) {
         setAllSegments(unit, HIGH);
     }
 }
 
-
 void AFD::setAll() {
     byte unit;
-    for (unit = 0; unit < NUM_UNITS; unit++) {
+    for (unit = 0; unit < _numUnits; unit++) {
         setAllSegments(unit, LOW);
     }
 }
 
-
-void writeDigit(byte unit, byte digit) { 
+void AFD::writeDigit(byte unit, byte digit) { 
     byte chr;
     PCF8574::DigitalInput digitalInput;
 
@@ -100,15 +111,14 @@ void writeDigit(byte unit, byte digit) {
         digitalInput.p1 = bitRead(chr, 1);
         digitalInput.p0 = bitRead(chr, 0);
 
-        _afd[unit % _numUnits].digitalWriteAll(digitalInput);
+        _afd[unit % _numUnits]->digitalWriteAll(digitalInput);
         if (VERBOSE) {
           Serial.print("writeDigit: 0x" +  String(chr, HEX) + "; ");
         }
     }
 }
 
-
-void writeChar(byte unit, byte character) { 
+void AFD::writeChar(byte unit, byte character) { 
     byte chr;
     PCF8574::DigitalInput digitalInput;
 
@@ -127,15 +137,14 @@ void writeChar(byte unit, byte character) {
         digitalInput.p1 = bitRead(chr, 1);
         digitalInput.p0 = bitRead(chr, 0);
 
-        _afd[unit % NUM_UNITS].digitalWriteAll(digitalInput);
+        _afd[unit % _numUnits]->digitalWriteAll(digitalInput);
         if (VERBOSE) {
             Serial.print("writeChar: 0x" +  String(chr, HEX) + "; ");
         }
     }
 }
 
-
-void writeUnits(char *str) {
+void AFD::writeUnits(char *str) {
     int unit;
     byte chr;
 
@@ -166,17 +175,16 @@ void writeUnits(char *str) {
     }
 }
 
-
-void printStr(String str) {
-    char s[_numUnits];
+void AFD::printStr(String str) {
+    char s[_numUnits + 1];
     int indx;
 
     if (str.length() <= _numUnits) {
-        str.toCharArray(s, _numUnits);
+        str.toCharArray(s, (_numUnits + 1));
         writeUnits(s);
     } else {
-        for (indx = 0; (indx < (str.length() - _numUnits)); indx++) {
-            str.substring(indx, (indx + _numUnits + 1)).toCharArray(s, _numUnits);
+        for (indx = 0; (indx <= (str.length() - _numUnits)); indx++) {
+            str.substring(indx, (indx + _numUnits)).toCharArray(s, (_numUnits + 1));
             writeUnits(s);
             delay(_scrollDelay);
         }
