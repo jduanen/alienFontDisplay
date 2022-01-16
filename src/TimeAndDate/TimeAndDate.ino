@@ -12,11 +12,12 @@
 #define VERBOSE         1
 
 
-AFD::AFD afd;
+AFD afd = AFD();
 
 void setup() {
-  afd = AFD();
   if (VERBOSE) {
+    Serial.begin(9600);
+    delay(500);
     Serial.println("Start");
   }
 }
@@ -25,8 +26,10 @@ void setup() {
 #define WAIT_TIME 3000
 
 void loop() {
-  afd.printStr(displayStr);
+  String displayStr;
+
   displayStr = String("ABCDEF");
+  afd.printStr(displayStr);
   delay(WAIT_TIME);
   displayStr = String("HELLO WORLD AGAIN");
   afd.printStr(displayStr);
@@ -40,4 +43,8 @@ void loop() {
   displayStr = String("BYE");
   afd.printStr(displayStr);
   delay(WAIT_TIME);
+
+  if (VERBOSE) {
+    Serial.println("Reset");
+  }
 };
