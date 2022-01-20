@@ -1,6 +1,8 @@
 # alienFontDisplay
 Display made of six eight-segment EL display units
 
+![Scroll Test](afd.gif)
+
 ## TBD
 * BOM
 * WiFi interface board
