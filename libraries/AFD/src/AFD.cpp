@@ -37,6 +37,22 @@ AFD::AFD(int scrollDelay, int maxStrLen, int numUnits) {
     init();
 }
 
+void AFD::setMaxStrLen(int maxStrLen) {
+    _maxStrLen = maxStrLen;
+}
+
+int AFD::getMaxStrLen() {
+    return _maxStrLen;
+}
+
+void AFD::setScrollDelay(int scrollDelay) {
+    _scrollDelay = scrollDelay;
+}
+
+int AFD::getScrollDelay() {
+    return _scrollDelay;
+}
+
 void AFD::init() {
     byte unit;
 

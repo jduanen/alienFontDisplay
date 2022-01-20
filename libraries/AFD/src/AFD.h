@@ -27,6 +27,10 @@ public:
     AFD(int scrollDelay);
     AFD(int scrollDelay, int maxStrLen);
     AFD(int scrollDelay, int maxStrLen, int numUnits);
+    void setMaxStrLen(int maxStrLen);
+    int getMaxStrLen();
+    void setScrollDelay(int scrollDelay);
+    int getScrollDelay();
     void setAllSegments(byte unit, uint8_t val);
     void clearUnit(byte unit);
     void clearAll();
