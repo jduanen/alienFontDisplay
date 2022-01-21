@@ -149,7 +149,7 @@ void loop() {
   sn.mqttRun();
 
   if (deltaT >= reportInterval) {
-    msg = String(afd.getPause()) + "," + String(afd.getScrollDelay()) + "," + String(sn.wifiState().rssi) + afd.displayStr;
+    msg = String(afd.getPause()) + "," + String(afd.getScrollDelay()) + "," + String(sn.wifiState().rssi) + "," + afd.displayStr;
 
     sn.mqttPub(SensorNet::DATA, msg);
     println("Status Msg: " + msg);
