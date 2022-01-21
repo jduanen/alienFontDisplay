@@ -15,14 +15,12 @@
 
 #define VERBOSE             1
 #define APP_NAME            "AFD"
-#define APP_VERSION         "1.0.0"
-#define REPORT_SCHEMA       "scrollDelay:d,pause:d,rssi:d,display:s"
+#define APP_VERSION         "1.1.0"
+#define REPORT_SCHEMA       "scrollDelay:d,pause:d,display:s, rssi:d"
 #define TOPIC_PREFIX        "/displays/afd"
 #define DEF_REPORT_INTERVAL 60000  // one report every minute
 #define MQTT_SERVER        "192.168.166.113"
 #define MQTT_PORT           1883
-#define MAX_CMD_LEN         16
-#define MAX_VAL_LEN         16
 
 
 unsigned long lastReport = 0;
@@ -69,10 +67,10 @@ void callback(char* topic, byte* payload, unsigned int length) {
   println("CALLBACK: " + msg);
 
   msgType = SensorNet::RESPONSE;
-  if (cmd.equals("RSSI")) {
+  if (cmd.equalsIgnoreCase("RSSI")) {
     SensorNet::WIFI_STATE wifiState = sn.wifiState();
     msg = "RSSI=" + String(wifiState.rssi);
-  } else if (cmd.equals("rate")) {
+  } else if (cmd.equalsIgnoreCase("rate")) {
     if (val != NULL) {
       reportInterval = val.toInt();
       if (reportInterval < 0) {
@@ -82,9 +80,9 @@ void callback(char* topic, byte* payload, unsigned int length) {
       println("Set rate to " + val);
     }
     msg = "rate=" + String(reportInterval);
-  } else if (cmd.equals("version")) {
+  } else if (cmd.equalsIgnoreCase("version")) {
     msg = "Version=" + String(APP_VERSION);
-  } else if (cmd.equals("pause")) {
+  } else if (cmd.equalsIgnoreCase("pause")) {
     int pause;
     if (val != NULL) {
       pause = val.toInt();
@@ -95,7 +93,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
       afd.setPause(pause);
     }
     msg = "pause=" + String(afd.getPause());
-  } else if (cmd.equals("scrollDelay")) {
+  } else if (cmd.equalsIgnoreCase("scrollDelay")) {
     int scrollDelay;
     if (val != NULL) {
       scrollDelay = val.toInt();
@@ -106,12 +104,12 @@ void callback(char* topic, byte* payload, unsigned int length) {
       afd.setScrollDelay(scrollDelay);
     }
     msg = "scrollDelay=" + String(afd.getScrollDelay());
-  } else if (cmd.equals("display")) {
+  } else if (cmd.equalsIgnoreCase("display")) {
     if (val != NULL) {
-      afd.displayStr = String(val);
+      afd.displayStr = String(val).toUpperCase();
     }
     msg = "display=" + afd.displayStr;
-  } else if (cmd.equals("reset")) {
+  } else if (cmd.equalsIgnoreCase("reset")) {
     println("Resetting");
     sn.systemReset();
     msg = "Reset";
@@ -149,7 +147,7 @@ void loop() {
   sn.mqttRun();
 
   if (deltaT >= reportInterval) {
-    msg = String(afd.getPause()) + "," + String(afd.getScrollDelay()) + "," + String(sn.wifiState().rssi) + "," + afd.displayStr;
+    msg = String(afd.getPause()) + "," + String(afd.getScrollDelay()) + "," + afd.displayStr + "," + String(sn.wifiState().rssi);
 
     sn.mqttPub(SensorNet::DATA, msg);
     println("Status Msg: " + msg);
