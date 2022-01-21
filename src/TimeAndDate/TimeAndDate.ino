@@ -14,10 +14,9 @@
 
 
 #define VERBOSE             1
-#define MAX_STR_LEN         32
 #define APP_NAME            "AFD"
 #define APP_VERSION         "1.0.0"
-#define REPORT_SCHEMA       "maxStrLen:d,scrollDelay:d,rssi:d"
+#define REPORT_SCHEMA       "scrollDelay:d,pause:d,rssi:d,display:s"
 #define TOPIC_PREFIX        "/displays/afd"
 #define DEF_REPORT_INTERVAL 60000  // one report every minute
 #define MQTT_SERVER        "192.168.166.113"
@@ -37,21 +36,23 @@ AFD afd = AFD();
 // Callback function header
 void callback(char* topic, byte* payload, unsigned int length);
 
-// Callback function
-void callback(char* topic, byte* payload, unsigned int length) {
-  // In order to republish this payload, a copy must be made
-  // as the orignal payload buffer will be overwritten whilst
-  // constructing the PUBLISH packet.
-  Serial.println("CALLBACK: ");
+void print(String s) {
+  if (VERBOSE) {
+    sn.consolePrint(s);
+  }
 }
 
-/*
+void println(String s) {
+  if (VERBOSE) {
+    sn.consolePrintln(s);
+  }
+}
+
 void callback(char* topic, byte* payload, unsigned int length) {
   byte *cmdPtr = payload;
   byte *valPtr = NULL;
   String top, cmd, val, msg;
-
-  sn.consolePrintln("CALLBACK");
+  char msgType;
 
   payload[length] = '\0';
   for (int i = 0; i < length; i++) {
@@ -65,72 +66,73 @@ void callback(char* topic, byte* payload, unsigned int length) {
   val = String((char *)valPtr);
 
   msg = top + ", " + cmd + ", " + val;
-  sn.consolePrintln(msg);
-  sn.mqttPub(SensorNet::RESPONSE, msg);
+  println("CALLBACK: " + msg);
 
-  String msg;
+  msgType = SensorNet::RESPONSE;
   if (cmd.equals("RSSI")) {
     SensorNet::WIFI_STATE wifiState = sn.wifiState();
     msg = "RSSI=" + String(wifiState.rssi);
-    sn.consolePrintln(msg);
-    sn.mqttPub(SensorNet::RESPONSE, msg);
   } else if (cmd.equals("rate")) {
     if (val != NULL) {
-      sn.consolePrintln("Set rate to " + val);
       reportInterval = val.toInt();
+      if (reportInterval < 0) {
+        println("Error: reportInterval must be positive, using default value");
+        reportInterval = DEF_REPORT_INTERVAL;
+      }
+      println("Set rate to " + val);
     }
     msg = "rate=" + String(reportInterval);
-    sn.consolePrintln(msg);
-    sn.mqttPub(SensorNet::RESPONSE, msg);
   } else if (cmd.equals("version")) {
     msg = "Version=" + String(APP_VERSION);
-    sn.consolePrintln(msg);
-    sn.mqttPub(SensorNet::RESPONSE, msg);
-  } else if (cmd.equals("precision")) {
-    uint8_t precision;
+  } else if (cmd.equals("pause")) {
+    int pause;
     if (val != NULL) {
-      precision = val.toInt();
-      if ((precision < 9) || (precision > 12)) {
-        sn.consolePrintln("ERROR: Invalid precision value: " + val);
-      } else {
-        sn.consolePrintln("Set precision to: " + val);
-        sensors.setResolution(ambientThermometer, precision);
-        sensors.setResolution(waterThermometer, precision);
+      pause = val.toInt();
+      if (pause < 0) {
+        println("Error: pause value must be positive, using default value");
+        pause = DEF_PAUSE;
       }
+      afd.setPause(pause);
     }
-    uint8_t ambPrec = sensors.getResolution(ambientThermometer);
-    uint8_t watPrec = sensors.getResolution(waterThermometer);
-    if (ambPrec != watPrec) {
-      msg = "ERROR: precision mismatch: " + String(ambPrec) + ", " + String(watPrec);
-      sn.consolePrintln(msg);
-      sn.mqttPub(SensorNet::ERROR, msg);
-    } else {
-      precision = watPrec;
+    msg = "pause=" + String(afd.getPause());
+  } else if (cmd.equals("scrollDelay")) {
+    int scrollDelay;
+    if (val != NULL) {
+      scrollDelay = val.toInt();
+      if (scrollDelay < 0) {
+        println("Error: scrollDelay value must be positive, using default value");
+        scrollDelay = DEF_SCROLL_DELAY;
+      }
+      afd.setScrollDelay(scrollDelay);
     }
-    msg = "precision=" + String(precision);
-    sn.consolePrintln(msg);
-    sn.mqttPub(SensorNet::RESPONSE, msg);
+    msg = "scrollDelay=" + String(afd.getScrollDelay());
+  } else if (cmd.equals("display")) {
+    if (val != NULL) {
+      afd.displayStr = String(val);
+    }
+    msg = "display=" + afd.displayStr;
   } else if (cmd.equals("reset")) {
-    sn.consolePrintln("Resetting");
+    println("Resetting");
     sn.systemReset();
+    msg = "Reset";
   } else {
     msg = "ERROR: unknown command (" + cmd + ")";
-    sn.consolePrintln(msg);
-    sn.mqttPub(SensorNet::ERROR, msg);
+    msgType = SensorNet::ERROR;
   }
+  println(msg);
+  sn.mqttPub(msgType, msg);
 }
-*/
 
 void setup() {
   sn.serialStart(&Serial, 9600, true);
   delay(500);
-  sn.consolePrintln(APP_NAME);
+  println(APP_NAME);
 
   sn.wifiStart(WLAN_SSID, WLAN_PASS);
-  sn.consolePrintln("WIFI");
+  println("WIFI");
 
   sn.mqttSetup(MQTT_SERVER, MQTT_PORT, TOPIC_PREFIX, callback);
-  sn.consolePrintln("MQTT");
+  println("MQTT");
 }
 
 #define WAIT_TIME 3000
@@ -140,7 +142,6 @@ unsigned int indx = 0;
 #define NUM_STRS  10
 
 void loop() {
-  String displayStrs[NUM_STRS] = {"ABCDEFGHI", "EFGHIJKLM", "IJKLMNOPQ", "MNOPQRSTU", "QRSTUVWXY", "UVWXYZ", "", "012345678", "34567890", ""};
   String msg;
   unsigned long now = millis();
   unsigned long deltaT = now - lastReport;
@@ -148,24 +149,20 @@ void loop() {
   sn.mqttRun();
 
   if (deltaT >= reportInterval) {
-    msg = String(afd.getMaxStrLen()) + "," + String(afd.getScrollDelay()) + "," + String(sn.wifiState().rssi);
+    msg = String(afd.getPause()) + "," + String(afd.getScrollDelay()) + "," + String(sn.wifiState().rssi) + afd.displayStr;
 
     sn.mqttPub(SensorNet::DATA, msg);
-    sn.consolePrintln("Status Msg: " + msg);
+    println("Status Msg: " + msg);
     lastReport = now;
   }
 
-  afd.printStr(displayStrs[indx]);
+  afd.printStr(afd.displayStr);
   indx++;
   if (indx >= NUM_STRS) {
     indx = 0;
     delay(WAIT_TIME);
 
-    if (VERBOSE) {
-      Serial.println("Reset");
-    }
+    println("Reset");
   }
-  if (VERBOSE) {
-    Serial.println("Loop");
-  }
+  println("Loop");
 };
