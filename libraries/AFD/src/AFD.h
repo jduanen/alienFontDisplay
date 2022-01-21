@@ -12,23 +12,21 @@
 
 #define VERBOSE             1
 #define DEF_NUM_UNITS       6
-#define DEF_MAX_STR_LEN     32
 #define DEF_SCROLL_DELAY    500
+#define DEF_PAUSE           500
 #define MAX_NUM_UNITS       8
-#define STARTUP_STRING      "HELLO WORLD"
 
 
 class AFD {
 public:
-    String stringBuffer[2];
-    String displayStr = String(STARTUP_STRING);
+    String displayStr;
 
     AFD();
     AFD(int scrollDelay);
-    AFD(int scrollDelay, int maxStrLen);
-    AFD(int scrollDelay, int maxStrLen, int numUnits);
-    void setMaxStrLen(int maxStrLen);
-    int getMaxStrLen();
+    AFD(int scrollDelay, int pause);
+    AFD(int scrollDelay, int pause, int numUnits);
+    void setPause(int pause);
+    int getPause();
     void setScrollDelay(int scrollDelay);
     int getScrollDelay();
     void setAllSegments(byte unit, uint8_t val);
@@ -42,9 +40,9 @@ public:
 
 private:
     int _indx;
-    int _numUnits;
-    int _maxStrLen;
-    int _scrollDelay;
+    int _numUnits = DEF_NUM_UNITS;
+    int _scrollDelay = DEF_SCROLL_DELAY;
+    int _pause = DEF_PAUSE;
 
     #define I2C_BASE_ADDR       0x20
     #define NUM_SEGMENTS        8

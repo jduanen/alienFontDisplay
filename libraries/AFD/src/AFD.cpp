@@ -11,38 +11,43 @@
 
 AFD::AFD() {
     _scrollDelay = DEF_SCROLL_DELAY;
-    _maxStrLen = DEF_MAX_STR_LEN;
+    _pause = DEF_PAUSE;
     _numUnits = DEF_NUM_UNITS;
     init();
 };
 
 AFD::AFD(int scrollDelay) {
     _scrollDelay = scrollDelay;
-    _maxStrLen = DEF_MAX_STR_LEN;
+    _pause = DEF_PAUSE;
     _numUnits = DEF_NUM_UNITS;
     init();
 }
 
-AFD::AFD(int scrollDelay, int maxStrLen) {
+AFD::AFD(int scrollDelay, int pause) {
     _scrollDelay = scrollDelay;
-    _maxStrLen = maxStrLen;
+    _pause = pause;
     _numUnits = DEF_NUM_UNITS;
     init();
 }
 
-AFD::AFD(int scrollDelay, int maxStrLen, int numUnits) {
+AFD::AFD(int scrollDelay, int pause, int numUnits) {
     _scrollDelay = scrollDelay;
-    _maxStrLen = maxStrLen;
-    _numUnits = numUnits;
+    _pause = pause;
+    if (numUnits > MAX_NUM_UNITS) {
+        Serial.println("Error: too many display units, clipping to max");
+        _numUnits = MAX_NUM_UNITS;
+    } else {
+        _numUnits = numUnits;
+    }
     init();
 }
 
-void AFD::setMaxStrLen(int maxStrLen) {
-    _maxStrLen = maxStrLen;
+void AFD::setPause(int pause) {
+    _pause = pause;
 }
 
-int AFD::getMaxStrLen() {
-    return _maxStrLen;
+int AFD::getPause() {
+    return _pause;
 }
 
 void AFD::setScrollDelay(int scrollDelay) {
@@ -205,4 +210,5 @@ void AFD::printStr(String str) {
             delay(_scrollDelay);
         }
     }
+    delay(_pause);
 }
