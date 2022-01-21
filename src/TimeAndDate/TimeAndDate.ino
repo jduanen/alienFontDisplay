@@ -46,6 +46,8 @@ void println(String s) {
   }
 }
 
+//// TODO refactor into generic and application-specific, put generic in SensorNet package
+
 void callback(char* topic, byte* payload, unsigned int length) {
   byte *cmdPtr = payload;
   byte *valPtr = NULL;
