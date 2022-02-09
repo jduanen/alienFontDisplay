@@ -4,6 +4,7 @@ Display made of six eight-segment EL display units
 ![Scroll Test](afd.gif)
 
 ## TBD
+* Design 225VAC 400Hz inverter that can supply ?mA (?W)
 * BOM
 * WiFi interface board
 * Firmware
@@ -30,12 +31,14 @@ Display made of six eight-segment EL display units
 ### Schematic
 ![Driver Board Schematic](afdDriver.pdf)
 
-=========================
+# EL Displays
 
+## IEL-O-VI C63.396.208-02
 * Blue, Alien Font, Russian/Soviet Electroluminescent Display
-
-* IEL-O-VI C63.396.208-02
-
+* [0-9] and [A-Z] (after a fashion)
+  - some characters are lower case and some are missing strokes
+    * in particular, there isn't a center vertical stroke, so "T" and "I" are not so great
+  - seems to have been designed for Cyrillic characters
 * pinout
   - 1: common
   - 2: bottom horizontal (S)
@@ -47,11 +50,41 @@ Display made of six eight-segment EL display units
   - 14: left vertical (L)
   - 17: top horizontal (S)
   - 20: top left angled (M)
+* per-segment capacitance (estimates)
+  - S (2x): 55 pFd
+  - M (4x): 90 pFd
+  - L (2x): 170 pFd
 
-* capacitance (estimates)
-  - S: 55 pFd
-  - M: 90 pFd
-  - L: 170 pFd
+## IEL-O-VI C63.396.208-01
+* Green, Seven Segment Electroluminescent Display with dot on the bottom right
+* same number of segments and same pinout as the -02 version
+* pinout
+  - 1: common
+  - 2: bottom horizontal (M)
+  - 3: bottom right dot (XS)
+  - 5: n/c
+  - 7: right bottom vertical (M)
+  - 8: left bottom vertical (M)
+  - 11: middle horizontal (M)
+  - 14: left top vertical (M)
+  - 17: right top vertical (M)
+  - 20: top horizontal (M)
+* per-segment capacitance (estimates)
+  - XS (1x): ? pFd
+  - M  (8x): ?? pFd
+
+# Power Supply Design
+
+* Specs
+  - 220VAC @ 400Hz
+  - 0.5-3mA per display
+    * four displays: 12mA (max)
+    * six displays: 18mA (max)
+* Design alternatives
+  - drive audio amp into (CT?) step-up transformer
+  - DC boost converter into H-Bridge
+
+=========================
 
 * notes
   - ~200V @ 400Hz
@@ -72,16 +105,25 @@ Display made of six eight-segment EL display units
   - nomenclature
     * I: indicator
     * EL: electroluminescent
-    * O: one color
-    * VI: size (34x40mm)
+    * color
+      - O: one color
+      - M: multicolor
+      - P: raster
+    * size (13x sizes)
+      - VI: 34x40mm
+      - II: 13x35mm
+      - IV: 18x26mm
+      - 
     * number of dots indicate brightness
+  - IEL-0-VI-101-246: 19x segment starburst with bar above and left and right commas
   - constant power mode
     * 220V @ 400Hz
   - constant brightness mode
-    * 175-250V @ 1200Hz
+    * 175-250V @ 1200Hz -- increases with service life
   - 0.5-3 mA current
   - DC will destroy the display
   - can't multiplex displays -- need driver for each segment
+  - lifetime drops rapidly with supply frequency >400Hz
 
 * Links
   - https://www.nixology.uk/el-displays/
@@ -89,6 +131,7 @@ Display made of six eight-segment EL display units
   - https://www.youtube.com/watch?v=p6mNbgtnFK8
   - http://lampes-et-tubes.info/cd/cd143.php?l=e
   - http://www.nedopc.org/forum/viewtopic.php?f=65&t=11093
+  - https://www-nedopc-org.translate.goog/forum/viewtopic.php?f=65&t=11093&_x_tr_sch=http&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp
 
 * Sparkfun EL Inverter (COM-10469 retired)
   - input: 12VDC
@@ -184,3 +227,16 @@ Display made of six eight-segment EL display units
     * and they have individual outputs to load and ground
   - need to cut HV to tabs and connect them to the display common signals
     * and short all load outputs to HV_GND
+
+* misc
+  - mqtt listener
+    * mosquitto_sub -t /displays/# -F "%I,%t,%p"
+  - commands
+    * rssi
+    * version
+    * reset
+    * rate[=<rate>]
+    * scrollDelay[=<msecs>]
+    * pause[=<msecs>]
+    * display[=<str>]
+  - e.g., mosquitto_pub -t "/displays/afd/<IPAddr>/cmd" -m "display=abcdefghijklmnopqrstuvwxyz0123456789"
