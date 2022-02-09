@@ -1,0 +1,14 @@
+Boost Converter for AFD
+
+* Specs
+  - Input: 5V
+  - Output:
+    * Sine/Triangle Wave
+    * 180-220VAC
+    * 200-400Hz
+
+
+* Design alternatives
+  - 555 generates 400Hz -> filter -> audio amp -> 6:220 transformer
+  - boost converter @ 400KHz -> H-Bridge switched by 555 @ 400KHz
+  - 
