@@ -108,7 +108,8 @@ void callback(char* topic, byte* payload, unsigned int length) {
     msg = "scrollDelay=" + String(afd.getScrollDelay());
   } else if (cmd.equalsIgnoreCase("display")) {
     if (val != NULL) {
-      afd.displayStr = String(val).toUpperCase();
+      afd.displayStr = String(val);
+      afd.displayStr.toUpperCase();
     }
     msg = "display=" + afd.displayStr;
   } else if (cmd.equalsIgnoreCase("reset")) {
