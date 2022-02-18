@@ -55,24 +55,6 @@ Display made of six eight-segment EL display units
   - M (4x): 90 pFd
   - L (2x): 170 pFd
 
-## IEL-O-VI C63.396.208-01
-* Green, Seven Segment Electroluminescent Display with dot on the bottom right
-* same number of segments and same pinout as the -02 version
-* pinout
-  - 1: common
-  - 2: bottom horizontal (M)
-  - 3: bottom right dot (XS)
-  - 5: n/c
-  - 7: right bottom vertical (M)
-  - 8: left bottom vertical (M)
-  - 11: middle horizontal (M)
-  - 14: left top vertical (M)
-  - 17: right top vertical (M)
-  - 20: top horizontal (M)
-* per-segment capacitance (estimates)
-  - XS (1x): ? pFd
-  - M  (8x): ?? pFd
-
 # Power Supply Design
 
 * Specs
