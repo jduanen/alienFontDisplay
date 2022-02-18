@@ -75,6 +75,20 @@ unsigned char digitMap[DIGIT_MAP_SIZE] = {
 };
 
 
+void condPrint(String s) {
+  if (VERBOSE) {
+    Serial.print(s);
+  }
+}
+
+
+void condPrintln(String s) {
+  if (VERBOSE) {
+    Serial.println(s);
+  }
+}
+
+
 void clearUnit(unsigned char unit) {
   unsigned char seg;
   for (seg = 0; seg < NUM_SEGMENTS; seg++) {
@@ -110,9 +124,7 @@ void setup() {
   }
   clearAllUnits();
 
-  if (VERBOSE) {
-    Serial.println("Start");
-  }
+  condPrintln("Start");
 }
 
 
@@ -131,9 +143,7 @@ void writeDigit(unsigned char unit, unsigned char digit) {
   digitalInput.p0 = !((chr >> 0) & 0x01);
 
   afd[unit % NUM_UNITS].digitalWriteAll(digitalInput);
-  if (VERBOSE) {
-    Serial.print("writeDigit: 0x" +  String(chr, HEX) + "; ");
-  }
+  condPrint("writeDigit: 0x" +  String(chr, HEX) + "; ");
 }
 
 
@@ -152,9 +162,7 @@ void writeChar(unsigned char unit, unsigned char character) {
   digitalInput.p0 = !((chr >> 0) & 0x01);
 
   afd[unit % NUM_UNITS].digitalWriteAll(digitalInput);
-  if (VERBOSE) {
-    Serial.print("writeChar: 0x" +  String(chr, HEX) + "; ");
-  }
+  condPrint("writeChar: 0x" +  String(chr, HEX) + "; ");
 }
 
 
@@ -166,60 +174,38 @@ void loop() {
     case 0:
       // cycle through digits
       for (unit = 0; unit < NUM_UNITS; unit++) {
-        if (VERBOSE) {
-          Serial.print("Unit: " + String(unit) + "; ");
-        }
+        condPrint("Unit: " + String(unit) + "; ");
         writeDigit(unit, ((c + unit) % DIGIT_MAP_SIZE));
-        if (VERBOSE) {
-          Serial.println("Digit: " + String((c + unit) % DIGIT_MAP_SIZE));
-        }
+        condPrintln("Digit: " + String((c + unit) % DIGIT_MAP_SIZE));
       }
       c++;
-      if (VERBOSE) {
-        Serial.println("-------------");
-      }
+      condPrintln("-------------");
       break;
     case 1:
       // cycle through digits and characters
       for (unit = 0; unit < NUM_UNITS; unit++) {
-        if (VERBOSE) {
-          Serial.print("Unit: " + String(unit) + "; ");
-        }
+        condPrint("Unit: " + String(unit) + "; ");
         writeChar(unit, ((c + unit) % CHAR_MAP_SIZE));
-        if (VERBOSE) {
-          Serial.println("Char: " + String((c + unit) % CHAR_MAP_SIZE));
-        }
+        condPrintln("Char: " + String((c + unit) % CHAR_MAP_SIZE));
       }
       c++;
-      if (VERBOSE) {
-        Serial.println("-------------");
-      }
+      condPrintln("-------------");
       break;
     case 2:
       // cycle through all segments on all units
       for (seg = 0; seg < NUM_SEGMENTS; seg++) {
-        if (VERBOSE) {
-          Serial.print("Segment: " + String(seg) + "; Unit Low: ");
-        }
+        condPrint("Segment: " + String(seg) + "; Unit Low: ");
         for (unit = 0; unit < NUM_UNITS; unit++) {
           afd[unit].digitalWrite(seg, LOW);
-          if (VERBOSE) {
-            Serial.print(String(unit) + ", ");
-          }
+          condPrint(String(unit) + ", ");
         }
         delay(1000);
-        if (VERBOSE) {
-          Serial.print("; Unit High: ");
-        }
+        condPrint("; Unit High: ");
         for (unit = 0; unit < NUM_UNITS; unit++) {
           afd[unit].digitalWrite(seg, HIGH);
-          if (VERBOSE) {
-            Serial.print(String(unit) + ", ");
-          }
+          condPrint(String(unit) + ", ");
         }
-        if (VERBOSE) {
-          Serial.println(".");
-        }
+        condPrintln(".");
       }
       break;
     case 3:
@@ -229,15 +215,11 @@ void loop() {
         for (unit = 0; unit < NUM_UNITS; unit++) {
           s = (seg + unit) % NUM_SEGMENTS;
           afd[unit].digitalWrite(s, LOW);
-          if (VERBOSE) {
-            Serial.println("Unit: " + String(unit) + ", Segment: " + String(s));
-          }
+          condPrintln("Unit: " + String(unit) + ", Segment: " + String(s));
         }
         delay(1000);
         clearAllUnits();
-        if (VERBOSE) {
-          Serial.println("Clear all");
-        }
+        condPrintln("Clear all");
       }
       break;
     case 4:
@@ -247,15 +229,11 @@ void loop() {
         delay(1000);
         afd[0].digitalWrite(seg, HIGH);
         delay(1000);
-        if (VERBOSE) {
-          Serial.println("Segment: " + String(seg));
-        }
+        condPrintln("Segment: " + String(seg));
       }
       break;
     default:
-      if (VERBOSE) {
-        Serial.println("Invalid Test");
-      }
+      condPrintln("Invalid Test");
       break;
   }
 
