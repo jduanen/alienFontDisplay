@@ -7,7 +7,7 @@ Scrolling display board that displays whatever string is published on a given MQ
 
 These displays were used in Russian tanks and missile launch consoles.
 
-![Missile Console](missileConsole.jpg)
+![Missile Console](missileConsole.png)
 
 ## TBD
 * Design 225VAC 400Hz inverter that can supply ?mA (?W)
