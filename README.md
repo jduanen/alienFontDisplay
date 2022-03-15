@@ -1,7 +1,13 @@
 # alienFontDisplay
 Display made of six eight-segment EL display units
 
+Scrolling display board that displays whatever string is published on a given MQTT channel over WiFi.
+
 ![Scroll Test](afd.gif)
+
+These displays were used in Russian tanks and missile launch consoles.
+
+![Missile Console](missileConsole.jpg)
 
 ## TBD
 * Design 225VAC 400Hz inverter that can supply ?mA (?W)
