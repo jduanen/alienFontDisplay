@@ -15,16 +15,11 @@
 
 #define VERBOSE             1
 #define APP_NAME            "AFD"
-#define APP_VERSION         "1.1.0"
-#define REPORT_SCHEMA       "scrollDelay:d,pause:d,display:s, rssi:d"
+#define APP_VERSION         "1.2.0"
+#define REPORT_SCHEMA       "scrollDelay:d,pause:d,display:s,rssi:d"
 #define TOPIC_PREFIX        "/displays/afd"
-#define DEF_REPORT_INTERVAL 60000  // one report every minute
-#define MQTT_SERVER        "192.168.166.113"
+#define MQTT_SERVER         "192.168.166.113"
 #define MQTT_PORT           1883
-
-
-unsigned long lastReport = 0;
-unsigned int reportInterval = DEF_REPORT_INTERVAL;
 
 
 SensorNet sn(APP_NAME, APP_VERSION, REPORT_SCHEMA);
@@ -32,7 +27,7 @@ SensorNet sn(APP_NAME, APP_VERSION, REPORT_SCHEMA);
 AFD afd = AFD();
 
 // Callback function header
-void callback(char* topic, byte* payload, unsigned int length);
+callback myCallback;
 
 void print(String s) {
   if (VERBOSE) {
@@ -46,82 +41,50 @@ void println(String s) {
   }
 }
 
-//// TODO refactor into generic and application-specific, put generic in SensorNet package
+void myCallback(char* topic, byte* payload, unsigned int length) {
+  String respMsg;
+  char msgType = SensorNet::RESPONSE;
+  SensorNet::callbackMessage cbMsg = sn.baseCallback(topic, payload, length);
 
-void callback(char* topic, byte* payload, unsigned int length) {
-  byte *cmdPtr = payload;
-  byte *valPtr = NULL;
-  String top, cmd, val, msg;
-  char msgType;
-
-  payload[length] = '\0';
-  for (int i = 0; i < length; i++) {
-    if (payload[i] == '=') {
-      cmdPtr[i] = '\0';
-      valPtr = &payload[i + 1];
-    }
-  }
-  top = String(topic);
-  cmd = String((char *)cmdPtr);
-  val = String((char *)valPtr);
-
-  msg = top + ", " + cmd + ", " + val;
-  println("CALLBACK: " + msg);
-
-  msgType = SensorNet::RESPONSE;
-  if (cmd.equalsIgnoreCase("RSSI")) {
-    SensorNet::WIFI_STATE wifiState = sn.wifiState();
-    msg = "RSSI=" + String(wifiState.rssi);
-  } else if (cmd.equalsIgnoreCase("rate")) {
-    if (val != NULL) {
-      reportInterval = val.toInt();
-      if (reportInterval < 0) {
-        println("Error: reportInterval must be positive, using default value");
-        reportInterval = DEF_REPORT_INTERVAL;
-      }
-      println("Set rate to " + val);
-    }
-    msg = "rate=" + String(reportInterval);
-  } else if (cmd.equalsIgnoreCase("version")) {
-    msg = "Version=" + String(APP_VERSION);
-  } else if (cmd.equalsIgnoreCase("pause")) {
-    int pause;
-    if (val != NULL) {
-      pause = val.toInt();
-      if (pause < 0) {
-        println("Error: pause value must be positive, using default value");
-        pause = DEF_PAUSE;
-      }
-      afd.setPause(pause);
-    }
-    msg = "pause=" + String(afd.getPause());
-  } else if (cmd.equalsIgnoreCase("scrollDelay")) {
-    int scrollDelay;
-    if (val != NULL) {
-      scrollDelay = val.toInt();
-      if (scrollDelay < 0) {
-        println("Error: scrollDelay value must be positive, using default value");
-        scrollDelay = DEF_SCROLL_DELAY;
-      }
-      afd.setScrollDelay(scrollDelay);
-    }
-    msg = "scrollDelay=" + String(afd.getScrollDelay());
-  } else if (cmd.equalsIgnoreCase("display")) {
-    if (val != NULL) {
-      afd.displayStr = String(val);
-      afd.displayStr.toUpperCase();
-    }
-    msg = "display=" + afd.displayStr;
-  } else if (cmd.equalsIgnoreCase("reset")) {
-    println("Resetting");
-    sn.systemReset();
-    msg = "Reset";
+  if (cbMsg.handled == true) {
+    println("Callback message handled by baseCallback");
+    // N.B. you can do other stuff in addition to what's done in the base hander here
   } else {
-    msg = "ERROR: unknown command (" + cmd + ")";
-    msgType = SensorNet::ERROR;
+    if (cbMsg.cmd.equalsIgnoreCase("pause")) {
+      int pause;
+      if (cbMsg.val != NULL) {
+        pause = cbMsg.val.toInt();
+        if (pause < 0) {
+          println("Error: pause value must be positive, using default value");
+          pause = DEF_PAUSE;
+        }
+        afd.setPause(pause);
+      }
+      respMsg = "pause=" + String(afd.getPause());
+    } else if (cbMsg.cmd.equalsIgnoreCase("scrollDelay")) {
+      int scrollDelay;
+      if (cbMsg.val != NULL) {
+        scrollDelay = cbMsg.val.toInt();
+        if (scrollDelay < 0) {
+          println("Error: scrollDelay value must be positive, using default value");
+          scrollDelay = DEF_SCROLL_DELAY;
+        }
+        afd.setScrollDelay(scrollDelay);
+      }
+      respMsg = "scrollDelay=" + String(afd.getScrollDelay());
+    } else if (cbMsg.cmd.equalsIgnoreCase("display")) {
+      if (cbMsg.val != NULL) {
+        afd.displayStr = String(cbMsg.val);
+        afd.displayStr.toUpperCase();
+      }
+      respMsg = "display=" + afd.displayStr;
+    } else {
+      respMsg = "ERROR: unknown command (" + cbMsg.cmd + ")";
+      msgType = SensorNet::ERROR;
+    }
+    println("Response Message: " + respMsg);
+    sn.mqttPub(msgType, respMsg);
   }
-  println(msg);
-  sn.mqttPub(msgType, msg);
 }
 
 void setup() {
@@ -132,7 +95,7 @@ void setup() {
   sn.wifiStart(WLAN_SSID, WLAN_PASS);
   println("WIFI");
 
-  sn.mqttSetup(MQTT_SERVER, MQTT_PORT, TOPIC_PREFIX, callback);
+  sn.mqttSetup(MQTT_SERVER, MQTT_PORT, TOPIC_PREFIX, myCallback);
   println("MQTT");
 }
 
@@ -145,16 +108,16 @@ unsigned int indx = 0;
 void loop() {
   String msg;
   unsigned long now = millis();
-  unsigned long deltaT = now - lastReport;
+  unsigned long deltaT = now - sn.lastReport;
 
   sn.mqttRun();
 
-  if (deltaT >= reportInterval) {
+  if (deltaT >= sn.reportInterval) {
     msg = String(afd.getPause()) + "," + String(afd.getScrollDelay()) + "," + afd.displayStr + "," + String(sn.wifiState().rssi);
 
     sn.mqttPub(SensorNet::DATA, msg);
     println("Status Msg: " + msg);
-    lastReport = now;
+    sn.lastReport = now;
   }
 
   afd.printStr(afd.displayStr);
