@@ -1,5 +1,5 @@
 # alienFontDisplay
-Display made of six eight-segment EL display units
+Display made of six eight-segment EL display units with per-display custom driver board and controller.
 
 Scrolling display board that displays whatever string is published on a given MQTT channel over WiFi.
 
